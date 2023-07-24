@@ -56,7 +56,7 @@
         </p>
     <h3 id="transformation"> Transformation des données </h3>
         <p align="justify"> 
-        Utilisation du script nasa pour récolter les geotif utiles pour nos zones de recherches -> <a href="\récolte-data\landsat-NASA.ipynb"> ce notebook</a> <br>
+        Utilisation du script nasa pour récolter les geotif utiles pour nos zones de recherches -> <a href="\récolte-data\Landsat-NASA.md"> ce md file</a> <br>
         Transformation des fichiers geotif en centroid -> <a href="\récolte-data\geotiff.ipynb"> ce notebook</a> <br>
         Extraire les centroid de température qui ne sont pas dans les secteurs statistisques -> <a href="\récolte-data\geotiff.ipynb"> ce notebook</a>  <br>
         Rassembler les données de densité de population avec les données de revenus dans un geojson des secteurs statistiques -> <a href="\récolte-data\commune_Secteur_stat.ipynb"> ce notebook</a> <br>

@@ -12,7 +12,7 @@ Le script permet de récolter les <b>Land surface temperatures(LST)</b> de la r�
 
 Il faut sélectionner L'aoe, les zones urbaines et rurales. L'aoe c'est l'espace qui t'intéresse pour ta carte. Attention à respecter les bons noms de couches dans les  geometry import. Le plus simple c'est de sélectionner les polygones existant et les supprimer puis choisir chaque couche et redessiner les polygones à l'endroit qui t'intéresse
 
-<img src="GEE_SURFACE.png" alt="diagramme des étapes de transformation de données du projet" width="75%">
+<img src="../assets/GEE_SURFACE.png" alt="diagramme des étapes de transformation de données du projet" width="75%">
 
 Ici le carré gris représente la zone à analyser, le polygone vert les espaces urbains et les polygones orange les espaces ruraux ( ici c’est dessiné à l’arrache mais si on veut être plus précis on peut importer des polygones exacts des différentes zones) 
 
