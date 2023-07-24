@@ -48,7 +48,7 @@
     <h3 id="récolte"> Récoltes des données</h3>
         <p align="justify">  
         Lien des sites où on a trouvé les infos (statbel, geoportail, gee) <br>
-        :radio_button: Données satelitaires LST (voir <a href="\récolte-data\landsat-NASA.ipynb">ça</a> pour se servir du script) <br>
+        :radio_button: Données satelitaires LST (voir <a href="\récolte-data\Landsat-NASA.md">ça</a> pour se servir du script) <br>
         :radio_button: Geojson secteurs statistiques <br>
         :radio_button: Données de densité par secteur stat <br>
         :radio_button: Données de revenus par secteur stat <br>
