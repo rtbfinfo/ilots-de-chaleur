@@ -45,28 +45,29 @@
    <p align="center"> 
   <img src="assets\diagramme_transfo.png" alt="diagramme des étapes de transformation de données du projet" width="75%">
 </p>
-    <h3 id="récolte"> Récoltes des données</h3>
+    <h3 id="recolte"> Récoltes des données</h3>
         <p align="justify">  
         Lien des sites où on a trouvé les infos (statbel, geoportail, gee) <br>
         :radio_button: Données satelitaires LST (voir <a href="\récolte-data\Landsat-NASA.md">ça</a> pour se servir du script) <br>
-        :radio_button: Geojson secteurs statistiques <br>
-        :radio_button: Données de densité par secteur stat <br>
-        :radio_button: Données de revenus par secteur stat <br>
-        :radio_button: 
+        :radio_button: Geojson secteurs statistiques <a href="https://statbel.fgov.be/fr/open-data/population-par-secteur-statistique-7">là</a><br>
+        :radio_button: Données de densité par secteur stat <a href="https://statbel.fgov.be/fr/open-data/population-par-secteur-statistique-7">là</a><br>
+        :radio_button: Données de revenus par secteur stat <a href="https://statbel.fgov.be/fr/open-data/statistique-fiscale-des-revenus-par-secteur-statistique">là</a><br>
+        :radio_button: Donnée d'occupation du sol (il faut demander l'accès)<a href="https://geoportail.wallonie.be/catalogue/47b348f1-6e7a-4baa-963c-0232a43c0cff.html">là</a><br>
         </p>
     <h3 id="transformation"> Transformation des données </h3>
         <p align="justify"> 
-        Utilisation du script nasa pour récolter les geotif utiles pour nos zones de recherches -> <a href="\récolte-data\Landsat-NASA.md"> ce md file</a> <br>
-        Transformation des fichiers geotif en centroid -> <a href="\récolte-data\geotiff.ipynb"> ce notebook</a> <br>
-        Extraire les centroid de température qui ne sont pas dans les secteurs statistisques -> <a href="\récolte-data\geotiff.ipynb"> ce notebook</a>  <br>
-        Rassembler les données de densité de population avec les données de revenus dans un geojson des secteurs statistiques -> <a href="\récolte-data\commune_Secteur_stat.ipynb"> ce notebook</a> <br>
+        Utilisation du script nasa pour récolter les geotif utiles pour nos zones de recherches -> <a href="récolte-data\1-Landsat-NASA.md"> ce md file</a> <br>
+        Transformation des fichiers geotif en centroid -> <a href="récolte-data\2-centroid-temperature.ipynb.ipynb"> ce notebook</a> <br>
+        Extraire les centroid de température qui ne sont pas dans les secteurs statistisques -> <a href="récolte-data\2-centroid-temperature.ipynb.ipynb"> ce notebook</a>  <br>
+        Sélection des polygones des villes qui nous interessent -> <a href="récolte-data\3-commune_secteur.ipynb"> ce notebook</a> <br>
+        Rassembler les données de densité de population avec les données de revenus dans un geojson des secteurs statistiques -> <a href="récolte-data\4-Densite_revenu_added.ipynb"> ce notebook</a> <br>
         </p>
     <h3 id="web"> Web dev</h3>
         <p align="justify"> 
         </p>
 
 
-<h2 id="folder-Structure"> :file_folder: Structure du projet</h2>
+<h2 id="structure"> :file_folder: Structure du projet</h2>
     <p align="justify"> 
     1. <b>/récolte-data</b> -> fichier contenant les différentes étapes de transformation et assemblage de data</br>
     </p>
