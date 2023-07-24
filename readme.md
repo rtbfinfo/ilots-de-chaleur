@@ -42,11 +42,11 @@
      :radio_button: plus</br>
     </p>
 <h2 id="etapes"> :dart: Etapes du projet</h2>
-    <p align="justify" style="color:red;" >  
-     Diagramme des étapes (transformation des datas types de fichiers ...)
-    </p>
+   <p align="center"> 
+  <img src="assets\diagramme_transfo.png" alt="diagramme des étapes de transformation de données du projet" width="75%">
+</p>
     <h3 id="récolte"> Récoltes des données</h3>
-        <p align="justify" style="color:red;" >  
+        <p align="justify">  
         Lien des sites où on a trouvé les infos (statbel, geoportail, gee) <br>
         :radio_button: Données satelitaires LST (voir <a href="\récolte-data\landsat-NASA.ipynb">ça</a> pour se servir du script) <br>
         :radio_button: Geojson secteurs statistiques <br>
@@ -82,7 +82,6 @@
    
 <h2 id="installation"> :repeat: Installation</h2>
     <p align="justify"> 
-
     </p>
 
 <h2 id="Timeline"> :calendar: Timeline</h2>
