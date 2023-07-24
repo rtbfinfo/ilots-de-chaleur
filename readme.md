@@ -24,6 +24,7 @@
     <li><a href="#Results-and-discussion"> ➤ Résultats et discussion(réusabilité)</a></li>
     <!-- <li><a href="#Visuals"> ➤ Visuals</a></li> -->
     <!--<li><a href="#experiments">Experiments</a></li>-->
+    <li><a href="#inspirations"> ➤ Inspirations</a></li>
     <li><a href="#Timeline"> ➤ Timeline</a></li>
     <li><a href="#contributors"> ➤ Contributors</a></li>
   </ol>
@@ -39,7 +40,6 @@
      :radio_button: Gestion de formats geospatiaux dans python (geotif, geojson)</br>
      :radio_button: Creation de cartes en utilisant D3</br>
      :radio_button: plus</br>
-
     </p>
 <h2 id="etapes"> :dart: Etapes du projet</h2>
     <p align="justify" style="color:red;" >  
@@ -59,7 +59,7 @@
         Utilisation du script nasa pour récolter les geotif utiles pour nos zones de recherches -> <a href="\récolte-data\landsat-NASA.ipynb"> ce notebook</a> <br>
         Transformation des fichiers geotif en centroid -> <a href="\récolte-data\geotiff.ipynb"> ce notebook</a> <br>
         Extraire les centroid de température qui ne sont pas dans les secteurs statistisques -> <a href="\récolte-data\geotiff.ipynb"> ce notebook</a>  <br>
-        Rassembler les données de densité de population avec les données de revenus dans un geojson des secteurs statistiques <a href="\récolte-data\commune_Secteur_stat.ipynb"> ce notebook</a> <br>
+        Rassembler les données de densité de population avec les données de revenus dans un geojson des secteurs statistiques -> <a href="\récolte-data\commune_Secteur_stat.ipynb"> ce notebook</a> <br>
         </p>
     <h3 id="web"> Web dev</h3>
         <p align="justify"> 
@@ -71,13 +71,19 @@
     1. <b>/récolte-data</b> -> fichier contenant les différentes étapes de transformation et assemblage de data</br>
     </p>
 
-<h2 id="installation"> :repeat: Installation</h2>
+<h2 id="inspirations"> :repeat: Inspirations</h2>
     <p align="justify"> 
+    :radio_button: <a href="https://ici.radio-canada.ca/info/2022/07/ilots-chaleur-villes-inegalites-injustice-changements-climatiques/en"> grand format ilot de chaleur radio canada </a><br>
+    :radio_button: <a href="https://www.theguardian.com/environment/ng-interactive/2021/oct/14/climate-change-happening-now-stats-graphs-maps-cop26"> climat the guardian</a><br>
+    :radio_button: <a href="https://www.srf.ch/news/schweiz/ungleichheit-in-den-staedten-hitzeinseln-treffen-aermere-staerke"> srf </a><br>
     </p>
 
 <h2 id="Results-and-discussion"> :pushpin: Resultats et discussions</h2>
    
+<h2 id="installation"> :repeat: Installation</h2>
+    <p align="justify"> 
 
+    </p>
 
 <h2 id="Timeline"> :calendar: Timeline</h2>
     <p align="justify"> 
