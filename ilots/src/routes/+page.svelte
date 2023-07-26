@@ -4,59 +4,65 @@
     import Map from "./components/Map.svelte";
     import { onMount } from "svelte";
 
-    const width = 500;
-    const height = 500;
+    $: width = 700;
+    $: height = 700;
+
+    let secteurs =  []
+    let LST = []
+    $: compl_data = []
+    $: compl_LST = []
+
     onMount(async () => {
 
-   Promise.all([
-    d3.json("https://gist.githubusercontent.com/Yheloww/b871de29011161706a3ae896690f65f7/raw/90e0574e594379bee3907f062048726526ff88b6/liege_sel_centroid.json"),
-    d3.json('https://gist.githubusercontent.com/Yheloww/0911856da6fcefb8c8e8289a44e498b5/raw/4d2f32b6cefcf342a573e6296c488ae61a1062dd/liege_secteur%2520(1).json')
-   ]).then(function([centroid, secteur]) {
+      d3.json("https://gist.githubusercontent.com/Yheloww/0911856da6fcefb8c8e8289a44e498b5/raw/4d2f32b6cefcf342a573e6296c488ae61a1062dd/liege_secteur%2520(1).json").then((data) => {
+      secteurs = data.features;
+      compl_data = data
+    })
 
-    let projection = d3.geoMercator()
-        .fitExtent([[25, 25], [width, height]], secteur);;
+    d3.json("https://gist.githubusercontent.com/Yheloww/b871de29011161706a3ae896690f65f7/raw/90e0574e594379bee3907f062048726526ff88b6/liege_sel_centroid.json").then((data) => {
+      LST = data.features;
+      compl_LST = data;
+    })
 
-        let color_scale = d3.scaleLinear()
+      })
+
+    $: projection = d3.geoMercator()
+        .fitExtent([[0, 0], [width, width/2.5]], compl_data);
+    
+    $: console.log(LST)
+
+    $: geoGenerator = d3.geoPath(projection)
+
+    
+    let color_scale = d3.scaleLinear()
         .domain([20,35,50])
         .range(["blue","white","red"])
-
-        let geoGenerator = d3.geoPath()
-                       .projection(projection)
-
-        const svg = d3.select("#content")
-        .append("svg")
-        .attr("width", width)
-        .attr("height", 700);
-
-        // cercle
-        svg.append('g').selectAll('path')
-        .data(centroid.features)
-        .enter().append("circle", ".pin")
-        .attr("r", 1.7)
-        .attr("fill", d => color_scale(d.properties.raster_value))
-        .attr("transform", function(d) {
-    return "translate(" + projection([
-      d.properties.centroid_lon,
-      d.properties.centroid_lat
-        ]) + ")";
-        });
-
-  svg.append('g').selectAll('path')
-        .data(secteur.features)
-        .enter().append('path')
-        .style("stroke", "black")
-        .style("fill", "none")
-        .style('stroke-width', 0.4 )
-        .attr('d', geoGenerator)
-           
-   })
-
-})
-
- 
+    
 </script>
 
 
+<div bind:clientWidth={width} bind:clientHeight={height}></div>
+
 <div id="content">
-  
+   <svg width={width} height={width/2}>
+      <g>
+        {#each LST as temp}
+          <circle r="1.7"
+          cx={projection([temp.properties.centroid_lon, temp.properties.centroid_lat])[0]} 
+          cy={projection([temp.properties.centroid_lon, temp.properties.centroid_lat])[1]}
+          fill={color_scale(temp.properties.raster_value)} 
+          />
+
+        {/each}
+    </g>
+    <g>
+        {#each secteurs as data}
+          <path d={geoGenerator(data)} 
+          style="stroke:black;fill:none;stroke-width:0.4;"/>
+        {/each}
+    </g>
+ 
+      
+
+  </svg>
   </div>
