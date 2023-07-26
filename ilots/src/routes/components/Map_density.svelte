@@ -18,7 +18,7 @@
 
     let color_scale = d3.scaleLinear()
         .domain([0,3000])
-        .range(["white","red"])
+        .range(["white","#DA4D1A"])
     
 </script>
 
@@ -30,7 +30,7 @@
     <g>
         {#each geometry_data as data}
           <path d={geoGenerator(data)} 
-          style="stroke:black;stroke-width:0.4;"
+          style="stroke:grey;stroke-width:0.2;"
           transition:draw={{duration:2000, delay:0.1}}
           fill={color_scale(data.properties[legend])}/>
         {/each}

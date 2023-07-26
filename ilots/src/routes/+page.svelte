@@ -35,7 +35,7 @@
       }
     ]
 
-    $:  selected = null
+    $:  selected = "Liege"
 
     // $: LST_link= cities_object.filter(data => data.name === selected)[0].lst
     // $: secteur_link= cities_object.filter(data => data.name === selected)[0].secteur
@@ -60,17 +60,18 @@
     return [secteur.features, compl_datas.features, secteur]
     }
 
-
-  
     let promise = loadData()
+
+    function Change () {
+          promise = loadData()
+    }
+  
 
 
 </script>
 
 <div>
-  <select bind:value={selected} id="selector" on:change={() => {
-    promise = loadData()
-  }}>
+  <select bind:value={selected} id="selector" on:change={Change}>
     <option value="Liege">Liège</option>
     <option value="Namur">Namur</option>
     <option value="Mons">Mons</option>
@@ -80,7 +81,7 @@
   <p>{selected}</p>
 </div>
 
-{#if selected}
+{#if selected !== "test"}
   {#await promise}
   <p>Load</p>
   {:then [secteur,LST, compl_data]}
@@ -94,10 +95,18 @@
   {/await}
 {/if}
 
+
 <style>
-  .test {
-    display: flex;
-    width: 100%;
-    height: 100% ;
+    :root {
+    --dark-blue : #144265;
+    --light-blue: #0D738A;
+    --redish : #DC351F;
+    --light-orange: #D66819;
+    --dark-orange: #DA4D1A;
   }
+
+  :global(body) {
+    background-color: whitesmoke;
+  }
+
 </style>
