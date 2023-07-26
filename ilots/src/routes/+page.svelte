@@ -1,68 +1,103 @@
 <script>
+    import Map from "./components/Map.svelte";
+    import MapDensity from "./components/Map_density.svelte";
     import * as d3 from "d3"
     import * as turf from "turf";
-    import Map from "./components/Map.svelte";
     import { onMount } from "svelte";
 
-    $: width = 700;
-    $: height = 700;
+    let cities_object = [
+      {
+        name : "Liege",
+        secteur : "https://gist.githubusercontent.com/Yheloww/c9d7a4fa9b5903ce80f6f1f51f6d738e/raw/db0542e118ed6f00b2d5017134c3048ce45876e6/liege_revenu_densite%2520(1).json",
+        lst : "https://gist.githubusercontent.com/Yheloww/4feb324e218221eccf5a9b0e57431c30/raw/819fc593992b9df0b4a43f1f48988048b60996f2/liege_sel_centroid.json"
+      },
+      {
+        name : "Charleroi",
+        secteur : "https://gist.githubusercontent.com/Yheloww/c9d7a4fa9b5903ce80f6f1f51f6d738e/raw/db0542e118ed6f00b2d5017134c3048ce45876e6/charleroi_revenu_densite%2520(1).json",
+        lst : "https://gist.githubusercontent.com/Yheloww/4feb324e218221eccf5a9b0e57431c30/raw/819fc593992b9df0b4a43f1f48988048b60996f2/charleroi_centroid.json"
+      },
+      {
+        name : "Namur",
+        secteur : "https://gist.githubusercontent.com/Yheloww/c9d7a4fa9b5903ce80f6f1f51f6d738e/raw/db0542e118ed6f00b2d5017134c3048ce45876e6/namur_revenu_densite%2520(1).json",
+        lst :"https://gist.githubusercontent.com/Yheloww/4feb324e218221eccf5a9b0e57431c30/raw/819fc593992b9df0b4a43f1f48988048b60996f2/namur_sel_centroid.json"
+      },
+      {
+        name : "Mons",
+        secteur : "https://gist.githubusercontent.com/Yheloww/c9d7a4fa9b5903ce80f6f1f51f6d738e/raw/db0542e118ed6f00b2d5017134c3048ce45876e6/mons_revenu_densite%2520(1).json",
+        lst : "https://gist.githubusercontent.com/Yheloww/4feb324e218221eccf5a9b0e57431c30/raw/819fc593992b9df0b4a43f1f48988048b60996f2/mons_sel_centroid.json"
 
-    let secteurs =  []
-    let LST = []
-    $: compl_data = []
-    $: compl_LST = []
+      },
+      {
+        name : "Tournai",
+        secteur : "https://gist.githubusercontent.com/Yheloww/c9d7a4fa9b5903ce80f6f1f51f6d738e/raw/db0542e118ed6f00b2d5017134c3048ce45876e6/tournai_revenu_densite%2520(1).json",
+        lst : "https://gist.githubusercontent.com/Yheloww/4feb324e218221eccf5a9b0e57431c30/raw/819fc593992b9df0b4a43f1f48988048b60996f2/tournai_sel_centroid.json"
 
-    onMount(async () => {
+      }
+    ]
 
-      d3.json("https://gist.githubusercontent.com/Yheloww/0911856da6fcefb8c8e8289a44e498b5/raw/4d2f32b6cefcf342a573e6296c488ae61a1062dd/liege_secteur%2520(1).json").then((data) => {
-      secteurs = data.features;
-      compl_data = data
-    })
+    $:  selected = null
 
-    d3.json("https://gist.githubusercontent.com/Yheloww/b871de29011161706a3ae896690f65f7/raw/90e0574e594379bee3907f062048726526ff88b6/liege_sel_centroid.json").then((data) => {
-      LST = data.features;
-      compl_LST = data;
-    })
+    // $: LST_link= cities_object.filter(data => data.name === selected)[0].lst
+    // $: secteur_link= cities_object.filter(data => data.name === selected)[0].secteur
 
-      })
 
-    $: projection = d3.geoMercator()
-        .fitExtent([[0, 0], [width, width/2.5]], compl_data);
+
+    // loading the data
+    async function loadData() {
     
-    $: console.log(LST)
+    selected = selected
+    let LST_link = cities_object.filter(data => data.name === selected)[0].lst
+    let secteur_link = cities_object.filter(data => data.name === selected)[0].secteur
 
-    $: geoGenerator = d3.geoPath(projection)
+    console.log(secteur_link)
 
-    
-    let color_scale = d3.scaleLinear()
-        .domain([20,35,50])
-        .range(["blue","white","red"])
-    
+    const res = await fetch(secteur_link)
+    const resp = await fetch(LST_link)
+    const secteur = await res.json()
+    console.log()
+    const compl_datas = await resp.json()
+
+    return [secteur.features, compl_datas.features, secteur]
+    }
+
+
+  
+    let promise = loadData()
+
+
 </script>
 
+<div>
+  <select bind:value={selected} id="selector" on:change={() => {
+    promise = loadData()
+  }}>
+    <option value="Liege">Liège</option>
+    <option value="Namur">Namur</option>
+    <option value="Mons">Mons</option>
+    <option value="Charleroi">Charleroi</option>
+    <option value="Tournai">Tournai</option>
+  </select>
+  <p>{selected}</p>
+</div>
 
-<div bind:clientWidth={width} bind:clientHeight={height}></div>
+{#if selected}
+  {#await promise}
+  <p>Load</p>
+  {:then [secteur,LST, compl_data]}
+    <Map geometry_data={secteur}
+    point_data={LST}
+    complete_geo={compl_data} />
 
-<div id="content">
-   <svg width={width} height={width/2}>
-      <g>
-        {#each LST as temp}
-          <circle r="1.7"
-          cx={projection([temp.properties.centroid_lon, temp.properties.centroid_lat])[0]} 
-          cy={projection([temp.properties.centroid_lon, temp.properties.centroid_lat])[1]}
-          fill={color_scale(temp.properties.raster_value)} 
-          />
+    <MapDensity geometry_data={secteur}
+    complete_geo={compl_data} 
+    legend= "NOMBRE_HAB"/> 
+  {/await}
+{/if}
 
-        {/each}
-    </g>
-    <g>
-        {#each secteurs as data}
-          <path d={geoGenerator(data)} 
-          style="stroke:black;fill:none;stroke-width:0.4;"/>
-        {/each}
-    </g>
- 
-      
-
-  </svg>
-  </div>
+<style>
+  .test {
+    display: flex;
+    width: 100%;
+    height: 100% ;
+  }
+</style>
