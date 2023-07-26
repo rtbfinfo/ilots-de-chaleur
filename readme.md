@@ -2,7 +2,7 @@
 <h3 align="center">  Explication de la méthodologie employée pour réaliser <a href="">l'article</a> (lien actif lorsque le projet sera publié) sur les ilots de chaleur en Belgique </h3>
 
 <p align="center"> 
-  <img src="/assets/map_first.png" alt="image représentative du projet (graphique montrant les ilot de chaleur dans les principales villes de belgiques)" width="25%">
+  <img src="/assets/map_second.png" alt="image représentative du projet (graphique montrant les ilot de chaleur dans les principales villes de belgiques)" width="25%">
 </p>
 
 <h2 id="table-of-contents"> :book: Contenu</h2>
