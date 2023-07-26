@@ -13,6 +13,7 @@
     d3.json('https://gist.githubusercontent.com/Yheloww/0911856da6fcefb8c8e8289a44e498b5/raw/4d2f32b6cefcf342a573e6296c488ae61a1062dd/liege_secteur%2520(1).json')
    ]).then(function([centroid, secteur]) {
 
+    // scale
     let projection = d3.geoMercator()
         .fitExtent([[25, 25], [width, height]], secteur);;
 
@@ -22,6 +23,8 @@
 
         let geoGenerator = d3.geoPath()
                        .projection(projection)
+
+        // dom manip
 
         const svg = d3.select("#content")
         .append("svg")
@@ -58,5 +61,12 @@
 
 
 <div id="content">
+  <!-- <svg width={width} height="700">
+    <g>
+      {#each datas as data}
+      <path d={geoGenerator(data.feature)} style="stroke:black;fill:none;stroke-width:0.4;"></path>
+    {/each}
+    </g>
+  </svg> -->
   
   </div>
