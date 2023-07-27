@@ -9,7 +9,7 @@ export const load = async ({fetch}) => {
         }
 
         const fetchTemp = async () => {
-            const tempRes = await fetch("https://gist.githubusercontent.com/Yheloww/4feb324e218221eccf5a9b0e57431c30/raw/819fc593992b9df0b4a43f1f48988048b60996f2/liege_sel_centroid.json")
+            const tempRes = await fetch("https://gist.githubusercontent.com/Yheloww/bba8f6cd07949116b34cdb6d94d07ac2/raw/fb5205b70519a670eec42fe7c5ccda5d96a5d3c0/liege_sel_centroid.json")
             const tempData = await tempRes.json()
             return tempData
         }
@@ -26,28 +26,28 @@ let cities_object = [
     {
       name : "Liege",
       secteur : "https://gist.githubusercontent.com/Yheloww/c9d7a4fa9b5903ce80f6f1f51f6d738e/raw/db0542e118ed6f00b2d5017134c3048ce45876e6/liege_revenu_densite%2520(1).json",
-      lst : "https://gist.githubusercontent.com/Yheloww/4feb324e218221eccf5a9b0e57431c30/raw/819fc593992b9df0b4a43f1f48988048b60996f2/liege_sel_centroid.json"
+      lst : "https://gist.githubusercontent.com/Yheloww/bba8f6cd07949116b34cdb6d94d07ac2/raw/fb5205b70519a670eec42fe7c5ccda5d96a5d3c0/liege_sel_centroid.json"
     },
     {
       name : "Charleroi",
       secteur : "https://gist.githubusercontent.com/Yheloww/c9d7a4fa9b5903ce80f6f1f51f6d738e/raw/db0542e118ed6f00b2d5017134c3048ce45876e6/charleroi_revenu_densite%2520(1).json",
-      lst : "https://gist.githubusercontent.com/Yheloww/4feb324e218221eccf5a9b0e57431c30/raw/819fc593992b9df0b4a43f1f48988048b60996f2/charleroi_centroid.json"
+      lst : "https://gist.githubusercontent.com/Yheloww/bba8f6cd07949116b34cdb6d94d07ac2/raw/fb5205b70519a670eec42fe7c5ccda5d96a5d3c0/charleroi_sel_centroid.json"
     },
     {
       name : "Namur",
       secteur : "https://gist.githubusercontent.com/Yheloww/c9d7a4fa9b5903ce80f6f1f51f6d738e/raw/db0542e118ed6f00b2d5017134c3048ce45876e6/namur_revenu_densite%2520(1).json",
-      lst :"https://gist.githubusercontent.com/Yheloww/4feb324e218221eccf5a9b0e57431c30/raw/819fc593992b9df0b4a43f1f48988048b60996f2/namur_sel_centroid.json"
+      lst :"https://gist.githubusercontent.com/Yheloww/bba8f6cd07949116b34cdb6d94d07ac2/raw/fb5205b70519a670eec42fe7c5ccda5d96a5d3c0/namur_sel_centroid.json"
     },
     {
       name : "Mons",
       secteur : "https://gist.githubusercontent.com/Yheloww/c9d7a4fa9b5903ce80f6f1f51f6d738e/raw/db0542e118ed6f00b2d5017134c3048ce45876e6/mons_revenu_densite%2520(1).json",
-      lst : "https://gist.githubusercontent.com/Yheloww/4feb324e218221eccf5a9b0e57431c30/raw/819fc593992b9df0b4a43f1f48988048b60996f2/mons_sel_centroid.json"
+      lst : "https://gist.githubusercontent.com/Yheloww/bba8f6cd07949116b34cdb6d94d07ac2/raw/fb5205b70519a670eec42fe7c5ccda5d96a5d3c0/mons_sel_centroid.json"
 
     },
     {
       name : "Tournai",
       secteur : "https://gist.githubusercontent.com/Yheloww/c9d7a4fa9b5903ce80f6f1f51f6d738e/raw/db0542e118ed6f00b2d5017134c3048ce45876e6/tournai_revenu_densite%2520(1).json",
-      lst : "https://gist.githubusercontent.com/Yheloww/4feb324e218221eccf5a9b0e57431c30/raw/819fc593992b9df0b4a43f1f48988048b60996f2/tournai_sel_centroid.json"
+      lst : "https://gist.githubusercontent.com/Yheloww/bba8f6cd07949116b34cdb6d94d07ac2/raw/fb5205b70519a670eec42fe7c5ccda5d96a5d3c0/tournai_sel_centroid.json"
 
     }
   ]

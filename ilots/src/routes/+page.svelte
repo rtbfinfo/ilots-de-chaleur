@@ -24,24 +24,19 @@
   } else if (currentStep == 1) {
     value = "REVENU_MOYEN"
   } else if (currentStep == 2) {
-    // Or do something here!
+    value="raster_value"
   }
 </script>
 
 
 <section>
   <div class="chart" transition:fade={{duration:5000}}>
-  {#if currentStep == 2}
     <Map
     geometry_data={secteur.features}
     complete_geo={secteur}
-    point_data={temp.features}/>
-  {:else}
-    <MapDensity geometry_data={secteur.features}
-        complete_geo={secteur} 
-        legend= {value}
-        /> 
-  {/if}
+    point_data={temp.features}
+    legend={value}
+    />
 </div>
 
 

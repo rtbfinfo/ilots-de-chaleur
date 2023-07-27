@@ -10,15 +10,16 @@
     export let geometry_data;
     export let point_data;
     export let complete_geo;
+    export let legend;
 
     $: projection = d3.geoMercator()
         .fitExtent([[0, 0], [width, width/2.5]], complete_geo);
     
     $: geoGenerator = d3.geoPath(projection)
 
-    let color_scale = d3.scaleLinear()
-        .domain([25,35,48])
-        .range(["#144265","White","#DA4D1A"])
+    $: color_scale = d3.scaleLinear()
+        .domain([d3.min(point_data.map(d => d.properties[legend])),d3.median(point_data.map(d => d.properties[legend])),d3.max(point_data.map(d => d.properties[legend]))])
+        .range(["blue","white","red"])
     
 </script>
 
@@ -30,10 +31,10 @@
 
       <g>
         {#each point_data as temp}
-          <circle r="3.5"
+          <circle r="2.5"
           cx={projection([temp.properties.centroid_lon, temp.properties.centroid_lat])[0]} 
           cy={projection([temp.properties.centroid_lon, temp.properties.centroid_lat])[1]}
-          fill={color_scale(temp.properties.raster_value)} 
+          fill={temp.properties[legend] == null ? "grey" : color_scale(temp.properties[legend])} 
           style="opacity:2;"/>
 
         {/each}
