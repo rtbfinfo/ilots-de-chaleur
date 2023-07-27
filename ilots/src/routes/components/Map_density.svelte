@@ -2,7 +2,7 @@
     import * as d3 from "d3"
     import * as turf from "turf";
     import { onMount } from "svelte";
-    import { draw } from  "svelte/transition";
+    import { draw, fade } from  "svelte/transition";
     
     $: width = 700;
     $: height = 700;
@@ -15,10 +15,12 @@
         .fitExtent([[0, 0], [width, width/2.5]], complete_geo);
     
     $: geoGenerator = d3.geoPath(projection)
+  
 
-    let color_scale = d3.scaleLinear()
-        .domain([0,3000])
+    $: color_scale = d3.scaleLinear()
+        .domain([d3.min(geometry_data.map(d => d.properties[legend])),d3.max(geometry_data.map(d => d.properties[legend]))])
         .range(["white","#DA4D1A"])
+
     
 </script>
 
@@ -31,8 +33,8 @@
         {#each geometry_data as data}
           <path d={geoGenerator(data)} 
           style="stroke:grey;stroke-width:0.2;"
-          transition:draw={{duration:2000, delay:0.1}}
-          fill={color_scale(data.properties[legend])}/>
+          transition:fade={{duration:5000}}
+          fill={data.properties[legend] == null ? "grey" : color_scale(data.properties[legend])}/>
         {/each}
     </g>
  
