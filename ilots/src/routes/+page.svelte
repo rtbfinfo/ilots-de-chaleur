@@ -1,9 +1,9 @@
 <script>
+    import * as d3 from "d3"
+    import { onMount } from "svelte";
+    import Scrolly from "./components/scrolly.svelte";
     import Map from "./components/Map.svelte";
     import MapDensity from "./components/Map_density.svelte";
-    import * as d3 from "d3"
-    import * as turf from "turf";
-    import { onMount } from "svelte";
 
     let cities_object = [
       {
@@ -36,12 +36,6 @@
     ]
 
     $:  selected = "Liege"
-
-    // $: LST_link= cities_object.filter(data => data.name === selected)[0].lst
-    // $: secteur_link= cities_object.filter(data => data.name === selected)[0].secteur
-
-
-
     // loading the data
     async function loadData() {
     
@@ -65,10 +59,23 @@
     function Change () {
           promise = loadData()
     }
+
+    let currentStep;
+    let value = "NOMBRE_HAB"
+    const steps = ["<p>Step 0!</p>", 
+								 "<p>Step 1?</p>", 
+								 "<p>Step 2.</p>"];
   
-
-
+  $: if (currentStep == 0) {
+    // Do something here
+  } else if (currentStep == 1) {
+    let value = "REVENU_MOYEN"
+  } else if (currentStep == 2) {
+    // Or do something here!
+  }
 </script>
+
+
 
 <div>
   <select bind:value={selected} id="selector" on:change={Change}>
@@ -91,9 +98,35 @@
 
     <MapDensity geometry_data={secteur}
     complete_geo={compl_data} 
-    legend= "NOMBRE_HAB"/> 
+    legend= value/> 
   {/await}
 {/if}
+
+<section>
+  <div class="chart">
+  {#if selected !== "test"}
+    {#await promise}
+      <p>Load</p>
+    {:then [secteur,LST, compl_data]}
+      <MapDensity geometry_data={secteur}
+      complete_geo={compl_data} 
+      legend= "NOMBRE_HAB"/> 
+    {/await}
+  {/if}
+  </div>
+
+	<Scrolly bind:value={currentStep}>
+		{#each steps as text, i}
+			<div class="step" class:active={currentStep === i}>
+				<div class="step-content">
+					{@html text}
+				</div>
+			</div>
+		{/each}
+	</Scrolly>
+</section>
+
+
 
 
 <style>
@@ -106,7 +139,38 @@
   }
 
   :global(body) {
-    background-color: whitesmoke;
+    background-color: rgb(174, 195, 207);
   }
+
+  .chart {
+    background: whitesmoke;
+    width: 100%;
+    height: 100%;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 10%;
+    margin: auto;
+    z-index: -100;
+  }
+
+  .step {
+    height: 90vh;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+  }
+
+  .step-content {
+    background: whitesmoke;
+    color: #ccc;
+    padding: .5rem 1rem;
+    transition: background 500ms ease, color 500ms ease;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .2);
+  }
+
+	.step.active .step-content {
+		background: white;
+		color: black;
+	}
 
 </style>
