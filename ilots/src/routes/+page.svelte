@@ -4,6 +4,11 @@
     import Scrolly from "./components/scrolly.svelte";
     import Map from "./components/Map.svelte";
     import MapDensity from "./components/Map_density.svelte";
+    export let data 
+    const { secteur } = data
+  
+
+   console.log(secteur)
 
     let cities_object = [
       {
@@ -70,6 +75,7 @@
     // Do something here
   } else if (currentStep == 1) {
     let value = "REVENU_MOYEN"
+    promise = loadData()
   } else if (currentStep == 2) {
     // Or do something here!
   }
@@ -126,6 +132,8 @@
 	</Scrolly>
 </section>
 
+<iframe width="100%" height="500" frameborder="0"
+  src="https://observablehq.com/embed/e5aea952f9339a61@142?cells=graph"></iframe>
 
 
 
