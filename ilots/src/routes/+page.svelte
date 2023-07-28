@@ -53,13 +53,13 @@
 	</Scrolly>
 </section>
 
-<!-- <section>
+<section>
   <MapPoint
   complete_geo={secteur}
   point_data={temp.features} 
   value_yscale={value} />
 </section>
- -->
+
 
 <style>
     :root {

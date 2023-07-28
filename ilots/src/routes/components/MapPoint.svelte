@@ -13,16 +13,16 @@
     $: isMap = true;
 
     // scale for map
-    $: projection = d3.geoMercator()
+    let projection = d3.geoMercator()
         // .fitExtent([[0, 0], [width, width/2.5]], complete_geo);
 
-    $: projectionX = isMap  
+    let projectionX = isMap  
         ?  d3.geoMercator()
             .fitExtent([[0, 0], [width, width/2.5]], complete_geo) 
         :  d3.scaleLinear()
             .domain([d3.min(point_data.map(d => d.properties.NOMBRE_HAB)),d3.median(point_data.map(d => d.properties.NOMBRE_HAB)),d3.max(point_data.map(d => d.properties.NOMBRE_HAB))])
             .range([0,350,700])
-    $: projectionY = isMap  
+    let projectionY = isMap  
         ?  d3.geoMercator()
             .fitExtent([[0, 0], [width, width/2.5]], complete_geo) 
         :  d3.scaleLinear()
@@ -57,6 +57,9 @@
     import { tweened } from "svelte/motion";
     import { point } from "turf";
 
+    test = 
+    
+
     const tweenedX = tweened([point_data.map(d => d.properties.centroid_lon), point_data.map(d => d.properties.centroid_lat)]) 
     const tweenedY =tweened([point_data.map(d => d.properties.centroid_lon), point_data.map(d => d.properties.centroid_lat)])
 
@@ -73,7 +76,7 @@
   
     $: if (currentStep == 0) {
         isMap = true
-        SetMap()
+        setMap()
     } else if (currentStep == 1) {
         isMap = false
         setPoint()
@@ -93,8 +96,8 @@
            <g>
              {#each point_data as temp, index}
                <circle r="2.5"
-               cx={projectionX($tweenedX[index])[0]} 
-               cy={projectionY($tweenedY[index])[0]}
+               cx={projectionX($tweenedX[index])} 
+               cy={projectionY($tweenedY[index])}
                fill={color_scale(temp.properties.raster_value)} 
                style="opacity:2;"/>
              {/each}
