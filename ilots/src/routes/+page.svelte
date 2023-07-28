@@ -6,6 +6,8 @@
     import Scrolly from "./components/scrolly.svelte";
     import Map from "./components/Map.svelte";
     import MapDensity from "./components/Map_density.svelte";
+    import PointPlot from "./components/PointPlot.svelte";
+    import MapPoint from "./components/MapPoint.svelte";
 
 
     export let data 
@@ -51,6 +53,13 @@
 	</Scrolly>
 </section>
 
+<!-- <section>
+  <MapPoint
+  complete_geo={secteur}
+  point_data={temp.features} 
+  value_yscale={value} />
+</section>
+ -->
 
 <style>
     :root {
