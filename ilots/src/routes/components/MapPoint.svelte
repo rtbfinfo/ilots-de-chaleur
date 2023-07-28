@@ -14,22 +14,8 @@
 
     // scale for map
     let projection = d3.geoMercator()
-        // .fitExtent([[0, 0], [width, width/2.5]], complete_geo);
-
-    let projectionX = isMap  
-        ?  d3.geoMercator()
-            .fitExtent([[0, 0], [width, width/2.5]], complete_geo) 
-        :  d3.scaleLinear()
-            .domain([d3.min(point_data.map(d => d.properties.NOMBRE_HAB)),d3.median(point_data.map(d => d.properties.NOMBRE_HAB)),d3.max(point_data.map(d => d.properties.NOMBRE_HAB))])
-            .range([0,350,700])
-    let projectionY = isMap  
-        ?  d3.geoMercator()
-            .fitExtent([[0, 0], [width, width/2.5]], complete_geo) 
-        :  d3.scaleLinear()
-            .domain([d3.min(point_data.map(d => d.properties.raster_value)),d3.median(point_data.map(d => d.properties.raster_value)),d3.max(point_data.map(d => d.properties.raster_value))])
-            .range([0,350,700])
-           
-    
+        .fitExtent([[0, 0], [width, width/2.5]], complete_geo);
+    console.log(projection)
     $: geoGenerator = d3.geoPath(projection)
 
     $: color_scale = d3.scaleLinear()
@@ -38,12 +24,16 @@
 
     // scale for point plot
     let XScale = d3.scaleLinear()
-        .domain([d3.min(point_data.map(d => d.properties.NOMBRE_HAB)),d3.median(point_data.map(d => d.properties.NOMBRE_HAB)),d3.max(point_data.map(d => d.properties.NOMBRE_HAB))])
-        .range([0,350,700])
+        .domain([d3.min(point_data.map(d => d.properties.NOMBRE_HAB)),d3.max(point_data.map(d => d.properties.NOMBRE_HAB))])
+        .range([300,1000])
+
+    let revscale = d3.scaleLinear()
+        .domain([d3.min(point_data.map(d => d.properties.REVENU_MOYEN)),d3.max(point_data.map(d => d.properties.REVENU_MOYEN))])
+        .range([300,1000])
 
     let yScale =d3.scaleLinear()
-        .domain([d3.min(point_data.map(d => d.properties.raster_value)),d3.median(point_data.map(d => d.properties.raster_value)),d3.max(point_data.map(d => d.properties.raster_value))])
-        .range([700,350,0])
+        .domain([d3.min(point_data.map(d => d.properties.raster_value)),d3.max(point_data.map(d => d.properties.raster_value))])
+        .range([700,0])
     
 
     // step scrolly (à mettre dans la page principale)
@@ -56,22 +46,29 @@
 
     import { tweened } from "svelte/motion";
     import { point } from "turf";
-
-    test = 
     
+    console.log(point_data.map(d => projection([d.properties.centroid_lon,d.properties.centroid_lat])[0]))
 
-    const tweenedX = tweened([point_data.map(d => d.properties.centroid_lon), point_data.map(d => d.properties.centroid_lat)]) 
-    const tweenedY =tweened([point_data.map(d => d.properties.centroid_lon), point_data.map(d => d.properties.centroid_lat)])
+    const tweenedX = tweened(point_data.map(d => projection([d.properties.centroid_lon,d.properties.centroid_lat])[1])) 
+    const tweenedY =tweened(point_data.map(d => projection([d.properties.centroid_lon,d.properties.centroid_lat])[0]))
 
     const setMap = function () {
-        tweenedX.set([point_data.map(d => d.properties.centroid_lon), point_data.map(d => d.properties.centroid_lat)]) 
-        tweenedY.set([point_data.map(d => d.properties.centroid_lon), point_data.map(d => d.properties.centroid_lat)])
+        projection = d3.geoMercator()
+        .fitExtent([[0, 0], [width, width/2.5]], complete_geo);
+
+        tweenedX.set(point_data.map(d => projection([d.properties.centroid_lon,d.properties.centroid_lat])[0]))
+        tweenedY.set(point_data.map(d => projection([d.properties.centroid_lat,d.properties.centroid_lat])[1]))
 
     }
 
     const setPoint = function () {
-        tweenedX.set(point_data.map(d => d.properties.NOMBRE_HAB))
-        tweenedY.set(point_data.map(d => d.properties.raster_value))
+        tweenedX.set(point_data.map(d => XScale(d.properties.NOMBRE_HAB)))
+        tweenedY.set(point_data.map(d => yScale(d.properties.raster_value)))
+    }
+
+    const setRev = function () {
+        tweenedX.set(point_data.map(d => yScale(d.properties.REVENU_MOYEN)))
+        tweenedY.set(point_data.map(d => yScale(d.properties.raster_value)))
     }
   
     $: if (currentStep == 0) {
@@ -91,19 +88,22 @@
 <div bind:clientWidth={width} bind:clientHeight={height}></div>
 
 <section>
-    <div id="chart">
-        <svg width={width} height={width/2}>
-           <g>
-             {#each point_data as temp, index}
-               <circle r="2.5"
-               cx={projectionX($tweenedX[index])} 
-               cy={projectionY($tweenedY[index])}
-               fill={color_scale(temp.properties.raster_value)} 
-               style="opacity:2;"/>
-             {/each}
-         </g>
-     </svg>
-     </div>
+    <div class="chart">
+        <div class="wrapper">
+            <svg width={width} height={width/2}>
+                <g>
+                  {#each point_data as temp, index}
+                    <circle r="2.5"
+                    cx={$tweenedX[index]} 
+                    cy={$tweenedY[index]}
+                    fill={color_scale(temp.properties.raster_value)} 
+                    style="opacity:2;"/>
+                  {/each}
+              </g>
+          </svg>
+          </div>
+        </div>
+  
      
      <Scrolly bind:value={currentStep}>
          {#each steps as text, i}
@@ -117,6 +117,11 @@
 </section>
 
 <style>
+    .wrapper {
+        /* max-width: 50rem; */
+        margin-inline: auto;
+    }
+
     .chart {
     background: whitesmoke;
     width: 90%;
