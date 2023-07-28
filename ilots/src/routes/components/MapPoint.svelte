@@ -14,8 +14,8 @@
 
     // scale for map
     let projection = d3.geoMercator()
-        .fitExtent([[0, 0], [width, width/2.5]], complete_geo);
-    console.log(projection)
+        //fitExtent([[0, 0], [width, width/2.5]], complete_geo);
+
     $: geoGenerator = d3.geoPath(projection)
 
     $: color_scale = d3.scaleLinear()
@@ -28,7 +28,7 @@
         .range([300,1000])
 
     let revscale = d3.scaleLinear()
-        .domain([d3.min(point_data.map(d => d.properties.REVENU_MOYEN)),d3.max(point_data.map(d => d.properties.REVENU_MOYEN))])
+        .domain([d3.min(point_data.filter(d => d.properties.REVENU_MOYEN !== null).map(d => d.properties.REVENU_MOYEN)),d3.max(point_data.filter(d => d.properties.REVENU_MOYEN !== null).map(d => d.properties.REVENU_MOYEN))])
         .range([300,1000])
 
     let yScale =d3.scaleLinear()
@@ -47,8 +47,6 @@
     import { tweened } from "svelte/motion";
     import { point } from "turf";
     
-    console.log(point_data.map(d => projection([d.properties.centroid_lon,d.properties.centroid_lat])[0]))
-
     const tweenedX = tweened(point_data.map(d => projection([d.properties.centroid_lon,d.properties.centroid_lat])[1])) 
     const tweenedY =tweened(point_data.map(d => projection([d.properties.centroid_lon,d.properties.centroid_lat])[0]))
 
@@ -67,7 +65,7 @@
     }
 
     const setRev = function () {
-        tweenedX.set(point_data.map(d => yScale(d.properties.REVENU_MOYEN)))
+        tweenedX.set(point_data.map(d => d.properties.REVENU_MOYEN !== null).map(d => revscale(d.properties.REVENU_MOYEN)))
         tweenedY.set(point_data.map(d => yScale(d.properties.raster_value)))
     }
   
