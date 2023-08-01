@@ -13,6 +13,8 @@
     export let point_data;
     export let complete_geo;
 
+    point_data = point_data.map(d => d.properties).filter(d => d.city == "liege")
+
     $: value = "NOMBRE_HAB"
 
     $: projection = d3.geoMercator()
@@ -21,7 +23,7 @@
     $: geoGenerator = d3.geoPath(projection)
 
     $: color_scale = d3.scaleLinear()
-        .domain([d3.min(point_data.map(d => d.properties[value])),d3.median(point_data.map(d => d.properties[value])),d3.max(point_data.map(d => d.properties[value]))])
+        .domain([d3.min(point_data.map(d => d[value])),d3.median(point_data.map(d => d[value])),d3.max(point_data.map(d => d[value]))])
         .range(["blue","white","red"])
 
     let currentStep;
@@ -34,7 +36,7 @@
     } else if (currentStep == 1) {
       value = "REVENU_MOYEN"
     } else if (currentStep == 2) {
-      value="raster_value"
+      value="raster_value_x"
     }
     
 </script>
@@ -47,9 +49,9 @@
       <g>
         {#each point_data as temp}
           <circle r="2.5"
-          cx={projection([temp.properties.centroid_lon, temp.properties.centroid_lat])[0]} 
-          cy={projection([temp.properties.centroid_lon, temp.properties.centroid_lat])[1]}
-          fill={temp.properties[value] == null ? "grey" : color_scale(temp.properties[value])} 
+          cx={projection([temp.centroid_lon, temp.centroid_lat])[0]} 
+          cy={projection([temp.centroid_lon, temp.centroid_lat])[1]}
+          fill={temp[value] == null ? "grey" : color_scale(temp[value])} 
           style="opacity:2;"/>
         {/each}
     </g>

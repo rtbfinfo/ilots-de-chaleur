@@ -11,6 +11,7 @@
 
 
     export let data 
+
     const secteur = data.secteur
     const temp = data.temp
 

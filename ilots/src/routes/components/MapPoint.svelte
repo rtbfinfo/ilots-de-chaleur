@@ -9,6 +9,8 @@
     export let point_data;
     export let complete_geo;
 
+    point_data = point_data.map(d => d.properties).filter(d => d.city == "liege").filter(d => d.REVENU_MOYEN !== null)
+
     $: isMap = true;
 
     // scale for map
@@ -18,21 +20,21 @@
     $: geoGenerator = d3.geoPath(projection)
 
     $: color_scale = d3.scaleLinear()
-        .domain([d3.min(point_data.map(d => d.properties.raster_value)),d3.median(point_data.map(d => d.properties.raster_value)),d3.max(point_data.map(d => d.properties.raster_value))])
+        .domain([d3.min(point_data.map(d => d.raster_value_y)),d3.median(point_data.map(d => d.raster_value_y)),d3.max(point_data.map(d => d.raster_value_y))])
         .range(["blue","white","red"])
 
     // scale for point plot
     let XScale = d3.scaleLinear()
-        .domain([d3.min(point_data.map(d => d.properties.NOMBRE_HAB)),d3.max(point_data.map(d => d.properties.NOMBRE_HAB))])
+        .domain([d3.min(point_data.filter(d => d.REVENU_MOYEN !== null).map(d => d.NOMBRE_HAB)),d3.max(point_data.map(d => d.NOMBRE_HAB))])
         .range([300,1000])
 
     let revscale = d3.scaleLinear()
-        .domain([d3.min(point_data.filter(d => d.properties.REVENU_MOYEN !== null).map(d => d.properties.REVENU_MOYEN)),d3.max(point_data.filter(d => d.properties.REVENU_MOYEN !== null).map(d => d.properties.REVENU_MOYEN))])
+        .domain([d3.min(point_data.filter(d => d.REVENU_MOYEN !== null).map(d => d.REVENU_MOYEN)),d3.max(point_data.filter(d => d.REVENU_MOYEN !== null).map(d => d.REVENU_MOYEN))])
         .range([300,1000])
 
     let yScale =d3.scaleLinear()
-        .domain([d3.min(point_data.map(d => d.properties.raster_value)),d3.max(point_data.map(d => d.properties.raster_value))])
-        .range([700,0])
+        .domain([d3.min(point_data.filter(d => d.REVENU_MOYEN !== null).map(d => d.raster_value_y)),d3.max(point_data.map(d => d.raster_value_y))])
+        .range([600,50])
     
 
     // step scrolly (à mettre dans la page principale)
@@ -46,26 +48,31 @@
     import { tweened } from "svelte/motion";
     import { point } from "turf";
     
-    const tweenedX = tweened(point_data.map(d => projection([d.properties.centroid_lon,d.properties.centroid_lat])[0])) 
-    const tweenedY =tweened(point_data.map(d => projection([d.properties.centroid_lon,d.properties.centroid_lat])[1]))
+    const tweenedX = tweened(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[0])) 
+    const tweenedY =tweened(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[1]))
+    const tweendRad = tweened(2.5)
 
+
+    const BiggerPoint = function () {
+        tweendRad.set(4)
+    }
     const setMap = function () {
         projection = d3.geoMercator()
         .fitExtent([[0, 0], [width, width/2.5]], complete_geo);
 
-        tweenedX.set(point_data.map(d => projection([d.properties.centroid_lon,d.properties.centroid_lat])[0]))
-        tweenedY.set(point_data.map(d => projection([d.properties.centroid_lat,d.properties.centroid_lat])[1]))
+        tweenedX.set(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[0]))
+        tweenedY.set(point_data.map(d => projection([d.centroid_lat,d.centroid_lat])[1]))
 
     }
 
     const setPoint = function () {
-        tweenedX.set(point_data.map(d => XScale(d.properties.NOMBRE_HAB)))
-        tweenedY.set(point_data.map(d => yScale(d.properties.raster_value)))
+        tweenedX.set(point_data.map(d => XScale(d.NOMBRE_HAB)))
+        tweenedY.set(point_data.map(d => yScale(d.raster_value_y)))
     }
 
     const setRev = function () {
-        tweenedX.set(point_data.map(d => d.properties.REVENU_MOYEN !== null).map(d => revscale(d.properties.REVENU_MOYEN)))
-        tweenedY.set(point_data.map(d => yScale(d.properties.raster_value)))
+        tweenedX.set(point_data.map(d => revscale(d.REVENU_MOYEN)))
+        tweenedY.set(point_data.map(d => yScale(d.raster_value_y)))
     }
   
     $: if (currentStep == 0) {
@@ -73,10 +80,11 @@
         setMap()
     } else if (currentStep == 1) {
         isMap = false
-        setPoint()
+        setRev()
+        BiggerPoint()
     } else if (currentStep == 2) {
         isMap = true
-        setMap()
+        setPoint()
     }
 
 
@@ -90,10 +98,10 @@
             <svg width={width} height={width/2}>
                 <g>
                   {#each point_data as temp, index}
-                    <circle r="2.5"
+                    <circle r={$tweendRad}
                     cx={$tweenedX[index]} 
                     cy={$tweenedY[index]}
-                    fill={color_scale(temp.properties.raster_value)} 
+                    fill={color_scale(temp.raster_value_y)} 
                     style="opacity:2;"/>
                   {/each}
               </g>
