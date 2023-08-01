@@ -8,13 +8,13 @@
 
     export let point_data;
     export let complete_geo;
-    export let value_yscale;
 
     $: isMap = true;
 
     // scale for map
     let projection = d3.geoMercator()
-        .fitExtent([[0, 0], [width, width/2.5]], complete_geo);
+        //fitExtent([[0, 0], [width, width/2.5]], complete_geo);
+
     $: geoGenerator = d3.geoPath(projection)
 
     $: color_scale = d3.scaleLinear()
@@ -27,7 +27,7 @@
         .range([300,1000])
 
     let revscale = d3.scaleLinear()
-        .domain([d3.min(point_data.map(d => d.properties.REVENU_MOYEN)),d3.max(point_data.map(d => d.properties.REVENU_MOYEN))])
+        .domain([d3.min(point_data.filter(d => d.properties.REVENU_MOYEN !== null).map(d => d.properties.REVENU_MOYEN)),d3.max(point_data.filter(d => d.properties.REVENU_MOYEN !== null).map(d => d.properties.REVENU_MOYEN))])
         .range([300,1000])
 
     let yScale =d3.scaleLinear()
@@ -39,16 +39,15 @@
     let currentStep;
 
     $: value = "NOMBRE_HAB"
-    const steps = ["<p>Step 0!</p>", 
-				   "<p>Step 1?</p>", 
+    const steps = ["<p></p>", 
+				   "<p></p>", 
 				   "<p>Step 2.</p>"];
 
     import { tweened } from "svelte/motion";
     import { point } from "turf";
     
-
-    const tweenedX = tweened(point_data.map(d => projection([d.properties.centroid_lon,d.properties.centroid_lat])[1])) 
-    const tweenedY =tweened(point_data.map(d => projection([d.properties.centroid_lon,d.properties.centroid_lat])[0]))
+    const tweenedX = tweened(point_data.map(d => projection([d.properties.centroid_lon,d.properties.centroid_lat])[0])) 
+    const tweenedY =tweened(point_data.map(d => projection([d.properties.centroid_lon,d.properties.centroid_lat])[1]))
 
     const setMap = function () {
         projection = d3.geoMercator()
@@ -65,7 +64,7 @@
     }
 
     const setRev = function () {
-        tweenedX.set(point_data.map(d => yScale(d.properties.REVENU_MOYEN)))
+        tweenedX.set(point_data.map(d => d.properties.REVENU_MOYEN !== null).map(d => revscale(d.properties.REVENU_MOYEN)))
         tweenedY.set(point_data.map(d => yScale(d.properties.raster_value)))
     }
   
@@ -83,11 +82,11 @@
 
 </script>
 
-<div bind:clientWidth={width} bind:clientHeight={height}></div>
+<div bind:clientHeight={height}></div>
 
 <section>
-    <div class="chart">
-        <div class="wrapper">
+    <div class="chart"   bind:clientWidth={width}>
+        <div id="content">
             <svg width={width} height={width/2}>
                 <g>
                   {#each point_data as temp, index}
@@ -101,6 +100,7 @@
           </svg>
           </div>
         </div>
+   
   
      
      <Scrolly bind:value={currentStep}>
@@ -115,20 +115,22 @@
 </section>
 
 <style>
-    .wrapper {
-        /* max-width: 50rem; */
+    /* .wrapper {
+        max-width: 50rem;
         margin-inline: auto;
-    }
+    } */
 
     .chart {
     background: whitesmoke;
-    width: 90%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
     position: sticky;
     top: 10%;
     margin: auto;
     z-index: -100;
+    margin-bottom: 10rem;
+    border-radius: 10rem;
   }
 
   .step {
@@ -150,5 +152,9 @@
 		background: white;
 		color: black;
 	}
+
+    :global(svg) {
+        border : 2px solid red;
+    }
 </style>
 
