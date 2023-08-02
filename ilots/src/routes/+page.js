@@ -1,3 +1,4 @@
+import * as d3 from "d3"
 
 
 export const load = async ({fetch}) => {
@@ -14,9 +15,16 @@ export const load = async ({fetch}) => {
             return tempData
         }
 
+        const fecthMar = async () => {
+          const marRes = await d3.csv("https://gist.githubusercontent.com/Yheloww/51d8d8cceebdc6ac09a186e595f02add/raw/4e85c990e32f1313a725a422451054b7917a78d7/mar.csv")
+          const marData = await marRes
+          return marData
+        }
+
         return {
             secteur : fetchSecteur(),
             temp : fetchTemp(),
+            mar : fecthMar()
         }
 }
 
