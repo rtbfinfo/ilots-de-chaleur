@@ -17,6 +17,9 @@
     const total = data.secteur
     const datas = data.temp.features.map(d => d.properties).filter(d => d.city == "liege")
 
+    const mar = data.mar
+    console.log(mar)
+
 </script>
 
 <div class="wrapper">
