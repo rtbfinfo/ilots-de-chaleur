@@ -9,6 +9,13 @@ export const load = async ({fetch}) => {
             return secteurData
         }
 
+        const fetchSecteurNam = async () => {
+          const secteurRes = await fetch("https://gist.githubusercontent.com/Yheloww/c9d7a4fa9b5903ce80f6f1f51f6d738e/raw/db0542e118ed6f00b2d5017134c3048ce45876e6/charleroi_revenu_densite%2520(1).json")
+          const secteurData = await secteurRes.json()
+          return secteurData
+      }
+
+
         const fetchTemp = async () => {
             const tempRes = await fetch("https://gist.githubusercontent.com/Yheloww/a1ec1bc9a75c0d7f72fb4b1fe65ee171/raw/77edc70db7ef8d8c4732b8f272c405abc3876e36/everything_cities.json")
             const tempData = await tempRes.json()
@@ -24,7 +31,8 @@ export const load = async ({fetch}) => {
         return {
             secteur : fetchSecteur(),
             temp : fetchTemp(),
-            mar : fecthMar()
+            mar : fecthMar(),
+            secteur_nam : fetchSecteurNam()
         }
 }
 

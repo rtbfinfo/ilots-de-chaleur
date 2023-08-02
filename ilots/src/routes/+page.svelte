@@ -8,6 +8,7 @@
     import MapDensity from "./components/Map_density.svelte";
     import PointPlot from "./components/PointPlot.svelte";
     import MapPoint from "./components/MapPoint.svelte";
+    import Grid from "./components/Grid.svelte";
 
 
     export let data 
@@ -17,12 +18,15 @@
     const total = data.secteur
     const datas = data.temp.features.map(d => d.properties).filter(d => d.city == "liege")
 
+
     const mar = data.mar
-    console.log(mar)
-
 </script>
-
 <div class="wrapper">
+
+  <section>
+    <Grid/>
+  </section>
+
   <section>      
     <Map
       geometry_data={secteur}
