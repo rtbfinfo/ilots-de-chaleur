@@ -9,7 +9,7 @@
     export let point_data;
     export let complete_geo;
 
-    point_data = point_data.map(d => d.properties).filter(d => d.city == "liege").filter(d => d.REVENU_MOYEN !== null)
+    point_data = point_data.map(d => d.properties).filter(d => d.city == "namur").filter(d => d.REVENU_MOYEN !== null)
 
     $: isMap = true;
 
@@ -21,7 +21,7 @@
 
     $: color_scale = d3.scaleLinear()
         .domain([d3.min(point_data.map(d => d.raster_value_y)),d3.median(point_data.map(d => d.raster_value_y)),d3.max(point_data.map(d => d.raster_value_y))])
-        .range(["blue","white","red"])
+        .range(["#144265","white","#DA4D1A"])
 
     // scale for point plot
     let XScale = d3.scaleLinear()
@@ -30,6 +30,10 @@
 
     let revscale = d3.scaleLinear()
         .domain([d3.min(point_data.filter(d => d.REVENU_MOYEN !== null).map(d => d.REVENU_MOYEN)),d3.max(point_data.filter(d => d.REVENU_MOYEN !== null).map(d => d.REVENU_MOYEN))])
+        .range([300,1000])
+
+    let ver_scale= d3.scaleLinear()
+        .domain([d3.min(point_data.filter(d => d.perc_ver !== null).map(d => d.perc_ver)),d3.max(point_data.filter(d => d.perc_ver !== null).map(d => d.perc_ver))])
         .range([300,1000])
 
     let yScale =d3.scaleLinear()
@@ -56,6 +60,10 @@
     const BiggerPoint = function () {
         tweendRad.set(4)
     }
+    const SmallPoint = function () {
+        tweendRad.set(2.5)
+    }
+    
     const setMap = function () {
         projection = d3.geoMercator()
         .fitExtent([[0, 0], [width, width/2.5]], complete_geo);
@@ -74,17 +82,23 @@
         tweenedX.set(point_data.map(d => revscale(d.REVENU_MOYEN)))
         tweenedY.set(point_data.map(d => yScale(d.raster_value_y)))
     }
+
+    const setVer = function () {
+        tweenedX.set(point_data.map(d => ver_scale(d.perc_ver)))
+        tweenedY.set(point_data.map(d => yScale(d.raster_value_y)))
+    }
   
     $: if (currentStep == 0) {
         isMap = true
         setMap()
+        SmallPoint()
     } else if (currentStep == 1) {
         isMap = false
         setRev()
         BiggerPoint()
     } else if (currentStep == 2) {
         isMap = true
-        setPoint()
+        setVer()
     }
 
 

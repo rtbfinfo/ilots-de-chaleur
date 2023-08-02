@@ -13,7 +13,7 @@
     export let point_data;
     export let complete_geo;
 
-    point_data = point_data.map(d => d.properties).filter(d => d.city == "liege")
+    point_data = point_data.map(d => d.properties).filter(d => d.city == "namur")
 
     $: value = "NOMBRE_HAB"
 
@@ -24,12 +24,13 @@
 
     $: color_scale = d3.scaleLinear()
         .domain([d3.min(point_data.map(d => d[value])),d3.median(point_data.map(d => d[value])),d3.max(point_data.map(d => d[value]))])
-        .range(["blue","white","red"])
+        .range(["#144265","white","#DA4D1A"])
 
     let currentStep;
     const steps = ["<p>Densité de population</p>", 
                 "<p>Revenus moyen</p>", 
-                "<p>Land surface temperature</p>"];
+                "<p>Land surface temperature</p>",
+              "<p>Percentage de verdure</p>"];
       
     $: if (currentStep == 0) {
       value = "NOMBRE_HAB"
@@ -37,6 +38,8 @@
       value = "REVENU_MOYEN"
     } else if (currentStep == 2) {
       value="raster_value_x"
+    } else if (currentStep == 3) {
+      value="perc_ver"
     }
     
 </script>
