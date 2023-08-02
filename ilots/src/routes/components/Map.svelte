@@ -13,8 +13,6 @@
     export let point_data;
     export let complete_geo;
 
-    point_data = point_data.map(d => d.properties).filter(d => d.city == "namur")
-
     $: value = "NOMBRE_HAB"
 
     $: projection = d3.geoMercator()
@@ -24,7 +22,7 @@
 
     $: color_scale = d3.scaleLinear()
         .domain([d3.min(point_data.map(d => d[value])),d3.median(point_data.map(d => d[value])),d3.max(point_data.map(d => d[value]))])
-        .range(["#144265","white","#DA4D1A"])
+        .range(["#144265","whitesmoke","#DA4D1A"])
 
     let currentStep;
     const steps = ["<p>Densité de population</p>", 

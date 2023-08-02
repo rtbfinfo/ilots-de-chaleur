@@ -12,24 +12,26 @@
 
     export let data 
 
-    const secteur = data.secteur
-    const temp = data.temp
+
+    const secteur = data.secteur.features.map(d => d.properties).filter(d => d.city == "liege")
+    const total = data.secteur
+    const datas = data.temp.features.map(d => d.properties).filter(d => d.city == "liege")
 
 </script>
 
 <div class="wrapper">
   <section>      
     <Map
-      geometry_data={secteur.features}
-      complete_geo={secteur}
-      point_data={temp.features}
+      geometry_data={secteur}
+      complete_geo={total}
+      point_data={datas}
       />
   </section>
   
   <section>
     <MapPoint
-    complete_geo={secteur}
-    point_data={temp.features} 
+    complete_geo={total}
+    point_data={datas} 
     />
   </section>
 </div>

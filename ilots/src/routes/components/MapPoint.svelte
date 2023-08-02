@@ -9,7 +9,7 @@
     export let point_data;
     export let complete_geo;
 
-    point_data = point_data.map(d => d.properties).filter(d => d.city == "namur").filter(d => d.REVENU_MOYEN !== null)
+    point_data = point_data.filter(d => d.REVENU_MOYEN !== null)
 
     $: isMap = true;
 
@@ -21,7 +21,7 @@
 
     $: color_scale = d3.scaleLinear()
         .domain([d3.min(point_data.map(d => d.raster_value_y)),d3.median(point_data.map(d => d.raster_value_y)),d3.max(point_data.map(d => d.raster_value_y))])
-        .range(["#144265","white","#DA4D1A"])
+        .range(["#144265","whitesmoke","#DA4D1A"])
 
     // scale for point plot
     let XScale = d3.scaleLinear()
