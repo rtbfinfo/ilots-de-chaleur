@@ -26,19 +26,19 @@
     // scale for point plot
     $: XScale = d3.scaleLinear()
         .domain([d3.min(point_data.filter(d => d.REVENU_MOYEN !== null).map(d => d.NOMBRE_HAB)),d3.max(point_data.map(d => d.NOMBRE_HAB))])
-        .range([0,width/2])
+        .range([0,width])
 
-    let revscale = d3.scaleLinear()
+    $: revscale = d3.scaleLinear()
         .domain([d3.min(point_data.filter(d => d.REVENU_MOYEN !== null).map(d => d.REVENU_MOYEN)),d3.max(point_data.filter(d => d.REVENU_MOYEN !== null).map(d => d.REVENU_MOYEN))])
-        .range([300,1000])
+        .range([0,width])
 
-    let ver_scale= d3.scaleLinear()
+    $: ver_scale= d3.scaleLinear()
         .domain([d3.min(point_data.filter(d => d.perc_ver !== null).map(d => d.perc_ver)),d3.max(point_data.filter(d => d.perc_ver !== null).map(d => d.perc_ver))])
-        .range([300,1000])
+        .range([0,width])
 
     $: yScale =d3.scaleLinear()
         .domain([d3.min(point_data.filter(d => d.REVENU_MOYEN !== null).map(d => d.raster_value_y)),d3.max(point_data.map(d => d.raster_value_y))])
-        .range([0,width])
+        .range([500,0])
     
 
     // step scrolly (à mettre dans la page principale)
@@ -66,7 +66,7 @@
     
     const setMap = function () {
         projection = d3.geoMercator()
-        .fitExtent([[0, 0], [width, width/2.5]], complete_geo);
+        .fitExtent([[0, 0], [width, 500]], complete_geo);
 
         tweenedX.set(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[0]))
         tweenedY.set(point_data.map(d => projection([d.centroid_lat,d.centroid_lat])[1]))
@@ -109,7 +109,7 @@
 <section>
     <div class="chart"   bind:clientWidth={width}>
         <div id="content">
-            <svg width={width} height={width/2}>
+            <svg width={width} height=500>
                 <g>
                   {#each point_data as temp, index}
                     <circle r={$tweendRad}
