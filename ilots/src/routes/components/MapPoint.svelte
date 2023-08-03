@@ -24,7 +24,7 @@
         .range(["#144265","whitesmoke","#DA4D1A"])
 
     // scale for point plot
-    let XScale = d3.scaleLinear()
+    $: XScale = d3.scaleLinear()
         .domain([d3.min(point_data.filter(d => d.REVENU_MOYEN !== null).map(d => d.NOMBRE_HAB)),d3.max(point_data.map(d => d.NOMBRE_HAB))])
         .range([0,width/2])
 
@@ -36,9 +36,9 @@
         .domain([d3.min(point_data.filter(d => d.perc_ver !== null).map(d => d.perc_ver)),d3.max(point_data.filter(d => d.perc_ver !== null).map(d => d.perc_ver))])
         .range([300,1000])
 
-    let yScale =d3.scaleLinear()
+    $: yScale =d3.scaleLinear()
         .domain([d3.min(point_data.filter(d => d.REVENU_MOYEN !== null).map(d => d.raster_value_y)),d3.max(point_data.map(d => d.raster_value_y))])
-        .range([600,50])
+        .range([0,width])
     
 
     // step scrolly (à mettre dans la page principale)
