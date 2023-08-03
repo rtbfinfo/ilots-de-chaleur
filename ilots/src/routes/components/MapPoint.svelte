@@ -26,7 +26,7 @@
     // scale for point plot
     let XScale = d3.scaleLinear()
         .domain([d3.min(point_data.filter(d => d.REVENU_MOYEN !== null).map(d => d.NOMBRE_HAB)),d3.max(point_data.map(d => d.NOMBRE_HAB))])
-        .range([300,1000])
+        .range([0,width/2])
 
     let revscale = d3.scaleLinear()
         .domain([d3.min(point_data.filter(d => d.REVENU_MOYEN !== null).map(d => d.REVENU_MOYEN)),d3.max(point_data.filter(d => d.REVENU_MOYEN !== null).map(d => d.REVENU_MOYEN))])
@@ -143,10 +143,10 @@
     } */
 
     .chart {
-    background: whitesmoke;
+    /* background: whitesmoke; */
     width: 80%;
     height: 80%;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2); */
     position: sticky;
     top: 10%;
     margin: auto;

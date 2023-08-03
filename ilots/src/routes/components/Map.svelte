@@ -79,10 +79,10 @@
 
   <style>
     .chart {
-      background: whitesmoke;
+      /* background: whitesmoke; */
       width: 80%;
       height: 80%;
-      box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+      /* box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2); */
       position: sticky;
       top: 10%;
       margin: auto;

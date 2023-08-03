@@ -56,10 +56,11 @@
     --redish : #DC351F;
     --light-orange: #D66819;
     --dark-orange: #DA4D1A;
+    --backgound-color: #FCE9E2;
   }
 
   :global(body) {
-    background-color: rgb(174, 195, 207);
+    background-color: var(--backgound-color);
   }
 
 </style>
