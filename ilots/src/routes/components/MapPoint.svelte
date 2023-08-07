@@ -80,7 +80,7 @@
 
     const setRev = function () {
         tweenedX.set(point_data.map(d => revscale(d.REVENU_MOYEN)))
-        tweenedY.set(point_data.map(d => yScale(d.raster_value_y)))
+        tweenedY.set(point_data.map(d => yScale(d.raster_value_x)))
     }
 
     const setVer = function () {
