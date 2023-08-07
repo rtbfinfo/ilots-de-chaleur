@@ -52,7 +52,7 @@
         :radio_button: <a href="https://statbel.fgov.be/fr/open-data/population-par-secteur-statistique-7">Geojson secteurs statistiques</a><br>
         :radio_button: <a href="https://statbel.fgov.be/fr/open-data/population-par-secteur-statistique-7">Données de densité par secteur stat</a><br>
         :radio_button: <a href="https://statbel.fgov.be/fr/open-data/statistique-fiscale-des-revenus-par-secteur-statistique">Données de revenus par secteur stat</a><br>
-        :radio_button: <a href="https://geoportail.wallonie.be/catalogue/47b348f1-6e7a-4baa-963c-0232a43c0cff.html">Donnée d'occupation du sol</a>(il faut demander l'accès)<br>
+        :radio_button: <a href="https://geoportail.wallonie.be/catalogue/47b348f1-6e7a-4baa-963c-0232a43c0cff.html">Donnée d'occupation du sol</a> (il faut demander l'accès)<br>
         </p>
     <h3 id="transformation"> Transformation des données </h3>
         <p align="justify"> 
