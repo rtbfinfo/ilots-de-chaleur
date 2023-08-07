@@ -45,11 +45,11 @@
 
 <div bind:clientHeight={height}></div>
 
-<div class="chart" transition:fade={{duration:5000}}  bind:clientWidth={width}>
+<div class="chart" bind:clientWidth={width}>
    <svg width={width} height={width/2}>
       <g>
         {#each point_data as temp}
-          <circle r="2.5"
+          <circle r="1"
           cx={projection([temp.centroid_lon, temp.centroid_lat])[0]} 
           cy={projection([temp.centroid_lon, temp.centroid_lat])[1]}
           fill={temp[value] == null ? "grey" : color_scale(temp[value])} 
@@ -59,8 +59,8 @@
     <g>
         {#each geometry_data as data}
           <path d={geoGenerator(data)} 
-          style="stroke:grey;fill:none;stroke-width:0.1;stroke-opacity:0.2"
-          transition:draw={{duration:2000, delay:0.1}}/>
+          style="stroke:white;fill:none;stroke-width:0.2;stroke-opacity:1"
+          />
         {/each}
     </g>
   </svg>
