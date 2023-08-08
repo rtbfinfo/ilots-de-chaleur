@@ -55,8 +55,8 @@
 
     $: value = "NOMBRE_HAB"
     const steps = ["<p>Prenons la température de surface pour liège par exemple</p>", 
-				   "<p></p>", 
-				   "<p>Step 2.</p>"];
+				   "<p>Ici la température de surface est mise en relation avec les revenus median de chaque secteur</p>", 
+				   "<p>Sélectionnez sur la carte la ville qui vous intéresse</p>"];
 
     import { tweened } from "svelte/motion";
     import { point } from "turf";
@@ -67,7 +67,7 @@
 
 
     const BiggerPoint = function () {
-        tweendRad.set(4)
+        tweendRad.set(5)
     }
     const SmallPoint = function () {
         tweendRad.set(2.5)
@@ -102,7 +102,7 @@
 
     const setRev = function () {
         tweenedX.set(point_data.map(d => revscale(d.REVENU_MOYEN)))
-        tweenedY.set(point_data.map(d => yScale(d.raster_value_x)))
+        tweenedY.set(point_data.map(d => yScale(d.raster_value_y)))
     }
 
     const setVer = function () {
@@ -115,10 +115,14 @@
         setMap()
         SmallPoint()
     } else if (currentStep == 1) {
+        isMap = true
+        setMap()
+        SmallPoint()
+    } else if (currentStep == 2) {
         isMap = false
         setRev()
         BiggerPoint()
-    } else if (currentStep == 2) {
+    } else if (currentStep== 3) {
         isMap = true
         setProv()
     }
