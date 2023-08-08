@@ -29,7 +29,7 @@ export const load = async ({fetch}) => {
         }
 
         const fecthMar = async () => {
-          const marRes = await d3.csv("https://gist.githubusercontent.com/Yheloww/51d8d8cceebdc6ac09a186e595f02add/raw/4e85c990e32f1313a725a422451054b7917a78d7/mar.csv")
+          const marRes = await d3.csv("https://gist.githubusercontent.com/Yheloww/51d8d8cceebdc6ac09a186e595f02add/raw/c0116bb68e9d3cc5428f25ab7cad8fb1d4bdbb71/mar_clean.csv")
           const marData = await marRes
           return marData
         }

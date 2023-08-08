@@ -2,11 +2,14 @@
     import * as d3 from "d3";
     export let MAR; 
     import { onMount } from "svelte";
+    import Map from "./Map.svelte";
 
-    let liege = MAR.filter(d => d.city = "Liege")
-    let Charleroi= MAR.filter(d => d.city = "Charleroi")
+    console.log(MAR.year)
+    let liege = MAR.filter(d => d.city == "Liège")
+    let Charleroi = MAR.filter(d => d.city == "Charleroi")
 
-    console.log(Charleroi)
+
+    console.log(liege)
     $: width = 500;
     let height = 800;
 
@@ -17,7 +20,7 @@
     const parseTime = d3.timeParse("%Y-%m-%d");
 
     $: xScale = d3.scaleTime()
-                  .domain(d3.extent(MAR, d => parseTime(d.year)))
+                  .domain(d3.extent(liege, d => parseTime(d.year)))
                   .range([0, width])
     $: yScale = d3.scaleLinear([10,30], 
                                 [height, 0])
@@ -41,7 +44,7 @@
         <g>
             <path
             d="{liege_line}"
-            stroke="white"
+            stroke="red"
             fill="none"/>
         </g>
         <g>
