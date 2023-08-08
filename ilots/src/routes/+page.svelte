@@ -13,6 +13,7 @@
   import Lenis from '@studio-freight/lenis';
   import Img from "./components/Img.svelte";
   import Quote from "./components/Quote.svelte";
+  import LinePlot from "./components/LinePlot.svelte";
 
   export let data;
 
@@ -21,8 +22,7 @@
   const datas = data.temp.features.map((d) => d.properties)
     .filter((d) => d.city == "liege");
   const province = data.provinces
-
-  
+  const mar = data.mar
 
   onMount(() => {
     //smooth scroll 
@@ -117,11 +117,6 @@
     </section> -->
 
   <!-- inline / middle / big -->
-  <Img
-    type={"middle"}
-    img={["https://static.vecteezy.com/ti/photos-gratuite/p2/719584-canetons-et-cinq-canetons-photo.jpg",
-        "https://static.vecteezy.com/ti/photos-gratuite/p2/719584-canetons-et-cinq-canetons-photo.jpg"]}
-    />
 
     <section>
       <MapPoint
@@ -130,6 +125,10 @@
       provinces={province}
       />
     </section>
+
+    <Title
+  content={"Dans le future"}
+  />
 
   <div class="wrapper-text">
     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
@@ -149,10 +148,14 @@
       ratione nobis minima, velit esse ut unde.</p>
   </div>
 
+  <LinePlot
+  MAR={mar}/>
+
   <Img
-  type={"inline"}
-  img={["https://static.vecteezy.com/ti/photos-gratuite/p2/719584-canetons-et-cinq-canetons-photo.jpg"]}
-  />
+    type={"middle"}
+    img={["https://static.vecteezy.com/ti/photos-gratuite/p2/719584-canetons-et-cinq-canetons-photo.jpg",
+        "https://static.vecteezy.com/ti/photos-gratuite/p2/719584-canetons-et-cinq-canetons-photo.jpg"]}
+    />
 
 
 <!-- 
