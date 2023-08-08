@@ -8,7 +8,16 @@
 
     export let point_data;
     export let complete_geo;
+    export let provinces;
 
+    let margin = {
+        top: 20,
+        bottom: 50,
+        left : 200,
+        right: 20,
+    }
+
+    console.log(provinces)
     point_data = point_data.filter(d => d.REVENU_MOYEN !== null)
 
     $: isMap = true;
@@ -26,26 +35,26 @@
     // scale for point plot
     $: XScale = d3.scaleLinear()
         .domain([d3.min(point_data.filter(d => d.REVENU_MOYEN !== null).map(d => d.NOMBRE_HAB)),d3.max(point_data.map(d => d.NOMBRE_HAB))])
-        .range([0,width])
+        .range([0 + margin.left ,width - margin.right])
 
     $: revscale = d3.scaleLinear()
         .domain([d3.min(point_data.filter(d => d.REVENU_MOYEN !== null).map(d => d.REVENU_MOYEN)),d3.max(point_data.filter(d => d.REVENU_MOYEN !== null).map(d => d.REVENU_MOYEN))])
-        .range([0,width])
+        .range([0 + margin.left ,width - margin.right])
 
     $: ver_scale= d3.scaleLinear()
         .domain([d3.min(point_data.filter(d => d.perc_ver !== null).map(d => d.perc_ver)),d3.max(point_data.filter(d => d.perc_ver !== null).map(d => d.perc_ver))])
-        .range([0,width])
+        .range([0 + margin.left ,width - margin.right])
 
     $: yScale =d3.scaleLinear()
-        .domain([d3.min(point_data.filter(d => d.REVENU_MOYEN !== null).map(d => d.raster_value_y)),d3.max(point_data.map(d => d.raster_value_y))])
-        .range([500,0])
+        .domain([d3.min(point_data.filter(d => d.REVENU_MOYEN !== null).map(d => d.raster_value_x)),d3.max(point_data.map(d => d.raster_value_x))])
+        .range([800 - margin.bottom , 0 + margin.top])
     
 
     // step scrolly (à mettre dans la page principale)
     let currentStep;
 
     $: value = "NOMBRE_HAB"
-    const steps = ["<p></p>", 
+    const steps = ["<p>Prenons la température de surface pour liège par exemple</p>", 
 				   "<p></p>", 
 				   "<p>Step 2.</p>"];
 
@@ -66,7 +75,20 @@
     
     const setMap = function () {
         projection = d3.geoMercator()
-        .fitExtent([[0, 0], [width, 500]], complete_geo);
+        .fitExtent([[0, 0], [width, 800]], complete_geo);
+
+        geoGenerator = d3.geoPath(projection)
+
+        tweenedX.set(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[0]))
+        tweenedY.set(point_data.map(d => projection([d.centroid_lat,d.centroid_lat])[1]))
+
+    }
+
+    const setProv = function () {
+        projection = d3.geoMercator()
+        .fitExtent([[0, 0], [width, 800]], provinces);
+
+        geoGenerator = d3.geoPath(projection)
 
         tweenedX.set(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[0]))
         tweenedY.set(point_data.map(d => projection([d.centroid_lat,d.centroid_lat])[1]))
@@ -98,7 +120,7 @@
         BiggerPoint()
     } else if (currentStep == 2) {
         isMap = true
-        setVer()
+        setProv()
     }
 
 
@@ -109,16 +131,82 @@
 <section>
     <div class="chart"   bind:clientWidth={width}>
         <div id="content">
-            <svg width={width} height=500>
+            <svg width={width} height=800>
                 <g>
                   {#each point_data as temp, index}
                     <circle r={$tweendRad}
                     cx={$tweenedX[index]} 
                     cy={$tweenedY[index]}
                     fill={color_scale(temp.raster_value_y)} 
-                    style="opacity:2;"/>
+                    style=""/>
                   {/each}
               </g>
+              {#if isMap}
+              <g>
+                {#each provinces.features as province}
+                  <path d={geoGenerator(province)} 
+                  style="stroke:whitesmoke;fill:none;stroke-width:0.5;stroke-opacity:1"
+                  />
+                {/each}
+            </g>
+            <g>
+                {#each complete_geo.features as secteur}
+                  <path d={geoGenerator(secteur)} 
+                  style="stroke:white;fill:none;stroke-width:0.5;stroke-opacity:1"
+                  />
+                {/each}
+            </g>
+            {/if}
+            <defs>
+                <marker
+                  id="triangle"
+                  viewBox="0 0 10 10"
+                  refX="1"
+                  refY="5"
+                  markerUnits="strokeWidth"
+                  markerWidth="10"
+                  markerHeight="10"
+                  orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 " stroke="white" fill="none" stroke-linecap="round" />
+                </marker>
+              </defs>  
+              {#if !isMap}          
+            <g>
+                <text 
+                x={margin.left - 35}
+                y={200}
+                fill="white"
+                stroke="none"
+                text-anchor="end"> Chaud</text>
+                <text 
+                x={margin.left - 35}
+                y={650}
+                fill="white"
+                stroke="none"
+                text-anchor="end"> moins Chaud </text>
+                <line x1={0 + margin.left + 100} 
+                y1={800 - margin.bottom + 30} 
+                x2={width - margin.right - 100} 
+                y2={800 - margin.bottom + 30} 
+                stroke="white"
+                stroke-width="2"
+                marker-end="url(#triangle)"
+                marker-start="url(#triangle)"
+                stroke-linecap="round"/>
+                <line 
+                x1={0 + margin.left -30} 
+                y1={800 - margin.bottom - 50} 
+                x2={0 + margin.left -30} 
+                y2={0 + margin.top + 100} 
+                stroke="white"
+                stroke-width="2"
+                marker-end="url(#triangle)"
+                marker-start="url(#triangle)"
+                stroke-linecap="round"
+                />
+
+            </g>
+            {/if}
           </svg>
           </div>
         </div>
@@ -144,7 +232,7 @@
 
     .chart {
     /* background: whitesmoke; */
-    width: 80%;
+    width: 90%;
     height: 80%;
     /* box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2); */
     position: sticky;
@@ -156,27 +244,31 @@
   }
 
   .step {
+    
     height: 90vh;
     display: flex;
     place-items: center;
-    justify-content: center;
+    justify-content: right;
+    margin-right: 5vw;
   }
 
   .step-content {
-    background: whitesmoke;
     color: #ccc;
     padding: .5rem 1rem;
     transition: background 500ms ease, color 500ms ease;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, .2);
+    max-width: 25vw;
   }
 
 	.step.active .step-content {
-		background: white;
-		color: black;
+        background: rgba(234, 71, 12, 0.603);
+		color: whitesmoke;
+        border-radius: 0.5rem;
+        font-size: var(--font-size-base);
 	}
 
-    :global(svg) {
+    /* :global(svg) {
         border : 2px solid red;
-    }
+    } */
 </style>
 

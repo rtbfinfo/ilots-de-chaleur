@@ -3,7 +3,7 @@
     export let img
 </script>
 
-<div class={type}>
+<div class={"base "+type}>
     {#each img as im}
     <div class="card">
         <img 
@@ -21,23 +21,26 @@
         display: block;
         width: 100%;
     }
+    .base {
+        margin-inline: auto;
+        display: flex;
+        padding: 1rem;
+        gap: 2rem;
+        margin-bottom: 5rem;;
+    }
     .inline {
         max-width: 90rch;
-        margin-inline: auto;
-        display: flex;
-        padding: 1rem;
-        gap: 2rem;
     }
-    .multiple {
-        margin-inline: auto;
+    .big {
         max-width: 100%;
-        display: flex;
-        padding: 1rem;
-        gap: 2rem;
+    }
+    .middle {
+        max-width: 170rch;
     }
     .card {
         width: 100%;
         height: auto;
     }
+    
     
 </style>

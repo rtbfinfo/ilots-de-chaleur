@@ -8,18 +8,20 @@
   import MapPoint from "./components/MapPoint.svelte";
   import Grid from "./components/Grid.svelte";
   import BigMap from "./components/BigMap.svelte";
-  import Text from "./components/Text.svelte";
+  import Hero from "./components/Hero.svelte";
   import Title from "./components/Title.svelte";
   import Lenis from '@studio-freight/lenis';
   import Img from "./components/Img.svelte";
+  import Quote from "./components/Quote.svelte";
 
   export let data;
 
   const secteur = data.secteur.features;
   const total = data.secteur;
-  const datas = data.temp.features
-    .map((d) => d.properties)
+  const datas = data.temp.features.map((d) => d.properties)
     .filter((d) => d.city == "liege");
+  const province = data.provinces
+
   
 
   onMount(() => {
@@ -38,71 +40,136 @@
     requestAnimationFrame(raf)
   })
 
+  // let participants = [
+  //   {
+  //     nom: "Héloïse",
+  //     job: "Data"
+  //   },
+  //   {
+  //     nom: "Ambroise",
+  //     job: "journaliste"
+  //   }
+  // ]
+
   //const mar = data.mar
 </script>
+  <Hero
+  title={"Les îlots de chaleur, ce problème qui menace les villes belges"}
+  subtitle={"Comment ce phénomène climatique va creuser les écarts entre les riches et les pauvres"}
+  />
+  <div class="wrapper-text">
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+      Rerum voluptatem laborum placeat enim adipisci voluptatum! 
+      Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
+      ratione nobis minima, velit esse ut unde.Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+      Rerum voluptatem laborum placeat enim adipisci voluptatum! 
+      Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
+      ratione nobis minima, velit esse ut unde.Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+      Rerum voluptatem laborum placeat enim adipisci voluptatum! 
+      Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
+      ratione nobis minima, velit esse ut unde.Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+      Rerum voluptatem laborum placeat enim adipisci voluptatum! 
+      Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
+      ratione nobis minima, velit esse ut unde.Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+      Rerum voluptatem laborum placeat enim adipisci voluptatum! 
+      Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
+      ratione nobis minima, velit esse ut unde.Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+      Rerum voluptatem laborum placeat enim adipisci voluptatum! 
+      Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
+      ratione nobis minima, velit esse ut unde.</p>
+    </div>
 
-<div class="wrapper">
+    <Quote
+    content={"Lorem ipsum dolor sit, amet consectetur adipisicing elit."}/>
+
+    <div class="wrapper-text">
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+        Rerum voluptatem laborum placeat enim adipisci voluptatum! 
+        Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
+        ratione nobis minima, velit esse ut unde.</p>
+    </div>
+
   <Title
-  content={"Title"}/>
-  <Text
-    content={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga et repellendus a, perspiciatis porro quasi tempore qui quia veniam ullam, omnis, tenetur repellat molestias deleniti consequuntur at aspernatur ad ipsum Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius optio quidem aliquam exercitationem perferendis itaque voluptates. Exercitationem recusandae assumenda magni, animi necessitatibus, quam numquam harum libero dicta minus soluta doloribus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga et repellendus a, perspiciatis porro quasi tempore qui quia veniam ullam, omnis, tenetur repellat molestias deleniti consequuntur at aspernatur ad ipsum Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius optio quidem aliquam exercitationem perferendis itaque voluptates. Exercitationem recusandae assumenda magni, animi necessitatibus, quam numquam harum libero dicta minus soluta doloribus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga et repellendus a, perspiciatis porro quasi tempore qui quia veniam ullam, omnis, tenetur repellat molestias deleniti consequuntur at aspernatur ad ipsum Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius optio quidem aliquam exercitationem perferendis itaque voluptates. Exercitationem recusandae assumenda magni, animi necessitatibus, quam numquam harum libero dicta minus soluta doloribus."}
-    type={"bloc"}
+  content={"Les îlots de chaleur à Liège"}
   />
-  <Text
-  content={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga et repellendus a, perspiciatis porro quasi tempore qui quia veniam ullam, omnis, tenetur repellat molestias deleniti consequuntur at aspernatur ad ipsum Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius optio quidem aliquam exercitationem perferendis itaque voluptates. Exercitationem recusandae assumenda magni, animi necessitatibus, quam numquam harum libero dicta minus soluta doloribus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga et repellendus a, perspiciatis porro quasi tempore qui quia veniam ullam, omnis, tenetur repellat molestias deleniti consequuntur at aspernatur ad ipsum Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius optio quidem aliquam exercitationem perferendis itaque voluptates. Exercitationem recusandae assumenda magni, animi necessitatibus, quam numquam harum libero dicta minus soluta doloribus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga et repellendus a, perspiciatis porro quasi tempore qui quia veniam ullam, omnis, tenetur repellat molestias deleniti consequuntur at aspernatur ad ipsum Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius optio quidem aliquam exercitationem perferendis itaque voluptates. Exercitationem recusandae assumenda magni, animi necessitatibus, quam numquam harum libero dicta minus soluta doloribus."}
-  type={"bloc"}
-  />
+  <div class="wrapper-text">
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+      Rerum voluptatem laborum placeat enim adipisci voluptatum! 
+      Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
+      ratione nobis minima, velit esse ut unde. Lorem ipsum dolor,
+      sit amet consctetur adipisicing elit. Ducimus quasi illum 
+      omnis maiores sequi fugit soluta, mollitia ipsum esse. 
+      Deleniti nesciunt, saepe tempora adipisci possimus commodi 
+      inventore provident reprehenderit soluta.</p>
+  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+    Rerum voluptatem laborum placeat enim adipisci voluptatum! 
+    Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
+    ratione nobis minima, velit esse ut unde.</p>
+  </div>
 
+  <!-- <section>      
+    <BigMap
+      geometry_data={secteur}
+      complete_geo={total}
+      point_data={datas}
+      provinces={province.features}
+      />
+    </section> -->
+
+  <!-- inline / middle / big -->
   <Img
-    type={"multiple"}
+    type={"middle"}
     img={["https://static.vecteezy.com/ti/photos-gratuite/p2/719584-canetons-et-cinq-canetons-photo.jpg",
-          "https://www.southernliving.com/thmb/kbA2khXaJQqn9mo5R9ZRAYL8zCw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(999x665:1001x667)/gettyimages-837898820-2000-667fc4cc028a43369037e229c9bd52fb.jpg"]}
+        "https://static.vecteezy.com/ti/photos-gratuite/p2/719584-canetons-et-cinq-canetons-photo.jpg"]}
     />
 
-  <Title
-  content={"Title"}
-  />
-  <Text
-  content={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga et repellendus a, perspiciatis porro quasi tempore qui quia veniam ullam, omnis, tenetur repellat molestias deleniti consequuntur at aspernatur ad ipsum Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius optio quidem aliquam exercitationem perferendis itaque voluptates. Exercitationem recusandae assumenda magni, animi necessitatibus, quam numquam harum libero dicta minus soluta doloribus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga et repellendus a, perspiciatis porro quasi tempore qui quia veniam ullam, omnis, tenetur repellat molestias deleniti consequuntur at aspernatur ad ipsum Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius optio quidem aliquam exercitationem perferendis itaque voluptates. Exercitationem recusandae assumenda magni, animi necessitatibus, quam numquam harum libero dicta minus soluta doloribus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga et repellendus a, perspiciatis porro quasi tempore qui quia veniam ullam, omnis, tenetur repellat molestias deleniti consequuntur at aspernatur ad ipsum Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius optio quidem aliquam exercitationem perferendis itaque voluptates. Exercitationem recusandae assumenda magni, animi necessitatibus, quam numquam harum libero dicta minus soluta doloribus."}
-  type={"bloc"}
-  />
-  <Title
-  content={"Title"}
-  />
-  <Text
-  content={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga et repellendus a, perspiciatis porro quasi tempore qui quia veniam ullam, omnis, tenetur repellat molestias deleniti consequuntur at aspernatur ad ipsum Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius optio quidem aliquam exercitationem perferendis itaque voluptates. Exercitationem recusandae assumenda magni, animi necessitatibus, quam numquam harum libero dicta minus soluta doloribus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga et repellendus a, perspiciatis porro quasi tempore qui quia veniam ullam, omnis, tenetur repellat molestias deleniti consequuntur at aspernatur ad ipsum Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius optio quidem aliquam exercitationem perferendis itaque voluptates. Exercitationem recusandae assumenda magni, animi necessitatibus, quam numquam harum libero dicta minus soluta doloribus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga et repellendus a, perspiciatis porro quasi tempore qui quia veniam ullam, omnis, tenetur repellat molestias deleniti consequuntur at aspernatur ad ipsum Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius optio quidem aliquam exercitationem perferendis itaque voluptates. Exercitationem recusandae assumenda magni, animi necessitatibus, quam numquam harum libero dicta minus soluta doloribus."}
-  type={"bloc"}
+    <section>
+      <MapPoint
+      complete_geo={total}
+      point_data={datas} 
+      provinces={province}
+      />
+    </section>
+
+  <div class="wrapper-text">
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+      Rerum voluptatem laborum placeat enim adipisci voluptatum! 
+      Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
+      ratione nobis minima, velit esse ut unde.Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+      Rerum voluptatem laborum placeat enim adipisci voluptatum! 
+      Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
+      ratione nobis minima, velit esse ut unde.Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+      Rerum voluptatem laborum placeat enim adipisci voluptatum! 
+      Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
+      ratione nobis minima, velit esse ut unde.Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+      ratione nobis minima, velit esse ut unde.</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+      Rerum voluptatem laborum placeat enim adipisci voluptatum! 
+      Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
+      ratione nobis minima, velit esse ut unde.</p>
+  </div>
+
+  <Img
+  type={"inline"}
+  img={["https://static.vecteezy.com/ti/photos-gratuite/p2/719584-canetons-et-cinq-canetons-photo.jpg"]}
   />
 
-  
-  <section>
+
+<!-- 
+    <section>
     <Grid/>
-  </section>
+    </section>
 
-  <section>      
+    <section>      
     <Map
       geometry_data={secteur}
       complete_geo={total}
       point_data={datas}
       />
-  </section>
+    </section>
 
-  
-  <section>      
-    <BigMap
-      geometry_data={secteur}
-      complete_geo={total}
-      point_data={datas}
-      />
-  </section>
-  
-  <section>
-    <MapPoint
-    complete_geo={total}
-    point_data={datas} 
-    />
-  </section>
-</div>
+
+    </div> -->
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500&display=swap');
@@ -130,8 +197,20 @@
   :global(body) {
     background-color: var(--backgound-color);
     font-family: 'Montserrat', sans-serif;
+    margin: 0;
 }
   /* :global(div) {
     border: 2px solid red;
   } */
+
+  .wrapper-text {
+        max-width: 90rch;
+        margin-inline: auto;
+        margin-block: 2rem;
+        line-height: 1.7rem;
+        font-size: var(--font-size-base);
+        color: whitesmoke;
+        font-weight: 400;
+        padding-inline: 1rem;
+    }
 </style>

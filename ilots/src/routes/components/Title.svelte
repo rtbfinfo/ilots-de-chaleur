@@ -17,6 +17,7 @@
         max-width: 90rch;
         margin-inline: auto;
         margin-block: 1rem;
+        padding-inline: 1rem;
     }
     h1 {
         line-height: 1.7rem;
