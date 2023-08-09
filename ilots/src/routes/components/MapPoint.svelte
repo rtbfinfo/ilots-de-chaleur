@@ -27,7 +27,7 @@
 
     // scale for map
     let projection = d3.geoMercator()
-        .fitExtent([[0, 0], [width, width/2.5]], complete_geo);
+        .fitExtent([[0, 0], [width, width5]], complete_geo);
 
     $: geoGenerator = d3.geoPath(projection)
 
@@ -60,12 +60,12 @@
     let currentStep;
 
     $: value = "NOMBRE_HAB"
-    // const steps = ["<p>Sélectionnez sur la carte la ville qui vous intéresse</p>",
-    //                 "<p>Prenons la température de surface pour liège par exemple</p>","<p>Voici les zones extremes</p>",
-    //                 "<p>Ici les points sont classés en fonction de la temperature</p>",
-	// 			   "<p>Ici la température de surface est mise en relation avec les revenus median de chaque secteur</p>",
-    //                "<p>Ici la verdure</p>" 
-	// 			   ];
+    const steps = ["<p>Sélectionnez sur la carte la ville qui vous intéresse</p>",
+                    "<p>Prenons la température de surface pour liège par exemple</p>","<p>Voici les zones extremes</p>",
+                    "<p>Ici les points sont classés en fonction de la temperature</p>",
+				   "<p>Ici la température de surface est mise en relation avec les revenus median de chaque secteur</p>",
+                   "<p>Ici la verdure</p>" 
+				   ];
 
     import { tweened } from "svelte/motion";    
     import { onMount } from "svelte";

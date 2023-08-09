@@ -14,16 +14,17 @@
   import Img from "./components/Img.svelte";
   import Quote from "./components/Quote.svelte";
   import LinePlot from "./components/LinePlot.svelte";
+  import Select from "./components/Select.svelte";
 
   export let data;
 
   const secteur = data.secteur.features;
   const total = data.secteur;
-  const datas = data.temp.features.map((d) => d.properties)
-    .filter((d) => d.city == "liege");
+  const Lst = data.temp;
   const province = data.provinces
   const mar = data.mar
   const secteur_all = data.secteur_all;
+
   onMount(() => {
     //smooth scroll 
     const lenis = new Lenis()
@@ -106,26 +107,26 @@
     ratione nobis minima, velit esse ut unde.</p>
   </div>
 
-  <!-- <section>      
-    <BigMap
-      geometry_data={secteur}
-      complete_geo={total}
-      point_data={datas}
-      provinces={province.features}
-      />
-    </section> -->
+  <section>
+    <Select 
+    Belgium_geo={province}
+    secteurs_geo={secteur_all}
+    point_data={Lst}
+    />
+  </section>
 
-  <!-- inline / middle / big -->
+
+
 
   
-    <section>
+    <!-- <section>
       <MapPoint
       complete_geo={total}
       point_data={datas} 
       provinces={province}
       every_sector={secteur_all}
       />
-    </section>
+    </section> -->
 
     <Title
   content={"Dans le futur"}
@@ -152,28 +153,12 @@
   <LinePlot
   MAR={mar}/>
 
+  <!-- inline / middle / big -->
   <Img
     type={"middle"}
     img={["https://static.vecteezy.com/ti/photos-gratuite/p2/719584-canetons-et-cinq-canetons-photo.jpg",
         "https://static.vecteezy.com/ti/photos-gratuite/p2/719584-canetons-et-cinq-canetons-photo.jpg"]}
     />
-
-
-<!-- 
-    <section>
-    <Grid/>
-    </section>
-
-    <section>      
-    <Map
-      geometry_data={secteur}
-      complete_geo={total}
-      point_data={datas}
-      />
-    </section>
-
-
-    </div> -->
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500&display=swap');

@@ -49,5 +49,3 @@
         {/each}
     </g>
 {/each}
-<p>{hover}</p>
-
