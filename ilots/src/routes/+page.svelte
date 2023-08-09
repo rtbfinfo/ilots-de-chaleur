@@ -156,8 +156,7 @@
   <!-- inline / middle / big -->
   <Img
     type={"middle"}
-    img={["https://static.vecteezy.com/ti/photos-gratuite/p2/719584-canetons-et-cinq-canetons-photo.jpg",
-        "https://static.vecteezy.com/ti/photos-gratuite/p2/719584-canetons-et-cinq-canetons-photo.jpg"]}
+    img={["./image/ilots_infographie.png"]}
     />
 
 <style>
