@@ -5,6 +5,7 @@
 
     $: width = 700;
     $: height = 700;
+    $: big = true
 
     export let point_data;
     export let complete_geo;
@@ -24,7 +25,7 @@
 
     // scale for map
     let projection = d3.geoMercator()
-        //fitExtent([[0, 0], [width, width/2.5]], complete_geo);
+        .fitExtent([[0, 0], [width, width/2.5]], complete_geo);
 
     $: geoGenerator = d3.geoPath(projection)
 
@@ -48,30 +49,27 @@
     $: yScale =d3.scaleLinear()
         .domain([d3.min(point_data.filter(d => d.REVENU_MOYEN !== null).map(d => d.raster_value_x)),d3.max(point_data.map(d => d.raster_value_x))])
         .range([800 - margin.bottom , 0 + margin.top])
-    
+
+    let radiusScale = d3.scaleSqrt()
+        .domain([d3.min(point_data.filter(d => d.REVENU_MOYEN !== null).map(d => d.NOMBRE_HAB)),d3.max(point_data.map(d => d.NOMBRE_HAB))])
+        .range([5,20])
 
     // step scrolly (à mettre dans la page principale)
     let currentStep;
 
     $: value = "NOMBRE_HAB"
-    const steps = ["<p>Prenons la température de surface pour liège par exemple</p>", 
-				   "<p>Ici la température de surface est mise en relation avec les revenus median de chaque secteur</p>", 
-				   "<p>Sélectionnez sur la carte la ville qui vous intéresse</p>"];
+    const steps = ["<p>Sélectionnez sur la carte la ville qui vous intéresse</p>",
+                    "<p>Prenons la température de surface pour liège par exemple</p>","<p>Voici les zones extremes</p>",
+                    "<p>Ici les points sont classés en fonction de la temperature</p>",
+				   "<p>Ici la température de surface est mise en relation avec les revenus median de chaque secteur</p>",
+                   "<p>Ici la verdure</p>" 
+				   ];
 
-    import { tweened } from "svelte/motion";
-    import { point } from "turf";
-    
+    import { tweened } from "svelte/motion";    
+    import { onMount } from "svelte";
     const tweenedX = tweened(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[0])) 
     const tweenedY =tweened(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[1]))
-    const tweendRad = tweened(2.5)
-
-
-    const BiggerPoint = function () {
-        tweendRad.set(5)
-    }
-    const SmallPoint = function () {
-        tweendRad.set(2.5)
-    }
+    const tweendRad = tweened(point_data.map(d => 2))
     
     const setMap = function () {
         projection = d3.geoMercator()
@@ -82,6 +80,8 @@
         tweenedX.set(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[0]))
         tweenedY.set(point_data.map(d => projection([d.centroid_lat,d.centroid_lat])[1]))
 
+        tweendRad.set(point_data.map(d => d.NOMBRE_HAB = 3))
+
     }
 
     const setProv = function () {
@@ -89,44 +89,67 @@
         .fitExtent([[0, 0], [width, 800]], provinces);
 
         geoGenerator = d3.geoPath(projection)
-
-        tweenedX.set(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[0]))
-        tweenedY.set(point_data.map(d => projection([d.centroid_lat,d.centroid_lat])[1]))
+        big = true
 
     }
 
     const setPoint = function () {
+
         tweenedX.set(point_data.map(d => XScale(d.NOMBRE_HAB)))
         tweenedY.set(point_data.map(d => yScale(d.raster_value_y)))
+
+        tweendRad.set(point_data.map(d => radiusScale(d.NOMBRE_HAB)))
     }
 
+    const setTemp = function () {
+
+        tweenedX.set(point_data.map(d => width/2))
+        tweenedY.set(point_data.map(d => yScale(d.raster_value_y)))
+
+        tweendRad.set(point_data.map(d => radiusScale(d.NOMBRE_HAB)))
+
+        }
+
     const setRev = function () {
+
         tweenedX.set(point_data.map(d => revscale(d.REVENU_MOYEN)))
         tweenedY.set(point_data.map(d => yScale(d.raster_value_y)))
+
+        tweendRad.set(point_data.map(d => radiusScale(d.NOMBRE_HAB)))
+
     }
 
     const setVer = function () {
+
         tweenedX.set(point_data.map(d => ver_scale(d.perc_ver)))
         tweenedY.set(point_data.map(d => yScale(d.raster_value_y)))
+
+        tweendRad.set(point_data.map(d => radiusScale(d.NOMBRE_HAB)))
     }
   
     $: if (currentStep == 0) {
         isMap = true
-        setMap()
-        SmallPoint()
+        setProv()
     } else if (currentStep == 1) {
         isMap = true
         setMap()
-        SmallPoint()
     } else if (currentStep == 2) {
+        isMap = true
+        setMap()
+    } else if (currentStep== 3) {
+        isMap = false
+        setTemp()
+    } else if (currentStep==4) {
         isMap = false
         setRev()
-        BiggerPoint()
-    } else if (currentStep== 3) {
-        isMap = true
-        setProv()
+    } else if (currentStep==5) {
+        isMap = false
+        setVer()
     }
 
+    onMount( () => {
+        setProv()
+    })
 
 </script>
 
@@ -138,11 +161,11 @@
             <svg width={width} height=800>
                 <g>
                   {#each point_data as temp, index}
-                    <circle r={$tweendRad}
+                    <circle r={$tweendRad[index]}
                     cx={$tweenedX[index]} 
                     cy={$tweenedY[index]}
                     fill={color_scale(temp.raster_value_y)} 
-                    style=""/>
+                    style="stroke:black;stroke-width:0.5"/>
                   {/each}
               </g>
               {#if isMap}

@@ -127,7 +127,7 @@
     </section>
 
     <Title
-  content={"Dans le future"}
+  content={"Dans le futur"}
   />
 
   <div class="wrapper-text">
