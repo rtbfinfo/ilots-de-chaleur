@@ -21,20 +21,23 @@
     $: geoGenerator = d3.geoPath(projection)
 
     $: color_scale = d3.scaleLinear()
-        .domain([d3.min(point_data.map(d => d.properties[value])),d3.median(point_data.map(d => d.properties[value])),d3.max(point_data.map(d => d.properties[value]))])
-        .range(["blue","white","red"])
+        .domain([d3.min(point_data.map(d => d[value])),d3.median(point_data.map(d => d[value])),d3.max(point_data.map(d => d[value]))])
+        .range(["#144265","whitesmoke","#DA4D1A"])
 
     let currentStep;
     const steps = ["<p>Densité de population</p>", 
                 "<p>Revenus moyen</p>", 
-                "<p>Land surface temperature</p>"];
+                "<p>Land surface temperature</p>",
+              "<p>Percentage de verdure</p>"];
       
     $: if (currentStep == 0) {
       value = "NOMBRE_HAB"
     } else if (currentStep == 1) {
       value = "REVENU_MOYEN"
     } else if (currentStep == 2) {
-      value="raster_value"
+      value="raster_value_x"
+    } else if (currentStep == 3) {
+      value="perc_ver"
     }
     
 </script>
@@ -42,22 +45,22 @@
 
 <div bind:clientHeight={height}></div>
 
-<div class="chart" transition:fade={{duration:5000}}  bind:clientWidth={width}>
+<div class="chart" bind:clientWidth={width}>
    <svg width={width} height={width/2}>
       <g>
         {#each point_data as temp}
-          <circle r="2.5"
-          cx={projection([temp.properties.centroid_lon, temp.properties.centroid_lat])[0]} 
-          cy={projection([temp.properties.centroid_lon, temp.properties.centroid_lat])[1]}
-          fill={temp.properties[value] == null ? "grey" : color_scale(temp.properties[value])} 
+          <circle r="1"
+          cx={projection([temp.centroid_lon, temp.centroid_lat])[0]} 
+          cy={projection([temp.centroid_lon, temp.centroid_lat])[1]}
+          fill={temp[value] == null ? "grey" : color_scale(temp[value])} 
           style="opacity:2;"/>
         {/each}
     </g>
     <g>
         {#each geometry_data as data}
           <path d={geoGenerator(data)} 
-          style="stroke:grey;fill:none;stroke-width:0.1;stroke-opacity:0.2"
-          transition:draw={{duration:2000, delay:0.1}}/>
+          style="stroke:white;fill:none;stroke-width:0.2;stroke-opacity:1"
+          />
         {/each}
     </g>
   </svg>
@@ -76,10 +79,10 @@
 
   <style>
     .chart {
-      background: whitesmoke;
+      /* background: whitesmoke; */
       width: 80%;
       height: 80%;
-      box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+      /* box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2); */
       position: sticky;
       top: 10%;
       margin: auto;
