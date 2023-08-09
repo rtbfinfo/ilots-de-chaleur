@@ -23,13 +23,12 @@
     .filter((d) => d.city == "liege");
   const province = data.provinces
   const mar = data.mar
-
+  const secteur_all = data.secteur_all;
   onMount(() => {
     //smooth scroll 
     const lenis = new Lenis()
 
     lenis.on('scroll', (e) => {
-    console.log(e)
     })
 
     function raf(time) {
@@ -118,11 +117,13 @@
 
   <!-- inline / middle / big -->
 
+  
     <section>
       <MapPoint
       complete_geo={total}
       point_data={datas} 
       provinces={province}
+      every_sector={secteur_all}
       />
     </section>
 

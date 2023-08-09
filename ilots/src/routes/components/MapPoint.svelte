@@ -2,6 +2,7 @@
     import Scrolly from "./scrolly.svelte";
     import * as d3 from "d3"
     import { draw } from  "svelte/transition";
+    import SelectMap from "./SelectMap.svelte";
 
     $: width = 700;
     $: height = 700;
@@ -10,6 +11,7 @@
     export let point_data;
     export let complete_geo;
     export let provinces;
+    export let every_sector;
 
     let margin = {
         top: 20,
@@ -58,12 +60,12 @@
     let currentStep;
 
     $: value = "NOMBRE_HAB"
-    const steps = ["<p>Sélectionnez sur la carte la ville qui vous intéresse</p>",
-                    "<p>Prenons la température de surface pour liège par exemple</p>","<p>Voici les zones extremes</p>",
-                    "<p>Ici les points sont classés en fonction de la temperature</p>",
-				   "<p>Ici la température de surface est mise en relation avec les revenus median de chaque secteur</p>",
-                   "<p>Ici la verdure</p>" 
-				   ];
+    // const steps = ["<p>Sélectionnez sur la carte la ville qui vous intéresse</p>",
+    //                 "<p>Prenons la température de surface pour liège par exemple</p>","<p>Voici les zones extremes</p>",
+    //                 "<p>Ici les points sont classés en fonction de la temperature</p>",
+	// 			   "<p>Ici la température de surface est mise en relation avec les revenus median de chaque secteur</p>",
+    //                "<p>Ici la verdure</p>" 
+	// 			   ];
 
     import { tweened } from "svelte/motion";    
     import { onMount } from "svelte";
@@ -159,7 +161,18 @@
     <div class="chart"   bind:clientWidth={width}>
         <div id="content">
             <svg width={width} height=800>
-                <g>
+                
+              <SelectMap
+              Belgium_geo={provinces}
+              secteurs_geo={every_sector}
+              width={width}
+              />
+              
+              
+              
+              
+              
+                <!-- <g>
                   {#each point_data as temp, index}
                     <circle r={$tweendRad[index]}
                     cx={$tweenedX[index]} 
@@ -233,12 +246,12 @@
                 />
 
             </g>
-            {/if}
+            {/if} -->
           </svg>
           </div>
         </div>
    
-  
+<!--   
      
      <Scrolly bind:value={currentStep}>
          {#each steps as text, i}
@@ -248,7 +261,7 @@
                  </div>
              </div>
          {/each}
-     </Scrolly>
+     </Scrolly> -->
 </section>
 
 <style>
@@ -263,9 +276,9 @@
     height: 80%;
     /* box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2); */
     position: sticky;
-    top: 10%;
+    top: 5%;
     margin: auto;
-    z-index: -100;
+    z-index: 10;
     margin-bottom: 10rem;
     border-radius: 10rem;
   }

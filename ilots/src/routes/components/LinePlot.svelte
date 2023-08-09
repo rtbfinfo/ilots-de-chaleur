@@ -4,12 +4,10 @@
     import { onMount } from "svelte";
     import Map from "./Map.svelte";
 
-    console.log(MAR.year)
     let liege = MAR.filter(d => d.city == "Liège")
     let Charleroi = MAR.filter(d => d.city == "Charleroi")
 
 
-    console.log(liege)
     $: width = 500;
     let height = 800;
 
