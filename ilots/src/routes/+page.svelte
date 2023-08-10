@@ -2,12 +2,9 @@
   import * as d3 from "d3";
   import { onMount } from "svelte";
   import { fade } from "svelte/transition";
+  import {gsap} from "gsap";
+  import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
 
-  import Map from "./components/Map.svelte";
-  import PointPlot from "./components/PointPlot.svelte";
-  import MapPoint from "./components/MapPoint.svelte";
-  import Grid from "./components/Grid.svelte";
-  import BigMap from "./components/BigMap.svelte";
   import Hero from "./components/Hero.svelte";
   import Title from "./components/Title.svelte";
   import Lenis from '@studio-freight/lenis';
@@ -25,6 +22,9 @@
   const mar = data.mar
   const secteur_all = data.secteur_all;
 
+  gsap.registerPlugin(ScrollTrigger);
+
+
   onMount(() => {
     //smooth scroll 
     const lenis = new Lenis()
@@ -38,8 +38,25 @@
     }
 
     requestAnimationFrame(raf)
-  })
 
+    gsap.utils.toArray(".test").forEach(function(elem) {
+
+
+      gsap.to('body', {
+        scrollTrigger: {
+              trigger:".blue",
+              start: "80% 80%",
+              end: "bottom top",
+              scrub: true,
+              // pin: true,
+              anticipatePin: 1,
+              markers: true
+          },
+          backgroundColor: "#e19186"
+      })
+    })
+  })
+    //   })
   // let participants = [
   //   {
   //     nom: "Héloïse",
@@ -52,12 +69,15 @@
   // ]
 
   //const mar = data.mar
+
+
+
 </script>
   <Hero
   title={"Les îlots de chaleur, ce problème qui menace les villes belges"}
   subtitle={"Comment ce phénomène climatique va creuser les écarts entre les riches et les pauvres"}
   />
-  <div class="wrapper-text">
+  <div class="wrapper-text test" style="color:var(--dark-blue)" data-color="red">
     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
       Rerum voluptatem laborum placeat enim adipisci voluptatum! 
       Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
@@ -80,9 +100,10 @@
     </div>
 
     <Quote
-    content={"Lorem ipsum dolor sit, amet consectetur adipisicing elit."}/>
+    content={"Lorem ipsum dolor sit, amet consectetur adipisicing elit."}
+    />
 
-    <div class="wrapper-text">
+    <div class="wrapper-text test">
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
         Rerum voluptatem laborum placeat enim adipisci voluptatum! 
         Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
@@ -90,7 +111,7 @@
     </div>
 
   <Title
-  content={"Les îlots de chaleur à Liège"}
+  content={"C'est quoi un ilot de chaleur ?"}
   />
   <div class="wrapper-text">
     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
@@ -106,6 +127,21 @@
     Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
     ratione nobis minima, velit esse ut unde.</p>
   </div>
+  <Img
+  type={"middle"}
+  img={["./image/ilots_infographie.png"]}
+  />
+
+    <Title
+  content={"Bloc de scroll"}
+  />
+
+  <div class="blue"></div>
+
+  <div class="wrapper-text test"  data-color="blue">
+    <p>Choisissez la ville que vous voulez explorer sur cette carte interactive
+    </p>
+  </div>
 
   <section>
     <Select 
@@ -115,49 +151,83 @@
     />
   </section>
 
-
-
+  <Title
+  content={"Analyse Sociologique"}
+  />
+  <div class="wrapper-text test" data-color="light-blue">
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+      Rerum voluptatem laborum placeat enim adipisci voluptatum! 
+      Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
+      ratione nobis minima, velit esse ut unde. Lorem ipsum dolor,
+      sit amet consctetur adipisicing elit. Ducimus quasi illum 
+      omnis maiores sequi fugit soluta, mollitia ipsum esse. 
+      Deleniti nesciunt, saepe tempora adipisci possimus commodi 
+      inventore provident reprehenderit soluta.</p>
+  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+    Rerum voluptatem laborum placeat enim adipisci voluptatum! 
+    Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
+    ratione nobis minima, velit esse ut unde.</p>
+  </div>
 
   
-    <!-- <section>
-      <MapPoint
-      complete_geo={total}
-      point_data={datas} 
-      provinces={province}
-      every_sector={secteur_all}
-      />
-    </section> -->
+  <Quote
+  content={"Lorem ipsum dolor sit, amet consectetur adipisicing elit."}/>
 
-    <Title
-  content={"Dans le futur"}
+  <div class="wrapper-text">
+  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+    Rerum voluptatem laborum placeat enim adipisci voluptatum! 
+    Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
+    ratione nobis minima, velit esse ut unde.</p>
+  </div>
+  <Img
+  type={"middle"}
+  img={["./image/GettyImages-1241386865 (1).jpg",
+  "./image/GettyImages-1241386865 (1).jpg"
+]}
   />
 
   <div class="wrapper-text">
     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
       Rerum voluptatem laborum placeat enim adipisci voluptatum! 
       Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
-      ratione nobis minima, velit esse ut unde.Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-      Rerum voluptatem laborum placeat enim adipisci voluptatum! 
-      Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
-      ratione nobis minima, velit esse ut unde.Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-      Rerum voluptatem laborum placeat enim adipisci voluptatum! 
-      Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
-      ratione nobis minima, velit esse ut unde.Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-      ratione nobis minima, velit esse ut unde.</p>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-      Rerum voluptatem laborum placeat enim adipisci voluptatum! 
-      Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
-      ratione nobis minima, velit esse ut unde.</p>
+      ratione nobis minima, velit esse ut unde. Lorem ipsum dolor,
+      sit amet consctetur adipisicing elit. Ducimus quasi illum 
+      omnis maiores sequi fugit soluta, mollitia ipsum esse. 
+      Deleniti nesciunt, saepe tempora adipisci possimus commodi 
+      inventore provident reprehenderit soluta.</p>
+  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+    Rerum voluptatem laborum placeat enim adipisci voluptatum! 
+    Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
+    ratione nobis minima, velit esse ut unde.</p>
   </div>
+
+  <Title
+  content={"Le problème va s'accentuer à l'avenir"}
+  />
 
   <LinePlot
   MAR={mar}/>
 
+
+  <Title
+  content={"Quelles solutions ?"}
+  />
+  <div class="wrapper-text test" data-color="green">
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+      Rerum voluptatem laborum placeat enim adipisci voluptatum! 
+      Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
+      ratione nobis minima, velit esse ut unde. Lorem ipsum dolor,
+      sit amet consctetur adipisicing elit. Ducimus quasi illum 
+      omnis maiores sequi fugit soluta, mollitia ipsum esse. 
+      Deleniti nesciunt, saepe tempora adipisci possimus commodi 
+      inventore provident reprehenderit soluta.</p>
+  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+    Rerum voluptatem laborum placeat enim adipisci voluptatum! 
+    Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
+    ratione nobis minima, velit esse ut unde.</p>
+  </div>
+
   <!-- inline / middle / big -->
-  <Img
-    type={"middle"}
-    img={["./image/ilots_infographie.png"]}
-    />
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500&display=swap');
@@ -169,9 +239,10 @@
     --dark-blue: #144265;
     --light-blue: #0d738a;
     --redish: #dc351f;
+    --redish-clear: #e19186;
     --light-orange: #d66819;
     --dark-orange: #da4d1a;
-    --backgound-color: #312e3d;
+    --backgound-color: #e3afa0;
 
     --font-size-sm: clamp(0.7rem, 0.35vw + 0.61rem, 0.89rem);
     --font-size-base: clamp(0.88rem, 0.57vw + 0.73rem, 1.19rem);
@@ -198,7 +269,7 @@
         line-height: 1.7rem;
         font-size: var(--font-size-base);
         color: whitesmoke;
-        font-weight: 400;
+        font-weight: 500;
         padding-inline: 1rem;
     }
 </style>

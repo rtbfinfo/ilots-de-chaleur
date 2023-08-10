@@ -1,7 +1,7 @@
 <script>
     import * as d3 from "d3"
     import { tweened } from "svelte/motion";    
-    import { feature } from "turf";
+    import { feature, point } from "turf";
     import Scrolly from "./scrolly.svelte";
 
 
@@ -10,17 +10,25 @@
     export let secteurs_geo
     export let width
     export let belgium_geo
-    $: console.log(selected)
 
 
     let height = 700;
 
-    console.log(secteurs_geo.features)
-    point_data = point_data.features.map(d => d.properties).filter(d => d.city == selected.toLowerCase()).filter(d => d.REVENU_MOYEN !== null)
-    let test = {...secteurs_geo}
-    $: test.features = test.features.filter(d => d.properties.city == selected.toLowerCase())
-    $: console.log(test.features)
-    $: console.log(selected)
+    $: console.log(point_data)
+    $: console.log(secteurs_geo)
+
+//    if (selected == "Liège") {
+//         selected == "liege"
+//     }
+//     // console.log(secteurs_geo.features)
+//     // let real_point = {...point_d}
+//     // $: point_data = 0
+//     // point_data = real_point.features.map(d => d.properties).filter(d => d.city == (selected == "Liège" ? "liege" : selected.toLowerCase())).filter(d => d.REVENU_MOYEN !== null)
+//     let test = {...secteurs_geo}
+//     $: test.features = test.features.filter(d => d.properties.city == (selected == "Liège" ? "liege" : selected.toLowerCase()))
+    // $: console.log(test.features)
+    // $: console.log(selected)
+    let other_point = JSON.parse(JSON.stringify(point_data));
 
 
     // let value = "NOMBRE_HAB";
@@ -29,10 +37,10 @@
     // // point_data = point_data.
 
     let margin = {
-        top: 10,
-        bottom: 50,
-        left : 50,
-        right: 20,
+        top: 20,
+        bottom: 150,
+        left : 60,
+        right: 50,
     }
 
     // base scale for color
@@ -43,11 +51,11 @@
     // base scale for point plot
     $: XScale = d3.scaleLinear()
         .domain([d3.min(point_data.map(d => d.value)),d3.max(point_data.map(d => d.value))])
-        .range([0 + margin.left ,800 - margin.right])
+        .range([0 + margin.left ,height - margin.right])
 
     $: yScale =d3.scaleLinear()
         .domain([d3.min(point_data.map(d => d.raster_value_x)),d3.max(point_data.map(d => d.raster_value_x))])
-        .range([800 - margin.bottom , 0 + margin.top])
+        .range([height- margin.bottom , 0 + margin.top])
 
     $: radiusScale = d3.scaleSqrt()
         .domain([d3.min(point_data.map(d => d.NOMBRE_HAB)),d3.max(point_data.map(d => d.NOMBRE_HAB))])
@@ -56,10 +64,10 @@
     // projection for the map
 
     $: projection = d3.geoMercator()
-        .fitExtent([[0, 0], [width, 700]], test);
+        .fitExtent([[0, 0], [width, 700]], secteurs_geo);
 
     projection = d3.geoMercator()
-        .fitExtent([[0, 0], [width, 700]], test);
+        .fitExtent([[0, 0], [width, 700]], secteurs_geo);
     
 
     $: geoGenerator = d3.geoPath(projection)
@@ -74,36 +82,43 @@
                     "<p>Ici la verdure</p>",
 				   ];
 
-    const tweenedX = tweened(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[0])) 
-    const tweenedY =tweened(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[1]))
-    const tweendRad = tweened(point_data.map(d => 2))
-    const tweenedColor = tweened(point_data.map(d => color_scale(d.raster_value_x)))
+    $: tweenedX = tweened(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[0])) 
+    $: tweenedY =tweened(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[1]))
+    $: tweendRad = tweened(other_point.map(d => 2))
+    $: tweenedColor = tweened(point_data.map(d => color_scale(d.raster_value_x)))
 
     const step1 = function() {
         projection = d3.geoMercator()
-        .fitExtent([[0, 0], [width, 700]], test);
+        .fitExtent([[0, 0], [width, 700]], secteurs_geo);
 
         geoGenerator = d3.geoPath(projection)
+
 
         tweenedX.set(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[0]))
         tweenedY.set(point_data.map(d => projection([d.centroid_lat,d.centroid_lat])[1]))
 
-        tweendRad.set(point_data.map(d => d.NOMBRE_HAB = 3))
+        tweendRad.set(other_point.map(d => d.NOMBRE_HAB = 2))
+
 
     }
     const step2 = function() {
         projection = d3.geoMercator()
-        .fitExtent([[0, 0], [width, 700]], test);
+        .fitExtent([[0, 0], [width, 700]], secteurs_geo);
 
         geoGenerator = d3.geoPath(projection)
+
 
         tweenedX.set(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[0]))
         tweenedY.set(point_data.map(d => projection([d.centroid_lat,d.centroid_lat])[1]))
 
-        tweendRad.set(point_data.map(d => d.NOMBRE_HAB = 3))
+        tweendRad.set(other_point.map(d => d.NOMBRE_HAB = 2))
 
     }
     const step3 = function() {
+        
+        radiusScale = d3.scaleSqrt()
+        .domain([d3.min(point_data.map(d => d.NOMBRE_HAB)),d3.max(point_data.map(d => d.NOMBRE_HAB))])
+        .range([5,20])
 
         isMap = false;
         tweenedX.set(point_data.map(d => width/2))
@@ -116,6 +131,10 @@
         XScale = d3.scaleLinear()
         .domain([d3.min(point_data.map(d => d.REVENU_MOYEN)),d3.max(point_data.map(d => d.REVENU_MOYEN))])
         .range([0 + margin.left ,width - margin.right])
+
+        radiusScale = d3.scaleSqrt()
+        .domain([d3.min(point_data.map(d => d.NOMBRE_HAB)),d3.max(point_data.map(d => d.NOMBRE_HAB))])
+        .range([5,20])
 
         tweenedX.set(point_data.map(d => XScale(d.REVENU_MOYEN)))
         tweenedY.set(point_data.map(d => yScale(d.raster_value_y)))
@@ -161,16 +180,7 @@
 
     </script>
 <div class="chart">
-    <svg width={width} height=800>
-        <g>
-            {#each point_data as temp, index}
-            <circle r={$tweendRad[index]}
-            cx={$tweenedX[index]} 
-            cy={$tweenedY[index]}
-            fill={color_scale(temp.raster_value_y)} 
-            style="stroke:black;stroke-width:0.5"/>
-            {/each}
-        </g>
+    <svg width={width} height="100vh">
         {#if isMap}
         <g>
         {#each belgium_geo.features as province}
@@ -180,13 +190,23 @@
         {/each}
         </g>
         <g>
-            {#each test.features as secteur}
+            {#each secteurs_geo.features as secteur}
                 <path d={geoGenerator(secteur)} 
-                style="stroke:white;fill:none;stroke-width:0.5;stroke-opacity:1"
+                style="stroke:white;fill:#1D2E3C;stroke-width:0.5;stroke-opacity:1;fill-opacity:0.5;z-index:-100"
                 />
             {/each}
         </g>
         {/if}
+        <g>
+            {#each point_data as temp, index}
+            <circle r={$tweendRad[index]}
+            cx={$tweenedX[index]} 
+            cy={$tweenedY[index]}
+            fill={color_scale(temp.raster_value_y)} 
+            stroke={isMap ? "none" : "black"}
+            style="stroke-width:0.5;"/>
+            {/each}
+        </g>
         <defs>
             <marker
               id="triangle"
@@ -214,10 +234,10 @@
             fill="white"
             stroke="none"
             text-anchor="end"> moins Chaud </text>
-            <line x1={0 + margin.left + 100} 
-            y1={800 - margin.bottom + 30} 
-            x2={width - margin.right - 100} 
-            y2={800 - margin.bottom + 30} 
+            <line x1={0 + margin.left}
+            y1={height - margin.bottom} 
+            x2={width - margin.right} 
+            y2={height - margin.bottom} 
             stroke="white"
             stroke-width="2"
             marker-end="url(#triangle)"
@@ -225,7 +245,7 @@
             stroke-linecap="round"/>
             <line 
             x1={0 + margin.left -30} 
-            y1={800 - margin.bottom - 50} 
+            y1={height- margin.bottom - 50} 
             x2={0 + margin.left -30} 
             y2={0 + margin.top + 100} 
             stroke="white"
@@ -252,13 +272,13 @@
 <style>
     .chart {
     /* background: whitesmoke; */
-    width: 80%;
+    width: 100%;
     height: 80%;
     /* box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2); */
     position: sticky;
-    top: 5%;
+    top: 0.1%;
     margin: auto;
-    z-index: -100;
+    z-index: -10;
     margin-bottom: 10rem;
     border-radius: 10rem;
   }
@@ -269,6 +289,7 @@
         place-items: center;
         justify-content: right;
         margin-right: 2vw;
+
     }
 
     .step-content {
@@ -277,10 +298,13 @@
         transition: background 500ms ease, color 500ms ease;
         box-shadow: 1px 1px 10px rgba(0, 0, 0, .2);
         max-width: 25vw;
+        /* backdrop-filter: blur(3rem); */
+
     }
 
 	.step.active .step-content {
         background: rgba(234, 71, 12, 0.603);
+        /* backdrop-filter: blur(3rem); */
 		color: whitesmoke;
         border-radius: 0.5rem;
         font-size: var(--font-size-base);

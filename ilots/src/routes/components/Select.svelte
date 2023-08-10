@@ -1,6 +1,7 @@
 <script>
     import * as d3 from "d3"
     import AnimScrolly from "./AnimScrolly.svelte";
+    import { point } from "turf";
 
 
     export let point_data
@@ -11,7 +12,7 @@
     let height = 700;
 
     $: projection = d3.geoMercator()
-    .fitExtent([[0, 0], [width, height]], Belgium_geo);
+    .fitExtent([[0, -500], [width , height *2]], Belgium_geo);
 
     $: geoGenerator = d3.geoPath(projection)
 
@@ -19,18 +20,31 @@
 
     let hover;
     let selected;
+    $: other = {...point_data}
+    let geo =   {...secteurs_geo}
+    let data_map;
+
+    $: if (selected) {
+        if (selected == "Liège") {
+        selected == "liege"
+    }
+    data_map = other.features.map(d => d.properties).filter(d => d.city == (selected == "Liège" ? "liege" : selected.toLowerCase()))
+    //.filter(d => d.REVENU_MOYEN !== null)
+    geo.features = secteurs_geo.features.filter(d => d.properties.city == (selected == "Liège" ? "liege" : selected.toLowerCase()))
+       
+    }
 </script>
 
 
 <section>
     <div class="chart"   bind:clientWidth={width}>
         <div id="content">
-            <svg width={width} height=800>
+            <svg width={width} height="100vh">
                 <!-- Fond de carte Belqigue -->
                 <g>
                     {#each Belgium_geo.features as province}
                                  <path d={geoGenerator(province)} 
-                                 style="stroke:whitesmoke;fill:grey;stroke-width:0.5;fill-opacity:0.2;stroke-opacity:0.5"
+                                 style="stroke:whitesmoke;fill:none;stroke-width:0.5;fill-opacity:0.2;stroke-opacity:0.5"
                                  />
                     {/each}
                </g>
@@ -58,8 +72,8 @@
         {#if selected}
             <AnimScrolly
             selected={selected}
-            point_data={point_data}
-            secteurs_geo={secteurs_geo}
+            point_data={data_map}
+            secteurs_geo={geo}
             width={width}
             belgium_geo={Belgium_geo}/>
         {/if}
@@ -70,7 +84,7 @@
 <style> 
     .chart {
     /* background: whitesmoke; */
-    width: 50%;
+    width: 100%;
     height: 80%;
     /* box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2); */
     position: sticky;
