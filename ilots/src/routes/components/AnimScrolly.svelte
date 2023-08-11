@@ -82,7 +82,12 @@
                     "<p>Ici la verdure</p>",
 				   ];
 
-    $: tweenedX = tweened(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[0])) 
+    $: tweenedX = tweened(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[0]),
+        {
+            duration: 1000,
+            delay: 0,
+
+        }) 
     $: tweenedY =tweened(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[1]))
     $: tweendRad = tweened(other_point.map(d => 2))
     $: tweenedColor = tweened(point_data.map(d => color_scale(d.raster_value_x)))
@@ -169,7 +174,7 @@
         step3()
     } else if (currentStep== 3) {
         isMap = false
-        step4()
+        step5()
     } else if (currentStep==4) {
         isMap = false
         step5()
