@@ -7,6 +7,7 @@
     export let point_data
     export let Belgium_geo
     export let secteurs_geo
+    export let annot
 
     let width = 700;
     let height = 700;
@@ -20,9 +21,14 @@
 
     let hover;
     let selected;
+    let mouseX;
+    let mouseY;
     $: other = {...point_data}
     let geo =   {...secteurs_geo}
     let data_map;
+
+    $: console.log(mouseX)
+    $: console.log(mouseY)
 
     $: if (selected) {
         if (selected == "Liège") {
@@ -35,13 +41,16 @@
     }
 </script>
 
+<svelte:window bind:innerHeight={height}></svelte:window>
 
 <section>
     <div class="chart"   bind:clientWidth={width}>
         <div id="content">
-            <svg width={width} height="100vh">
+
+        {#if !selected}
+            <svg width={width} height={height}>
                 <!-- Fond de carte Belqigue -->
-                <g>
+                <g id="test">
                     {#each Belgium_geo.features as province}
                                  <path d={geoGenerator(province)} 
                                  style="stroke:whitesmoke;fill:none;stroke-width:0.5;fill-opacity:0.2;stroke-opacity:0.5"
@@ -50,23 +59,39 @@
                </g>
                <!-- Agglomération qui renvoi le hover -->
                {#each listCity as city}  
-                   <g class={city}>
+                   <g class={city}
+                   on:mouseover={(event) => {
+                    hover = city
+                    }}
+                    on:mouseenter= {(event) => {
+                        mouseX = event.clientX;
+                        mouseY = event.clientY;
+                    }}>
                        {#each secteurs_geo.features.filter(d => d.properties.tx_munty_descr_fr == city) as secteur}
                                <path d={geoGenerator(secteur)} 
                                class={city}
                                stroke={hover == city ? "var(--dark-orange)" : "var(--light-blue)"}
                                fill={hover == city ? "var(--dark-orange)" : "var(--light-blue)"}
-                               on:mouseover={() => {
-                                   hover = city
+                               on:mouseleave={() => {
+                                    hover = undefined;
                                }}
-                               on:mousedown={() => {
+
+                               on:mousedown={(event) => {
                                 selected = city
+                                hover = undefined;
                                }}
                            />
                        {/each}
                    </g>
                {/each}
             </svg>
+        {/if}
+        
+        {#if hover}
+        <div class="hover" style="position:absolute;top:{mouseY}px;left:{mouseX}px;">
+            <p>{hover}</p>
+        </div>
+        {/if}
 
         </div>
         {#if selected}
@@ -74,15 +99,48 @@
             selected={selected}
             point_data={data_map}
             secteurs_geo={geo}
-            width={width}
-            belgium_geo={Belgium_geo}/>
+            belgium_geo={Belgium_geo}
+            annot={annot}
+            />
         {/if}
     </div>
 </section>
-
+{#if selected}
+<div class="wrapper">
+    <button 
+    on:click={() => {
+        selected = undefined;
+        console.log("click")
+    }}><a href="#test">Retour au choix de ville</a></button>
+</div>
+{/if}
 
 <style> 
-    .chart {
+    .hover {
+        color: whitesmoke;
+        background-color: rgba(234, 71, 12, 0.603);
+        border-radius: 1rem;
+        padding: 2rem;
+
+    }
+    .wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 5rem;
+    }
+    button {
+        font-size: var(--font-size-lg);
+        padding: 0.5rem;
+        text-decoration: none;
+        color: whitesmoke;
+        background-color: var(--redish);
+        border-radius: 1rem;
+    }
+    a {
+        text-decoration: none;
+        color: whitesmoke;
+    }
+    .map {
     /* background: whitesmoke; */
     width: 100%;
     height: 80%;
@@ -91,7 +149,17 @@
     top: 5%;
     margin: auto;
     z-index: 10;
-    margin-bottom: 10rem;
+    border-radius: 10rem;
+  }
+  .chart {
+    /* background: whitesmoke; */
+    width: 100%;
+    height: 80%;
+    /* box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2); */
+    position: sticky;
+    top: 5%;
+    margin: auto;
+    z-index: 10;
     border-radius: 10rem;
   }
 </style>

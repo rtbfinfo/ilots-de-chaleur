@@ -12,11 +12,11 @@
   import Quote from "./components/Quote.svelte";
   import LinePlot from "./components/LinePlot.svelte";
   import Select from "./components/Select.svelte";
-
+  import GameCalc from "./components/GameCalc.svelte";
+  import Video from "./components/Video.svelte";
   export let data;
 
-  const secteur = data.secteur.features;
-  const total = data.secteur;
+  const annot = data.annot.features
   const Lst = data.temp;
   const province = data.provinces
   const mar = data.mar
@@ -50,7 +50,7 @@
               scrub: true,
               // pin: true,
               anticipatePin: 1,
-              markers: true
+              // markers: true
           },
           backgroundColor: "#e19186"
       })
@@ -148,6 +148,7 @@
     Belgium_geo={province}
     secteurs_geo={secteur_all}
     point_data={Lst}
+    annot={annot}
     />
   </section>
 
@@ -179,10 +180,10 @@
     Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
     ratione nobis minima, velit esse ut unde.</p>
   </div>
-  <Img
-  type={"middle"}
-  img={["./image/GettyImages-1241386865 (1).jpg",
-  "./image/GettyImages-1241386865 (1).jpg"
+  <Video
+  type={"big"}
+  img={["./image/drone bxl immeubles.mp4",
+  "./image/drone bxl immeubles.mp4"
 ]}
   />
 
@@ -226,6 +227,12 @@
     Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
     ratione nobis minima, velit esse ut unde.</p>
   </div>
+
+  <GameCalc
+  images={["./image/solutions/Horizontal/01-REVETEMENT.png","./image/solutions/Horizontal/02-ISOLATION.png","./image/solutions/Horizontal/03-PELOUSE.png",
+  "./image/solutions/Horizontal/04-POINT D EAU.png","./image/solutions/Horizontal/05-TRAFFIC.png","./image/solutions/Horizontal/06-FONTAINES.png","./image/solutions/Horizontal/07-OMBRE.png",
+  "./image/solutions/Horizontal/08-ARROSAGE.png","./image/solutions/Horizontal/09-TOITURES.png","./image/solutions/Horizontal/10-TOITURES+FACADES.png",
+  "./image/solutions/Horizontal/11-BRUMIFICATEURS.png","./image/solutions/Horizontal/12-ARBRES.png","./image/solutions/Horizontal/VILLE-BASE.png"]}/> 
 
   <!-- inline / middle / big -->
 

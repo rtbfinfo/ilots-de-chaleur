@@ -3,8 +3,8 @@ import * as d3 from "d3"
 
 export const load = async ({fetch}) => {
     
-        const fetchSecteur = async () => {
-            const secteurRes = await fetch("https://gist.githubusercontent.com/Yheloww/0911856da6fcefb8c8e8289a44e498b5/raw/4d2f32b6cefcf342a573e6296c488ae61a1062dd/liege_secteur%2520(1).json")
+        const fetchAnnot = async () => {
+            const secteurRes = await fetch("https://gist.githubusercontent.com/Yheloww/a1de676bc3d2b9546505cfcce034ea43/raw/3eb77b84f5cdc9f19d9937ca79dd6cbd32695638/annotations.json")
             const secteurData = await secteurRes.json()
             return secteurData
         }
@@ -23,7 +23,7 @@ export const load = async ({fetch}) => {
 
 
         const fetchTemp = async () => {
-            const tempRes = await fetch("https://gist.githubusercontent.com/Yheloww/a1ec1bc9a75c0d7f72fb4b1fe65ee171/raw/77edc70db7ef8d8c4732b8f272c405abc3876e36/everything_cities.json")
+            const tempRes = await fetch("https://gist.githubusercontent.com/Yheloww/ebcf7632eaa0d227cca089042a83ff86/raw/24404f6d8ab9fcf7f33c0924d4a5587944432f80/every_city_infos.json")
             const tempData = await tempRes.json()
             return tempData
         }
@@ -35,7 +35,7 @@ export const load = async ({fetch}) => {
         }
 
         return {
-            secteur : fetchSecteur(),
+            annot : fetchAnnot(),
             temp : fetchTemp(),
             mar : fecthMar(),
             provinces : fetchProv(),
