@@ -15,20 +15,11 @@
     $: width = 500;
     let height = 500;
 
-
-
-    $: console.log(point_data)
-    $: console.log(secteurs_geo)
-
     let other_point = JSON.parse(JSON.stringify(point_data));
 
-
-    // let value = "NOMBRE_HAB";
     let isMap=true;
     let class_name="map";
     let annot_state=false;
-
-    // // point_data = point_data.
 
     $: margin = {
         top: height/4,
@@ -56,14 +47,12 @@
         .range([5,20])
 
     // projection for the map
-
     $: projection = d3.geoMercator()
         .fitExtent([[0, 0], [width, 700]], secteurs_geo);
 
     projection = d3.geoMercator()
         .fitExtent([[0, 0], [width, 700]], secteurs_geo);
     
-
     $: geoGenerator = d3.geoPath(projection)
 
     let currentStep;
@@ -78,7 +67,7 @@
 
     $: tweenedX = tweened(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[0]),
         {
-            duration: 1000,
+            duration: 500,
             delay: 0,
 
         }) 
@@ -274,27 +263,22 @@
 
 <style>
     .chart {
-    /* background: whitesmoke; */
     width: 60%;
     height: 100%;
-    /* box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2); */
     position: sticky;
     top: 0.1%;
     margin: auto;
     z-index: -10;
-  }
-  .map {
-    /* background: whitesmoke; */
-    width: 100%;
-    height: 100%;
-    /* box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2); */
-    position: sticky;
-    top: 0.1%;
-    margin: auto;
-    z-index: -10;
-  }
+    }
+    .map {
+        width: 100%;
+        height: 100%;
+        position: sticky;
+        top: 0.1%;
+        margin: auto;
+        z-index: -10;
+    }
     .step {
-        
         height: 90vh;
         display: flex;
         place-items: center;
