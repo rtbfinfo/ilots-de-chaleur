@@ -141,10 +141,8 @@
         color: whitesmoke;
     }
     .map {
-    /* background: whitesmoke; */
     width: 100%;
     height: 80%;
-    /* box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2); */
     position: sticky;
     top: 5%;
     margin: auto;
@@ -152,10 +150,8 @@
     border-radius: 10rem;
   }
   .chart {
-    /* background: whitesmoke; */
     width: 100%;
     height: 80%;
-    /* box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2); */
     position: sticky;
     top: 5%;
     margin: auto;
