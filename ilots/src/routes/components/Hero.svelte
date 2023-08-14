@@ -2,6 +2,7 @@
     export let title
     export let subtitle
     $: width = 500
+    $: height= 500
     // export let participants
     import {gsap} from "gsap";
     import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
@@ -20,27 +21,58 @@
                 scrub: true,
                 // pin: true,
                 anticipatePin: 1,
-                markers: true
+                // markers: true
             }
         })
 
         tl.to('circle', {
-            scale : 3,
+            scale : 2.5,
             transformOrigin: "center center"
         })
         })
 
-
-
 </script>
-<svg width={width} height=950>
-    <circle id="circle" cx={width/2} cy={400} r=350 fill="var(--dark-orange)"/>
+
+<svelte:window bind:innerHeight={height}></svelte:window>
+
+
+<svg width={width} height={height + height/2}>
+    <circle id="circle" cx={width/2} cy={height/2} r=400 fill="var(--light-orange)"/>
 </svg>
 <div class="wrapper" bind:clientWidth={width}>
-    <h1>{title}</h1>
+    <p class="decrypte">Décrypte</p>
+    <h1 class=moyen>{title}</h1>
+    <h1 class="big">les pauvres au <span class=chaud>chaud</span>, les riches au <span class="froid">frais</span></h1>
     <h3>{subtitle}</h3>
-   
+    <h4>journalistes: Ambroise Carton et Marie-Laure Mathot</h4>
+    <h4>data et web dev: Héloïse Feldmann</h4>
 </div>
+
+<!-- <div class="test">
+    <section class="chapeau">
+      <div class="wrapper-text test" data-color="red">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+          Rerum voluptatem laborum placeat enim adipisci voluptatum! 
+          Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
+          ratione nobis minima, velit esse ut unde.Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+          Rerum voluptatem laborum placeat enim adipisci voluptatum! 
+          Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
+          ratione nobis minima, velit esse ut unde.Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+          Rerum voluptatem laborum placeat enim adipisci voluptatum! 
+          Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
+          ratione nobis minima, velit esse ut unde.Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+          Rerum voluptatem laborum placeat enim adipisci voluptatum! 
+          Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
+          ratione nobis minima, velit esse ut unde.Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+          Rerum voluptatem laborum placeat enim adipisci voluptatum! 
+          Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
+          ratione nobis minima, velit esse ut unde.Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+          Rerum voluptatem laborum placeat enim adipisci voluptatum! 
+          Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
+          ratione nobis minima, velit esse ut unde.</p>
+        </div>
+    </section>
+</div> -->
 
 <!-- {#each participants as person}
     <p>{person.nom}</p>
@@ -50,7 +82,7 @@
     svg{
         position:absolute;
         /* z-index: -1; */
-        opacity: 0.5;
+        opacity: 0.6;
         /* filter:blur(3rem) */
     }
         .wrapper {
@@ -65,24 +97,48 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding-inline: 1rem;
+        padding-inline: 1.5rem;
         backdrop-filter: blur(3rem);
     }   
 
 
-    h1 {
-        margin-top: 8rem;
-        font-size: var(--font-size-xxxl);
-        max-width: 100rch;
-        font-family: Georgia, 'Times New Roman', Times, serif;
+    .big {
+        font-size: var(--font-size-xxl);
+        font-family: var(--font-title);
         color: white;
-        margin-bottom: 8rem;
     }
 
     h3 {
         font-size: var(--font-size-lg);
-        border-bottom: 4px solid var(--dark-orange);
+        /* border-bottom: 4px solid var(--dark-orange); */
         padding-bottom: 2rem;
-        max-width: 150rch;
+        max-width: 120rch;
+        font-weight: 200;
     }
-</style>
+
+    h4{
+        margin-block: 0;
+        font-weight: 200;
+        font-family: var(--font-title);
+    }
+    
+    .froid {
+        color: var(--light-blue);
+    }
+    .chaud {
+        color: var(--dark-orange)
+    }
+    
+    .moyen {
+        max-width: 60rch;
+        font-size: var(font-size-lg);
+        font-family: var(--font-title);
+
+    }
+
+    .decrypte {
+        font-weight: 200;
+        margin-bottom: 2rem;
+    }
+    
+    </style>

@@ -132,13 +132,22 @@
         font-size: var(--font-size-lg);
         padding: 0.5rem;
         text-decoration: none;
-        color: whitesmoke;
-        background-color: var(--redish);
+        color: var(--light-orange);
+        background-color: var(--light-orange);
         border-radius: 1rem;
+        border:none;
+        transition: all 500ms;
+    }
+    button:hover {
+        background-color: whitesmoke;
     }
     a {
         text-decoration: none;
         color: whitesmoke;
+        transition: all 500ms;
+    }
+    a:hover {
+        color: var(--light-orange)
     }
     .map {
     width: 100%;

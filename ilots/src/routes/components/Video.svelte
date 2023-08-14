@@ -26,7 +26,6 @@
         display: flex;
         padding: 1rem;
         gap: 2rem;
-        margin-bottom: 5rem;;
     }
     .inline {
         max-width: 90rch;
