@@ -13,13 +13,13 @@
   import Select from "./components/Select.svelte";
   import GameCalc from "./components/GameCalc.svelte";
   import Video from "./components/Video.svelte";
-  export let data;
+  // export let data;
 
-  const annot = data.annot.features
-  const Lst = data.temp;
-  const province = data.provinces
-  const mar = data.mar
-  const secteur_all = data.secteur_all;
+  // const annot = data.annot.features
+  // const Lst = data.temp;
+  // const province = data.provinces
+  // const mar = data.mar
+  // const secteur_all = data.secteur_all;
 
   let width;
   gsap.registerPlugin(ScrollTrigger);
@@ -169,13 +169,13 @@
       <p>Choisissez la ville que vous voulez explorer sur cette carte interactive
       </p>
     </div>
-  
+<!--   
     <Select 
       Belgium_geo={province}
       secteurs_geo={secteur_all}
       point_data={Lst}
       annot={annot}
-      />
+      /> -->
   </section>
   <section class="chapitre" data-color="5D627E">
     <Title
@@ -272,8 +272,8 @@
       </p>
     </div>
   
-  <LinePlot
-    MAR={mar}/>
+  <!-- <LinePlot
+    MAR={mar}/> -->
   </section>
   
    <section class="chapitre" data-color="#BCBBD2">

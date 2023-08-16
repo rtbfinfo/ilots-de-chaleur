@@ -53,6 +53,15 @@
     <h3>{subtitle}</h3>
     <h4>journalistes: Ambroise Carton et Marie-Laure Mathot</h4>
     <h4>data et web dev: Héloïse Feldmann</h4>
+    <svg width={width} height={height}>
+        <circle id="circle" cx={width/2} cy={hauteur} r={radius} fill="var(--light-orange)"/>
+    </svg>
+    <div class='video'>
+        <video muted playsinline autoplay loop disablepictureinpicture>
+            <source src="./image/drone bxl immeubles.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video> 
+    </div>
 </div>
 
 <!-- <div>
@@ -67,15 +76,22 @@
 {/each} -->
 
 <style>
+    .video {
+        width: 100%;
+        position:absolute;
+        z-index: -100;
+        
+    }
     video {
-        position: absolute;
-        max-width: fit-content;
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
     }
     svg{
         position:absolute;
-        /* z-index: -1; */
-        opacity: 0.6;
-        /* filter:blur(3rem) */
+        z-index: -1;
+        opacity: 0.8;
+        filter:blur(2.5rem)
     }
         .wrapper {
         font-size: var(--font-size-base);
@@ -91,6 +107,7 @@
         align-items: center;
         padding-inline: 1.5rem;
         backdrop-filter: blur(3rem);
+        position: relative
     }   
 
 
