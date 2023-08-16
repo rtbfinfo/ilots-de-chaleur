@@ -14,6 +14,7 @@
 
     $: width = 500;
     let height = 500;
+    let raster = "raster_value_y"
 
     let other_point = JSON.parse(JSON.stringify(point_data));
 
@@ -29,7 +30,7 @@
     }
 
     // base scale for color
-    let color_scale = d3.scaleLinear()
+    $: color_scale = d3.scaleLinear()
         .domain([d3.min(point_data.map(d => d.raster_value_x)),d3.median(point_data.map(d => d.raster_value_x)),d3.max(point_data.map(d => d.raster_value_x))])
         .range(["#144265","whitesmoke","#dc351f"])
 
@@ -40,7 +41,7 @@
 
     $: yScale =d3.scaleLinear()
         .domain([d3.min(point_data.map(d => d.raster_value_x)),d3.max(point_data.map(d => d.raster_value_x))])
-        .range([height- margin.bottom , 0])
+        .range([height- margin.bottom , 0 + margin.top])
 
     $: radiusScale = d3.scaleSqrt()
         .domain([d3.min(point_data.map(d => d.NOMBRE_HAB)),d3.max(point_data.map(d => d.NOMBRE_HAB))])
@@ -73,7 +74,7 @@
         }) 
     $: tweenedY =tweened(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[1]))
     $: tweendRad = tweened(other_point.map(d => 2))
-    $: tweenedColor = tweened(point_data.map(d => color_scale(d.raster_value_x)))
+    $: tweenedColor = tweened(point_data.map(d => color_scale(d.raster_value_y)))
 
     const step1 = function() {
         projection = d3.geoMercator()
@@ -102,6 +103,23 @@
         tweendRad.set(other_point.map(d => d.NOMBRE_HAB = 3))
 
     }
+    const step2bis = function() {
+        projection = d3.geoMercator()
+        .fitExtent([[0, 0], [width, 700]], secteurs_geo);
+
+        geoGenerator = d3.geoPath(projection)
+
+
+        tweenedX.set(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[0]))
+        tweenedY.set(point_data.map(d => projection([d.centroid_lat,d.centroid_lat])[1]))
+
+        tweendRad.set(other_point.map(d => d.NOMBRE_HAB = 3))
+        color_scale = d3.scaleLinear()
+        .domain([d3.min(point_data.map(d => d.raster_value_y)),d3.median(point_data.map(d => d.raster_value_y)),d3.max(point_data.map(d => d.raster_value_y))])
+        .range(["#144265","whitesmoke","#dc351f"])
+
+
+    }
     const step3 = function() {
         
         radiusScale = d3.scaleSqrt()
@@ -110,7 +128,11 @@
 
         yScale =d3.scaleLinear()
         .domain([d3.min(point_data.map(d => d.raster_value_y)),d3.max(point_data.map(d => d.raster_value_y))])
-        .range([height- margin.bottom , 0])
+        .range([height - margin.bottom , 0 + margin.top])
+
+        color_scale = d3.scaleLinear()
+        .domain([d3.min(point_data.map(d => d.raster_value_y)),d3.median(point_data.map(d => d.raster_value_y)),d3.max(point_data.map(d => d.raster_value_y))])
+        .range(["#144265","whitesmoke","#dc351f"])
 
         width=width 
 
@@ -119,12 +141,13 @@
         tweenedY.set(point_data.map(d => yScale(d.raster_value_y)))
 
         tweendRad.set(point_data.map(d => radiusScale(d.NOMBRE_HAB)))
+        // tweenedColor.set(point_data.map(d => color_scale(d.raster_value_y)))
 
     }
     const step4 = function() {
         XScale = d3.scaleLinear()
         .domain([d3.min(point_data.filter(d => d.REVENU_MOYEN != 0).map(d => d.REVENU_MOYEN)),d3.max(point_data.map(d => d.REVENU_MOYEN))])
-        .range([0 + margin.left  + 50,width - margin.right - 50])
+        .range([0 + margin.left ,width - margin.right])
 
         radiusScale = d3.scaleSqrt()
         .domain([d3.min(point_data.map(d => d.NOMBRE_HAB)),d3.max(point_data.map(d => d.NOMBRE_HAB))])
@@ -156,30 +179,40 @@
         isMap = true
         class_name="map"
         annot_state = false
+        raster = "raster_value_x"
         step1()
     } else if (currentStep == 1) {
         isMap = true
         class_name= "map"
         annot_state = true
+        raster = "raster_value_x"
         step2()
-    } else if (currentStep == 2) {
+    }  else if (currentStep == 2) {
+        isMap = true
+        class_name= "map"
+        annot_state = true
+        raster = "raster_value_y"
+        step2bis()
+    } 
+    else if (currentStep == 3) {
         isMap = true
         class_name="chart"
         value = "temp"
+        raster = "raster_value_y"
         annot_state = false
         step3()
-    } else if (currentStep== 3) {
+    } else if (currentStep== 4) {
         isMap = false
         class_name="chart"
         value = "revenu"
         annot_state=false 
         step4()
-    } else if (currentStep==4) {
+    } else if (currentStep==5) {
         isMap = false
         class_name="chart"
         value = "verdure"
         step5()
-    } else if (currentStep==5) {
+    } else if (currentStep==6) {
         isMap = false
         class_name="chart"
         step6()
@@ -219,9 +252,9 @@
             <circle r={$tweendRad[index]}
             cx={$tweenedX[index]} 
             cy={$tweenedY[index]}
-            fill={color_scale(temp.raster_value_x)} 
+            fill={$tweenedX[index] == 0 ? "none" : color_scale(temp[raster])} 
             stroke={isMap ? "none" : "black"}
-            style="stroke-width:0.5;"/>
+            style="stroke-width:0.2;"/>
             {/each}
         </g> 
         {#if annot_state}
@@ -263,7 +296,7 @@
 
 <style>
     .chart {
-    width: 60%;
+   max-width:60%;
     height: 100%;
     position: sticky;
     top: 0.1%;
@@ -304,4 +337,9 @@
         font-size: var(--font-size-base);
 	}
 
+    @media (max-width: 400px) {
+        .chart {
+            max-width: 100%;
+        }
+    }
 </style>

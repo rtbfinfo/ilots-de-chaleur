@@ -8,27 +8,37 @@
     export let Belgium_geo
     export let secteurs_geo
     export let annot
+    // export let selected
 
     let width = 700;
     let height = 700;
 
+    let height_map = -500;
+    let width_change = 0;
+    let rechange= 0;
+
+    $: if (width < 400) {
+        height_map = -750;
+        width_change = -200;
+        rechange = 100;
+    }
     $: projection = d3.geoMercator()
-    .fitExtent([[0, -500], [width , height *2]], Belgium_geo);
+    .fitExtent([[width_change, height_map], [width + rechange, height*2]], Belgium_geo);
 
     $: geoGenerator = d3.geoPath(projection)
 
     const listCity = ["Liège","Charleroi","Namur","Mons"]
 
     let hover;
-    let selected;
     let mouseX;
+    let selected;
     let mouseY;
     $: other = {...point_data}
     let geo =   {...secteurs_geo}
     let data_map;
 
-    $: console.log(mouseX)
-    $: console.log(mouseY)
+
+    $: console.log(selected)
 
     $: if (selected) {
         if (selected == "Liège") {
@@ -50,7 +60,7 @@
         {#if !selected}
             <svg width={width} height={height}>
                 <!-- Fond de carte Belqigue -->
-                <g id="test">
+                <g id="choix">
                     {#each Belgium_geo.features as province}
                                  <path d={geoGenerator(province)} 
                                  style="stroke:whitesmoke;fill:none;stroke-width:0.5;fill-opacity:0.2;stroke-opacity:0.5"
@@ -66,7 +76,15 @@
                     on:mouseenter= {(event) => {
                         mouseX = event.clientX;
                         mouseY = event.clientY;
-                    }}>
+                    }}
+                    on:mousedown={(event) => {
+                        selected = city
+                        hover = undefined;
+                       }}
+                    on:touchstart={(event) => {
+                        selected = city
+                        hover = undefined;
+                       }}>
                        {#each secteurs_geo.features.filter(d => d.properties.tx_munty_descr_fr == city) as secteur}
                                <path d={geoGenerator(secteur)} 
                                class={city}
@@ -74,11 +92,6 @@
                                fill={hover == city ? "var(--dark-orange)" : "var(--light-blue)"}
                                on:mouseleave={() => {
                                     hover = undefined;
-                               }}
-
-                               on:mousedown={(event) => {
-                                selected = city
-                                hover = undefined;
                                }}
                            />
                        {/each}
@@ -111,7 +124,7 @@
     on:click={() => {
         selected = undefined;
         console.log("click")
-    }}><a href="#test">Retour au choix de ville</a></button>
+    }}><a href="#choix">Retour au choix de ville</a></button>
 </div>
 {/if}
 
@@ -159,12 +172,18 @@
     border-radius: 10rem;
   }
   .chart {
-    width: 100%;
+   max-width: 100%;
     height: 80%;
     position: sticky;
     top: 5%;
     margin: auto;
     z-index: 10;
     border-radius: 10rem;
+  }
+
+  @media (max-width: 400px) {
+    .chart {
+        max-width: 150%;
+    }
   }
 </style>

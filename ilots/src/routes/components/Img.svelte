@@ -20,6 +20,7 @@
     img {
         display: block;
         width: 100%;
+        margin-bottom: 1rem;
     }
     .base {
         margin-inline: auto;
@@ -39,6 +40,12 @@
     .card {
         width: 100%;
         height: auto;
+    }
+    @media (max-width: 400px) {
+        .base {
+            margin-inline: auto;
+            display: block;
+        }
     }
     
     

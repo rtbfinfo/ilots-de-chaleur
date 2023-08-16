@@ -5,7 +5,7 @@
 export let images
 let index = -1;
 
-let names_img = ["revêtement","isolation","pelouse","point d'eau","voitures","fontaines","ombres","arrosage","toitures","toitures et façades", "brumificateurs"]
+let names_img = ["Revêtement","Isolation","Pelouse","Point d'eau","Voitures","Fontaines","Ombres","Arrosage","Toitures","Toitures et façades", "Brumisateurs","Arbres"]
 </script>
 
 <div class="base">
@@ -45,7 +45,7 @@ let names_img = ["revêtement","isolation","pelouse","point d'eau","voitures","f
     .choices {
         margin:0.5rem;
         background-color: var(--dark-blue);
-        font-size: var(--font-size-md);
+        font-size: var(--font-size-base);
         font-family:  'Montserrat', sans-serif;
         padding:1rem;
         color: whitesmoke;
@@ -91,11 +91,11 @@ let names_img = ["revêtement","isolation","pelouse","point d'eau","voitures","f
         max-width: 100%;
     }
     .img {
-        flex-basis: 65%;
+        flex-basis: 60%;
         z-index: 100;
     }
     .selection {
-        flex-basis: 35%;
+        flex-basis: 40%;
         margin-left: 2%;
         display: flex;
         flex-wrap: wrap;
@@ -104,5 +104,11 @@ let names_img = ["revêtement","isolation","pelouse","point d'eau","voitures","f
     }
     .fond {
         position: absolute;
+    }
+
+    @media (max-width: 400px) {
+        .base {
+            display: block;
+        }
     }
 </style>

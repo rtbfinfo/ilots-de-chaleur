@@ -2,14 +2,26 @@
     import { contourDensity } from "d3";
 
     export let content
+    export let index;
     let width;
     let height;
+    let position = 3.2
+    let positionY = 12.5
+    let radius = 75;
+
+    $: if (width < 400) {
+        radius = 37;
+        positionY= 7;
+        position= 5;
+    }
+
+    let colours = ["#1D2E3B", "#D66819", "#DC351F","#E7A779","#728A63","#728A63"]
 </script>
 
 <svelte:window bind:innerHeight={height} bind:innerWidth={width}></svelte:window>
 
 <svg width={width} height={height}>
-    <circle id="circle" cx={width/3.2} cy=12.5rem r=75 fill="var(--light-orange)"/>
+    <circle id="circle" cx={width/position} cy="{positionY}rem" r={radius} fill={colours[index]}/>
 </svg>
 
 <div class="wrapper">
@@ -48,7 +60,7 @@
         margin-bottom: 7rem;
     }
     h1 {
-        line-height: 1.7rem;
+        line-height: 1.9rem;
         font-size: var(--font-size-xl);
         color: whitesmoke;
         font-weight: 600;
@@ -58,7 +70,16 @@
     svg {
         position: absolute;
         z-index: -100;
-        filter: blur(3rem);
-        opacity: 0.7;
+        filter: blur(1.5rem);
+        opacity: 0.95;
+    }
+
+    @media (max-width: 400px) {
+        h1 {
+            padding-top: 5rem;
+        }
+        .wrapper {
+            margin-bottom: 4rem;
+        }
     }
 </style>

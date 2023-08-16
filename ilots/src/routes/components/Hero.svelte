@@ -3,11 +3,18 @@
     export let subtitle
     $: width = 500
     $: height= 500
+    let radius= 400;
+    let hauteur = height/2
     // export let participants
     import {gsap} from "gsap";
     import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
     import { onMount } from "svelte";
  
+
+    $: if (width < 400) {
+        radius= 175
+        hauteur= height/2.7
+    }
     onMount(() => {
 
 
@@ -37,7 +44,7 @@
 
 
 <svg width={width} height={height + height/2}>
-    <circle id="circle" cx={width/2} cy={height/2} r=400 fill="var(--light-orange)"/>
+    <circle id="circle" cx={width/2} cy={hauteur} r={radius} fill="var(--light-orange)"/>
 </svg>
 <div class="wrapper" bind:clientWidth={width}>
     <p class="decrypte">Décrypte</p>
@@ -48,30 +55,11 @@
     <h4>data et web dev: Héloïse Feldmann</h4>
 </div>
 
-<!-- <div class="test">
-    <section class="chapeau">
-      <div class="wrapper-text test" data-color="red">
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-          Rerum voluptatem laborum placeat enim adipisci voluptatum! 
-          Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
-          ratione nobis minima, velit esse ut unde.Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-          Rerum voluptatem laborum placeat enim adipisci voluptatum! 
-          Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
-          ratione nobis minima, velit esse ut unde.Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-          Rerum voluptatem laborum placeat enim adipisci voluptatum! 
-          Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
-          ratione nobis minima, velit esse ut unde.Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-          Rerum voluptatem laborum placeat enim adipisci voluptatum! 
-          Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
-          ratione nobis minima, velit esse ut unde.Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-          Rerum voluptatem laborum placeat enim adipisci voluptatum! 
-          Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
-          ratione nobis minima, velit esse ut unde.Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-          Rerum voluptatem laborum placeat enim adipisci voluptatum! 
-          Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
-          ratione nobis minima, velit esse ut unde.</p>
-        </div>
-    </section>
+<!-- <div>
+    <video muted playsinline autoplay loop disablepictureinpicture>
+        <source src="./image/drone bxl immeubles.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video> 
 </div> -->
 
 <!-- {#each participants as person}
@@ -79,6 +67,10 @@
 {/each} -->
 
 <style>
+    video {
+        position: absolute;
+        max-width: fit-content;
+    }
     svg{
         position:absolute;
         /* z-index: -1; */
@@ -109,7 +101,7 @@
     }
 
     h3 {
-        font-size: var(--font-size-lg);
+        font-size: var(--font-size-md);
         /* border-bottom: 4px solid var(--dark-orange); */
         padding-bottom: 2rem;
         max-width: 120rch;
