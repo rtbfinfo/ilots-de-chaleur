@@ -6,3 +6,4 @@ etc/
 pyvenv.cfg
 .ipynb_checkpoints
 share/
+ilots/**/static/
