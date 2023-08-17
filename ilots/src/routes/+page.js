@@ -1,10 +1,9 @@
 import * as d3 from "d3"
 
-
 export const load = async ({fetch}) => {
     
-        const fetchSecteur = async () => {
-            const secteurRes = await fetch("https://gist.githubusercontent.com/Yheloww/0911856da6fcefb8c8e8289a44e498b5/raw/4d2f32b6cefcf342a573e6296c488ae61a1062dd/liege_secteur%2520(1).json")
+        const fetchAnnot = async () => {
+            const secteurRes = await fetch("https://gist.githubusercontent.com/Yheloww/a1de676bc3d2b9546505cfcce034ea43/raw/3eb77b84f5cdc9f19d9937ca79dd6cbd32695638/annotations.json")
             const secteurData = await secteurRes.json()
             return secteurData
         }
@@ -16,14 +15,14 @@ export const load = async ({fetch}) => {
       }
 
         const fetchSecteurAll = async () => {
-          const secteurRes = await fetch("https://gist.githubusercontent.com/Yheloww/a1ec1bc9a75c0d7f72fb4b1fe65ee171/raw/514357a88cc88b06f932d6d59a573c1cd93bcfe6/every_city.json")
+          const secteurRes = await fetch("https://gist.githubusercontent.com/Yheloww/805d8a72fd2ccb58bea81506d26d9851/raw/ffdf83bcb6d97fe3ad69340d80d5c44df4368e1c/secteur_every_city.json")
           const secteurData = await secteurRes.json()
           return secteurData
     }
 
 
         const fetchTemp = async () => {
-            const tempRes = await fetch("https://gist.githubusercontent.com/Yheloww/a1ec1bc9a75c0d7f72fb4b1fe65ee171/raw/77edc70db7ef8d8c4732b8f272c405abc3876e36/everything_cities.json")
+            const tempRes = await fetch("https://gist.githubusercontent.com/Yheloww/ebcf7632eaa0d227cca089042a83ff86/raw/c8164342c8269d6b9dd3047876c35eb1c65af836/everycity_centroid.json")
             const tempData = await tempRes.json()
             return tempData
         }
@@ -35,42 +34,10 @@ export const load = async ({fetch}) => {
         }
 
         return {
-            secteur : fetchSecteur(),
+            annot : fetchAnnot(),
             temp : fetchTemp(),
             mar : fecthMar(),
             provinces : fetchProv(),
             secteur_all : fetchSecteurAll()
         }
 }
-
-
-
-// let cities_object = [
-//     {
-//       name : "Liege",
-//       secteur : "https://gist.githubusercontent.com/Yheloww/c9d7a4fa9b5903ce80f6f1f51f6d738e/raw/db0542e118ed6f00b2d5017134c3048ce45876e6/liege_revenu_densite%2520(1).json",
-//       lst : "https://gist.githubusercontent.com/Yheloww/bba8f6cd07949116b34cdb6d94d07ac2/raw/fb5205b70519a670eec42fe7c5ccda5d96a5d3c0/liege_sel_centroid.json"
-//     },
-//     {
-//       name : "Charleroi",
-//       secteur : "https://gist.githubusercontent.com/Yheloww/c9d7a4fa9b5903ce80f6f1f51f6d738e/raw/db0542e118ed6f00b2d5017134c3048ce45876e6/charleroi_revenu_densite%2520(1).json",
-//       lst : "https://gist.githubusercontent.com/Yheloww/bba8f6cd07949116b34cdb6d94d07ac2/raw/fb5205b70519a670eec42fe7c5ccda5d96a5d3c0/charleroi_sel_centroid.json"
-//     },
-//     {
-//       name : "Namur",
-//       secteur : "https://gist.githubusercontent.com/Yheloww/c9d7a4fa9b5903ce80f6f1f51f6d738e/raw/db0542e118ed6f00b2d5017134c3048ce45876e6/namur_revenu_densite%2520(1).json",
-//       lst :"https://gist.githubusercontent.com/Yheloww/bba8f6cd07949116b34cdb6d94d07ac2/raw/fb5205b70519a670eec42fe7c5ccda5d96a5d3c0/namur_sel_centroid.json"
-//     },
-//     {
-//       name : "Mons",
-//       secteur : "https://gist.githubusercontent.com/Yheloww/c9d7a4fa9b5903ce80f6f1f51f6d738e/raw/db0542e118ed6f00b2d5017134c3048ce45876e6/mons_revenu_densite%2520(1).json",
-//       lst : "https://gist.githubusercontent.com/Yheloww/bba8f6cd07949116b34cdb6d94d07ac2/raw/fb5205b70519a670eec42fe7c5ccda5d96a5d3c0/mons_sel_centroid.json"
-
-//     },
-//     {
-//       name : "Tournai",
-//       secteur : "https://gist.githubusercontent.com/Yheloww/c9d7a4fa9b5903ce80f6f1f51f6d738e/raw/db0542e118ed6f00b2d5017134c3048ce45876e6/tournai_revenu_densite%2520(1).json",
-//       lst : "https://gist.githubusercontent.com/Yheloww/bba8f6cd07949116b34cdb6d94d07ac2/raw/fb5205b70519a670eec42fe7c5ccda5d96a5d3c0/tournai_sel_centroid.json"
-
-//     }
-//   ]

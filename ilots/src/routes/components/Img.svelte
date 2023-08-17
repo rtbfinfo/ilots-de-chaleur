@@ -20,13 +20,13 @@
     img {
         display: block;
         width: 100%;
+        margin-bottom: 1rem;
     }
     .base {
         margin-inline: auto;
         display: flex;
         padding: 1rem;
         gap: 2rem;
-        margin-bottom: 5rem;;
     }
     .inline {
         max-width: 90rch;
@@ -40,6 +40,12 @@
     .card {
         width: 100%;
         height: auto;
+    }
+    @media (max-width: 400px) {
+        .base {
+            margin-inline: auto;
+            display: block;
+        }
     }
     
     
