@@ -1,7 +1,8 @@
 <script>
     import * as d3 from "d3"
     import AnimScrolly from "./AnimScrolly.svelte";
-    import { point } from "turf";
+    import { fade } from 'svelte/transition';
+
 
 
     export let point_data
@@ -27,7 +28,7 @@
 
     $: geoGenerator = d3.geoPath(projection)
 
-    const listCity = ["Liège","Charleroi","Namur","Mons"]
+    const listCity = ["Liège","Charleroi","Namur","Mons","bxl"]
 
     let hover;
     let mouseX;
@@ -36,7 +37,6 @@
     $: other = {...point_data}
     let geo =   {...secteurs_geo}
     let data_map;
-
 
     $: console.log(selected)
 
@@ -85,7 +85,7 @@
                         selected = city
                         hover = undefined;
                        }}>
-                       {#each secteurs_geo.features.filter(d => d.properties.tx_munty_descr_fr == city) as secteur}
+                       {#each secteurs_geo.features.filter(d => d.properties.city == (city == "Liège" ? "liege" : city.toLowerCase())) as secteur}
                                <path d={geoGenerator(secteur)} 
                                class={city}
                                stroke={hover == city ? "var(--dark-orange)" : "var(--light-blue)"}
@@ -108,6 +108,7 @@
 
         </div>
         {#if selected}
+        <div transition:fade >
             <AnimScrolly
             selected={selected}
             point_data={data_map}
@@ -115,6 +116,8 @@
             belgium_geo={Belgium_geo}
             annot={annot}
             />
+        </div>
+         
         {/if}
     </div>
 </section>

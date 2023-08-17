@@ -3,31 +3,20 @@
 
     export let content
     export let index;
-    let width;
-    let height;
-    let position = 3.2
-    let positionY = 12.5
-    let radius = 75;
+    $: width = 500;
 
-    $: if (width < 400) {
-        radius = 37;
-        positionY= 7;
-        position= 5;
-    }
 
     let colours = ["#1D2E3B", "#D66819", "#DC351F","#E7A779","#728A63","#728A63"]
 </script>
 
-<svelte:window bind:innerHeight={height} bind:innerWidth={width}></svelte:window>
 
-<svg width={width} height={height}>
-    <circle id="circle" cx={width/position} cy="{positionY}rem" r={radius} fill={colours[index]}/>
-</svg>
-
-<div class="wrapper">
+<div class="wrapper" bind:clientWidth={width}>
     <h1>
         {content}
     </h1>
+    <svg width={120} height={120} transform="scale(3)">
+        <circle id="circle" cx={45} cy={45} r={20} fill={colours[index]}/>
+    </svg>
 </div>
 
 
@@ -53,25 +42,30 @@
 <style>
 
     .wrapper {
-        max-width: 175rch;
+        max-width: 120rch;
         margin-left: auto;
         margin-block: 1rem;
         padding-inline: 1rem;
-        margin-bottom: 7rem;
+        margin-block: 7rem;
+        text-align: left;
+        margin-inline: auto;
     }
     h1 {
-        line-height: 1.9rem;
+        line-height: 3rem;
         font-size: var(--font-size-xl);
         color: whitesmoke;
         font-weight: 600;
         font-family: var(--font-title);
-        padding-top: 11rem;
+        padding-top: 5rem;
+        position: relative;
     }
     svg {
         position: absolute;
         z-index: -100;
-        filter: blur(1.5rem);
+        filter: blur(1rem);
         opacity: 0.95;
+        /* border: 2px solid red; */
+        top: 5rem;
     }
 
     @media (max-width: 400px) {
@@ -81,5 +75,9 @@
         .wrapper {
             margin-bottom: 4rem;
         }
+    }
+
+    div {
+        /* border: 2px solid aqua; */
     }
 </style>

@@ -4,7 +4,7 @@
     $: width = 500
     $: height= 500
     let radius= 400;
-    let hauteur = height/2
+    let hauteur = 500
     // export let participants
     import {gsap} from "gsap";
     import {ScrollTrigger} from "gsap/dist/ScrollTrigger";

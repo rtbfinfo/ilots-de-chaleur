@@ -1,9 +1,10 @@
 <script>
     import * as d3 from "d3"
     import { tweened } from "svelte/motion";    
-    import { feature, point } from "turf";
     import Scrolly from "./scrolly.svelte";
     import Axes from "./Axes.svelte";
+    import { fade } from 'svelte/transition';
+
 
 
     export let point_data
@@ -19,6 +20,7 @@
     let other_point = JSON.parse(JSON.stringify(point_data));
 
     let isMap=true;
+    let emptyMap = true;
     let class_name="map";
     let annot_state=false;
 
@@ -58,12 +60,13 @@
 
     let currentStep;
     let value="revenu";
-    const steps = [`<p>Prenons la température de surface pour ${selected} par exemple</p>`,
-                    "<p>Voici les zones les plus fraiches</p>",
-                    "<p>Les températures</p>",
-                    "<p>Ici les points sont classés en fonction de la temperature</p>",
-				    "<p>Ici la température de surface est mise en relation avec les revenus median de chaque secteur</p>",
-                    `<p>nothing here</p>`
+    const steps = [`<p>voici ${selected} nombres d'habitants ... qui ne vivent pas tous dans les mêmes conditions</p>`,
+                    "<p>Ajoutons sur cette carte les températures moyennes du sol en juillet et août de 2013 à 2022. Les zones plus froides sont en <span style='color:blue;'>bleu</span> et les zones plus chaudes sont en <span style='color:red;'>rouge</span></p>",
+                    "<p>Les zones les plus fraiches sont souvent des parcs, des forêts ou des cours d’eau.</p>",
+                    "<p>explication moyenne par secteurs</p>",
+                    "<p> Regardons maintenant la densité de population pour savoir à quel point les zones les plus chaudes ou les plus fraiches sont densément peuplées. Plus un cercle est grand, plus il y a d’habitants dans ce quartier. A l’inverse, plus un cercle est petit, moins il y a de gens qui vivent à cet endroit. Un grand cercle rouge foncé signifie donc que beaucoup de gens vivent à cet endroit où il fait plus chaud qu’ailleurs.</p>",
+				    "<p>Si on met en parallèle les revenus médians et les températures, une tendance se dégage : plus les habitants d’un quartier ont des revenus élevés, plus ils ont tendance à vivre au frais.</p>",
+                    `<p>La végétation joue aussi un rôle. Une zone arborée est plus fraiche qu’une zone bétonnée.</p>`
 				   ];
 
     $: tweenedX = tweened(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[0]),
@@ -164,7 +167,7 @@
         .domain([d3.min(point_data.map(d => d.perc_ver)),d3.max(point_data.map(d => d.perc_ver))])
         .range([0 + margin.left + 50,width - margin.right -50])
 
-        tweenedX.set(point_data.map(d => XScale(d.perc_ver)))
+        tweenedX.set(point_data.map(d => XScale(d.REVENU_MOYEN)))
         tweenedY.set(point_data.map(d => yScale(d.raster_value_y)))
 
         tweendRad.set(point_data.map(d => radiusScale(d.NOMBRE_HAB)))
@@ -175,47 +178,49 @@
     }
     $: console.log(currentStep)
 
-    $: if (currentStep == 0) {
+    $: if (currentStep==0) {
         isMap = true
+        emptyMap=true
+        class_name="map"
+        step1()
+    } else if (currentStep == 1) {
+        isMap = true
+        emptyMap=false
         class_name="map"
         annot_state = false
         raster = "raster_value_x"
         step1()
-    } else if (currentStep == 1) {
+    } else if (currentStep == 2) {
         isMap = true
         class_name= "map"
         annot_state = true
         raster = "raster_value_x"
         step2()
-    }  else if (currentStep == 2) {
+    }  else if (currentStep == 3) {
         isMap = true
         class_name= "map"
-        annot_state = true
+        annot_state = false
         raster = "raster_value_y"
         step2bis()
     } 
-    else if (currentStep == 3) {
+    else if (currentStep == 4) {
         isMap = true
         class_name="chart"
         value = "temp"
         raster = "raster_value_y"
         annot_state = false
         step3()
-    } else if (currentStep== 4) {
+    } else if (currentStep== 5) {
         isMap = false
         class_name="chart"
         value = "revenu"
         annot_state=false 
         step4()
-    } else if (currentStep==5) {
+    } else if (currentStep==6) {
         isMap = false
         class_name="chart"
         value = "verdure"
         step5()
-    } else if (currentStep==6) {
-        isMap = false
-        class_name="chart"
-        step6()
     }
 
     </script>
@@ -247,7 +252,8 @@
             {/each}
         </g>
         {/if}
-        <g>
+        {#if !emptyMap}
+        <g transition:fade>
             {#each point_data as temp, index}
             <circle r={$tweendRad[index]}
             cx={$tweenedX[index]} 
@@ -257,6 +263,7 @@
             style="stroke-width:0.2;"/>
             {/each}
         </g> 
+        {/if}
         {#if annot_state}
         <g>
             {#each annot as secteur}
@@ -278,19 +285,11 @@
 
 <Scrolly bind:value={currentStep}>
     {#each steps as text, i}
-        {#if i == 5}
-        <div class="step">
-            <div class="step-content">
-                <button on:click={() => { selected = undefined; console.log("click") }}><a href="#test">Click</a></button>
-            </div>
-        </div>
-        {:else}
         <div class="step" class:active={currentStep === i}>
             <div class="step-content">
                 {@html text}
             </div>
         </div>
-        {/if}
     {/each}
 </Scrolly>
 
