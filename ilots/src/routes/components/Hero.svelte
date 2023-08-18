@@ -90,7 +90,7 @@
     svg{
         position:absolute;
         z-index: -1;
-        opacity: 0.8;
+        opacity: 0.9;
         filter:blur(2.5rem)
     }
         .wrapper {
@@ -135,7 +135,8 @@
         color: var(--light-blue);
     }
     .chaud {
-        color: var(--dark-orange)
+        color: var(--redish);
+        
     }
     
     .moyen {

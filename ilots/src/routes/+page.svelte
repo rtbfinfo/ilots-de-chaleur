@@ -74,7 +74,7 @@
 <div class="test">
   <section class="chapeau">
     <div class="wrapper-text test">
-      <p>La canicule ? Quelle canicule ? L’été 2023 en Belgique a jusqu’ici été marqué par un temps gris et maussade.
+      <p><span class="lettrine">L</span>a canicule ? Quelle canicule ? L’été 2023 en Belgique a jusqu’ici été marqué par un temps gris et maussade.
          Avec 21 jours de pluie, ce mois de juillet 2023 a même battu des records historiques bien au-dessus des normales saisonnières. </p>
         <p>Pourtant, même s’il n’en a pas l’air, le réchauffement climatique touche bel et bien notre pays.
         Cette météo qui nous propose “tout ou rien” en est un des indicateurs. Certes, en juillet,
@@ -403,26 +403,14 @@
         font-weight: 500;
         padding-inline: 1rem;
     }
+   .lettrine{
+      float: left;
+      font-size: var(--font-size-xxxl);
+      padding-right: 0.5rem;
+      line-height: 80%; 
+      margin:-.1em 0px;
+   }
 
-    /* .chapitre1 {
-      background-color: var(--light-orange);
-    }
-    
-    .chapitre2 {
-      background-color: var(--dark-color);
-    }
-    
-    .chapitre3 {
-      background-color: var(--dark-blue);
-    }
-    
-    .chapitre4, .chapitre5 {
-      background-color: var(--middle-blue);
-    }
-    
-    .chapitre6 {
-      background-color: var(--light-blue);
-    } */
 
     section {
       margin-block: 0;

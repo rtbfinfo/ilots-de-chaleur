@@ -125,6 +125,8 @@
     }
     const step3 = function() {
         
+        tweenedX.set(other_point.map(d => d.centroid_lon = width/2))
+
         radiusScale = d3.scaleSqrt()
         .domain([d3.min(point_data.map(d => d.NOMBRE_HAB)),d3.max(point_data.map(d => d.NOMBRE_HAB))])
         .range([5,20])
@@ -133,14 +135,6 @@
         .domain([d3.min(point_data.map(d => d.raster_value_y)),d3.max(point_data.map(d => d.raster_value_y))])
         .range([height - margin.bottom , 0 + margin.top])
 
-        color_scale = d3.scaleLinear()
-        .domain([d3.min(point_data.map(d => d.raster_value_y)),d3.median(point_data.map(d => d.raster_value_y)),d3.max(point_data.map(d => d.raster_value_y))])
-        .range(["#144265","whitesmoke","#dc351f"])
-
-        width=width 
-
-        isMap = false;
-        tweenedX.set(other_point.map(d => d.centroid_lon = width/2))
         tweenedY.set(point_data.map(d => yScale(d.raster_value_y)))
 
         tweendRad.set(point_data.map(d => radiusScale(d.NOMBRE_HAB)))
@@ -166,8 +160,9 @@
         XScale = d3.scaleLinear()
         .domain([d3.min(point_data.map(d => d.perc_ver)),d3.max(point_data.map(d => d.perc_ver))])
         .range([0 + margin.left + 50,width - margin.right -50])
+        console.log(point_data)
 
-        tweenedX.set(point_data.map(d => XScale(d.REVENU_MOYEN)))
+        tweenedX.set(point_data.map(d => XScale(d.perc_ver)))
         tweenedY.set(point_data.map(d => yScale(d.raster_value_y)))
 
         tweendRad.set(point_data.map(d => radiusScale(d.NOMBRE_HAB)))
@@ -201,15 +196,15 @@
         class_name= "map"
         annot_state = false
         raster = "raster_value_y"
-        step2bis()
+        step2()
     } 
     else if (currentStep == 4) {
-        isMap = true
+        isMap = false
         class_name="chart"
         value = "temp"
+        step3()
         raster = "raster_value_y"
         annot_state = false
-        step3()
     } else if (currentStep== 5) {
         isMap = false
         class_name="chart"
