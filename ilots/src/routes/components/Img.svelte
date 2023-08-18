@@ -1,14 +1,17 @@
 <script>
     export let type
     export let img
+    import { useLazyImage as lazyImage } from 'svelte-lazy-image';
+
 </script>
 
 <div class={"base "+type}>
     {#each img as im}
     <div class="card">
         <img 
-        src={im} 
+        data-src={im} 
         alt="canetons"
+        use:lazyImage
         />
     </div>
     {/each}

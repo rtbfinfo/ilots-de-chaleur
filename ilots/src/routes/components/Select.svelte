@@ -2,14 +2,15 @@
     import * as d3 from "d3"
     import AnimScrolly from "./AnimScrolly.svelte";
     import { fade } from 'svelte/transition';
+    import {gsap} from "gsap";
+    import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
 
-
+    gsap.registerPlugin(ScrollTrigger);
 
     export let point_data
     export let Belgium_geo
     export let secteurs_geo
     export let annot
-    // export let selected
 
     let width = 700;
     let height = 700;
@@ -54,13 +55,22 @@
 <svelte:window bind:innerHeight={height}></svelte:window>
 
 <section>
-    <div class="chart"   bind:clientWidth={width}>
+    <div class="chart" id="choix"  bind:clientWidth={width}>
         <div id="content">
-
+        {#if selected}
+              <div class='wrapper-text'>
+                <a 
+                style="text-align:center"
+                transition:fade 
+                on:click={() => {
+                    selected = undefined;
+                }} href="#choix">Revenez à la carte principale</a>
+              </div>  
+        {/if}
         {#if !selected}
-            <svg width={width} height={height}>
+            <svg width={width} height={height}  transition:fade >
                 <!-- Fond de carte Belqigue -->
-                <g id="choix">
+                <g>
                     {#each Belgium_geo.features as province}
                                  <path d={geoGenerator(province)} 
                                  style="stroke:whitesmoke;fill:none;stroke-width:0.5;fill-opacity:0.2;stroke-opacity:0.5"
@@ -69,7 +79,7 @@
                </g>
                <!-- Agglomération qui renvoi le hover -->
                {#each listCity as city}  
-                   <g class={city}
+                   <g class="city"
                    on:mouseover={(event) => {
                     hover = city
                     }}
@@ -80,14 +90,24 @@
                     on:mousedown={(event) => {
                         selected = city
                         hover = undefined;
+                        ScrollTrigger.refresh()
                        }}
                     on:touchstart={(event) => {
-                        selected = city
-                        hover = undefined;
-                       }}>
+                        hover = city;
+                       }}
+                    on:touchend={() => {
+                        selected = city;
+                        hover=undefined;
+                        ScrollTrigger.refresh()
+                    }
+                    }
+                    on:focus={() => {
+                        hover=city
+                    }}
+                    tabIndex="0">
                        {#each secteurs_geo.features.filter(d => d.properties.city == (city == "Liège" ? "liege" : city.toLowerCase())) as secteur}
                                <path d={geoGenerator(secteur)} 
-                               class={city}
+                               class=city
                                stroke={hover == city ? "var(--dark-orange)" : "var(--light-blue)"}
                                fill={hover == city ? "var(--dark-orange)" : "var(--light-blue)"}
                                on:mouseleave={() => {
@@ -98,11 +118,8 @@
                    </g>
                {/each}
             </svg>
-        {/if}
-        
-        {#if hover}
-        <div class="hover" style="position:absolute;top:{mouseY}px;left:{mouseX}px;">
-            <p>{hover}</p>
+        <div class="hover" style="position:absolute;top:{100}px;left:{width/5}px;">
+            <p>Je veux explorer {hover == undefined ? "..." : hover} </p>
         </div>
         {/if}
 
@@ -122,48 +139,63 @@
     </div>
 </section>
 {#if selected}
-<div class="wrapper">
-    <button 
+<div class="wrapper-text">
+    <p><a 
+        on:click={() => {
+            selected = undefined;
+        }}
+        href="#choix">Revenez au choix de ville</a> ou <span class='orange'>scrollez vers le bas </span> pour continuer votre lecture. Dans la suite de cet article nous allons analyser les causes de ces différences de températures… Et voir quelles solutions peuvent être mises en place. </p>
+    <!-- <button 
     on:click={() => {
         selected = undefined;
-        console.log("click")
-    }}><a href="#choix">Retour au choix de ville</a></button>
+    }}><a href="#choix">Retour au choix de ville</a></button> -->
 </div>
 {/if}
 
 <style> 
+
+  .city {
+    transition: all 500ms ease;
+    cursor: pointer;
+  }
+  .wrapper-text {
+        max-width: 90rch;
+        margin-inline: auto;
+        margin-block: 2rem;
+        line-height: 2.5rem;
+        font-size: var(--font-size-md);
+        color: whitesmoke;
+        font-weight: 500;
+        padding-inline: 1rem;
+    }
     .hover {
         color: whitesmoke;
-        background-color: rgba(234, 71, 12, 0.603);
-        border-radius: 1rem;
-        padding: 2rem;
-
+        background-color: rgba(234, 71, 12, 0.703);
+        border-radius: 0.5rem;
+        padding-inline: 1rem;
+        font-size: var(--font-size-md);
+        transition: all 300ms ease;
+   }
+    .orange {
+        color: rgba(234, 71, 12);
     }
     .wrapper {
     display: flex;
     justify-content: center;
     padding: 5rem;
     }
-    button {
-        font-size: var(--font-size-lg);
-        padding: 0.5rem;
-        text-decoration: none;
-        color: var(--light-orange);
-        background-color: var(--light-orange);
-        border-radius: 1rem;
-        border:none;
-        transition: all 500ms;
-    }
-    button:hover {
-        background-color: whitesmoke;
-    }
     a {
         text-decoration: none;
         color: whitesmoke;
-        transition: all 500ms;
+        background-color: rgba(234, 71, 12, 0.603);
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        transition: all 750ms;
+
     }
     a:hover {
-        color: var(--light-orange)
+        color:rgba(234, 71, 12, 0.603);;
+        background-color: whitesmoke;
     }
     .map {
     width: 100%;
@@ -188,5 +220,6 @@
     .chart {
         max-width: 150%;
     }
+
   }
 </style>

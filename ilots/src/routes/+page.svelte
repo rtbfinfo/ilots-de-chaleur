@@ -26,6 +26,7 @@
 
   let colours = ["#1D2E3B", "#E48E50","#1D2E3B", "#3F4460", "#5D627E", "#BCBBD2"]
 
+  
   onMount(() => {
     //smooth scroll 
     const lenis = new Lenis()
@@ -61,6 +62,7 @@
 
   })
 })
+
 </script>
 
 <svelte:window bind:innerWidth={width}></svelte:window>
@@ -165,7 +167,9 @@
          si on croise ces données avec les revenus fiscaux des Belges et la végétation, les résultats sont pour le moins évocateurs. </p>
     </div>
   
-    <div class="wrapper-text test"  data-color="blue">
+    <div class="wrapper-text test"  data-color="blue" on:visibilitychange={() => {
+      ScrollTrigger.refresh()
+    }}>
       <p>Choisissez la ville que vous voulez explorer sur cette carte interactive
       </p>
     </div>
@@ -271,7 +275,9 @@
         sont souvent aussi les plus vulnérables au changement climatique”
       </p>
     </div>
-    <div class="flourish-embed flourish-chart" data-src="visualisation/14758903"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+    <div class="wrapper-plot">
+      <div class="flourish-embed flourish-chart" data-src="visualisation/14758903"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+    </div>
   <!-- <LinePlot
     MAR={mar}/> -->
   </section>
@@ -347,7 +353,6 @@
 </p>
 </div>
 
-
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Baskervville&family=Montserrat:wght@200;400;500&display=swap');
 /* .wrapper {
@@ -403,6 +408,11 @@
         font-weight: 500;
         padding-inline: 1rem;
     }
+  .wrapper-plot {
+    max-width: 150rch;
+    margin-inline: auto;
+    margin-block: 2rem;
+  }
    .lettrine{
       float: left;
       font-size: var(--font-size-xxxl);

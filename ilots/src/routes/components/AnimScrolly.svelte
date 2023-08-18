@@ -71,12 +71,20 @@
 
     $: tweenedX = tweened(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[0]),
         {
-            duration: 500,
+            duration: 1000,
             delay: 0,
 
         }) 
-    $: tweenedY =tweened(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[1]))
-    $: tweendRad = tweened(other_point.map(d => 2))
+    $: tweenedY =tweened(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[1]),  {
+            duration: 500,
+            delay: 0,
+
+        })
+    $: tweendRad = tweened(other_point.map(d => 2),  {
+            duration: 500,
+            delay: 0,
+
+        })
     $: tweenedColor = tweened(point_data.map(d => color_scale(d.raster_value_y)))
 
     const step1 = function() {
@@ -101,7 +109,7 @@
 
 
         tweenedX.set(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[0]))
-        tweenedY.set(point_data.map(d => projection([d.centroid_lat,d.centroid_lat])[1]))
+        tweenedY.set(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[1]))
 
         tweendRad.set(other_point.map(d => d.NOMBRE_HAB = 3))
 
@@ -114,7 +122,7 @@
 
 
         tweenedX.set(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[0]))
-        tweenedY.set(point_data.map(d => projection([d.centroid_lat,d.centroid_lat])[1]))
+        tweenedY.set(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[1]))
 
         tweendRad.set(other_point.map(d => d.NOMBRE_HAB = 3))
         color_scale = d3.scaleLinear()
@@ -239,13 +247,6 @@
                 />
             {/each}
         </g>
-        <g>
-            {#each secteurs_geo.features as secteur}
-                <path d={geoGenerator(secteur)} 
-                style="stroke:white;fill:grey;stroke-width:0.5;stroke-opacity:1;fill-opacity:0.5;z-index:-100"
-                />
-            {/each}
-        </g>
         {/if}
         {#if !emptyMap}
         <g transition:fade>
@@ -253,9 +254,9 @@
             <circle r={$tweendRad[index]}
             cx={$tweenedX[index]} 
             cy={$tweenedY[index]}
-            fill={$tweenedX[index] == 0 ? "none" : color_scale(temp[raster])} 
-            stroke={isMap ? "none" : "black"}
-            style="stroke-width:0.2;"/>
+            fill={currentStep == 5 && temp.REVENU_MOYEN == 0 ? "none" : color_scale(temp[raster])} 
+            stroke={isMap || (currentStep == 5 && temp.REVENU_MOYEN == 0) ? "none" : "var(--middle-blue)"}
+            style="stroke-width:0.5;"/>
             {/each}
         </g> 
         {/if}
@@ -290,7 +291,7 @@
 
 <style>
     .chart {
-   max-width:60%;
+    max-width:100%; 
     height: 100%;
     position: sticky;
     top: 0.1%;
@@ -309,7 +310,7 @@
         height: 90vh;
         display: flex;
         place-items: center;
-        justify-content: right;
+        justify-content: center;
         margin-right: 2vw;
     }
 
@@ -319,13 +320,11 @@
         transition: background 500ms ease, color 500ms ease;
         box-shadow: 1px 1px 10px rgba(0, 0, 0, .2);
         max-width: 25vw;
-        backdrop-filter: blur(3rem);
 
     }
 
 	.step.active .step-content {
         background: rgba(234, 71, 12, 0.603);
-        backdrop-filter: blur(3rem);
 		color: whitesmoke;
         border-radius: 0.5rem;
         font-size: var(--font-size-base);
@@ -334,6 +333,9 @@
     @media (max-width: 400px) {
         .chart {
             max-width: 100%;
+        }
+        .step-content {
+            max-width: 75%;
         }
     }
 </style>
