@@ -43,26 +43,38 @@
 
     requestAnimationFrame(raf)
 
-    gsap.utils.toArray('.chapitre').forEach((section, i) => {
-  
-  if(section.getAttribute('data-color') !== null) {
-    
-    var colorAttr = section.getAttribute('data-color')
-    
     gsap.to("body", {
-      backgroundColor: colorAttr,
+      backgroundColor: "#D66819",
       immediateRender: false,
       scrollTrigger: {
-        trigger: section,
-        // scrub: true,
+        trigger: "#quartiers",
+        scrub: true,
         start:'top bottom',
         end: '+=100%',
         markers :true,
       }
-    });
-  }
-
-  })
+    })
+    gsap.fromTo("body", {
+      backgroundColor: "#D66819",
+      immediateRender: false,
+      scrollTrigger: {
+        trigger: "#nuit",
+        scrub: true,
+        start:'top center',
+        end: '+=100%',
+        markers :true,
+      }},
+      {
+      backgroundColor: "#1D2E3C",
+      immediateRender: false,
+      scrollTrigger: {
+        trigger: "#nuit",
+        scrub: true,
+        start:'top bottom',
+        end: '+=100%',
+        markers :true,
+      }
+    })
 })
 
 </script>
@@ -78,55 +90,50 @@
 <div class="test">
   <section class="chapeau">
     <div class="wrapper-text test">
-      <p><span class="lettrine">L</span>a canicule ? Quelle canicule ? L’été 2023 en Belgique a jusqu’ici été marqué par un temps gris et maussade.
-         Avec 21 jours de pluie, ce mois de juillet 2023 a même battu des records historiques bien au-dessus des normales saisonnières. </p>
-        <p>Pourtant, même s’il n’en a pas l’air, le réchauffement climatique touche bel et bien notre pays.
-        Cette météo qui nous propose “tout ou rien” en est un des indicateurs. Certes, en juillet,
-        les pluies et la grisaille ont battu des records historiques. Mais souvenez-vous du mois de juin.
-        À ce moment-là, un autre record a été battu : nous n'avions jamais eu aussi chaud à cette période de l’année 
-        depuis le relevé des températures dans notre pays en 1833. </p>
-        <p>Et que dire de l’été 2022 ? Le mois d’août était alors le plus chaud jamais enregistré dans l’histoire de notre pays.
-        Dans ce contexte, une question se pose : notre pays est-il adapté à ces fortes chaleurs
-        qui deviendront à l’avenir plus longues, plus fréquentes et plus intenses ? </p>
+      <p><span class="lettrine">N</span>ous venons de vivre le septième été le plus chaud de Belgique depuis l’enregistrement des températures en 1833.
+         Avec un record : celui du mois juin, le plus ardent de tous. Et que dire de l’été 2022 ?
+          Le mois d’août de cette année-là dépassait également tous les enregistrements. De record en record, 
+          une question se pose : notre pays est-il adapté à ces fortes chaleurs qui deviendront à l’avenir plus longues, plus fréquentes et plus intenses ?
+           Qui paye le prix de ce changement climatique indiscutable ? </p>
+
         <p>Pour le savoir, nous avons croisé des données venues de différentes sources : </p>
         <ul>
           <li>les températures du sol captées par satellite pendant l’été, </li>
           <li>les revenus des Belges</li>
           <li>et la couverture de végétation dans nos régions.</li>
         </ul>
-        <p>Verdict: si vous vivez en ville, les plus riches sont les mieux protégés contre les effets des vagues de chaleur. Suivez-nous, on vous explique pourquoi.</p>
+        <p>Verdict: si vous vivez en ville, les plus riches sont les mieux protégés contre les effets des vagues de chaleur. 
+          <b>Suivez-nous, on vous explique pourquoi</b>.</p>
       </div>
-      <!-- <Quote
-      content={"Lorem ipsum dolor sit, amet consectetur adipisicing elit."}
-      />
-  
-      <div class="wrapper-text test">
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-          Rerum voluptatem laborum placeat enim adipisci voluptatum! 
-          Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
-          ratione nobis minima, velit esse ut unde.</p>
-      </div> -->
   </section>
   
   
-  <section class="chapitre" data-color="#E48E50">
+  <section class="chapitre" data-color="#E48E50" id="quartiers">
     <Title
     content={"Quartiers chauds"}
     index=0
     />
     <div class="wrapper-text">
-      <p>Grand-Place de Bruxelles, une chaude journée de juillet. Les températures atteignent des sommets.
-        A quelques kilomètres de là, au sud de la capitale, il fait chaud aussi. Mais beaucoup moins que dans le centre-ville. </p>
-    <p>En fait, plus on s’écarte du cœur de la cité, plus il fait frais. Une étude publiée en 2018 a montré que “les températures de l’air sont plus élevées de 3°C en moyenne au centre de la Région de Bruxelles-Capitale 
-      qu'à ses alentours ruraux en été (sur la période 1987-2016). Les températures les plus élevées s'observent dans de grandes zones au centre-ville urbanisé. Les températures sont légèrement plus basses au-dessus des eaux 
-      et dans les grands parcs.” </p>
-      <p>Dans le milieu des climatologues et des urbanistes, c’est ce qu’on appelle un phénomène “d’îlot de chaleur urbain” (ICU). “Dans les zones urbaines,
-         la chaleur solaire est absorbée par les matériaux de construction, et les bâtiments hauts et denses retiennent cette chaleur et limitent le refroidissement par la circulation du vent. 
-         En outre, les zones urbaines sont généralement densément peuplées et produisent de la chaleur, due aux transports et à la climatisation, par exemple”, explique l’institut Royal Météorologique (IRM) sur son site internet. </p>
+      <p>Laeken, au nord de Bruxelles, une chaude journée de juin 2023. 
+        Il est midi et il fait 31°C. À quelques kilomètres de là, à Zaventem, il fait chaud aussi. Mais un peu moins que dans la ville : 29°C « seulement ». </p>
+    <p>En fait, plus on s’écarte du cœur de la cité, plus il fait frais. Une étude publiée en 2018 a montré que « les températures de l’air sont plus élevées de 3°C 
+      en moyenne au centre de la Région de Bruxelles-Capitale qu'à ses alentours ruraux en été (sur la période 1987-2016). Les températures les plus élevées 
+      s'observent dans de grandes zones au centre-ville urbanisé.
+       Les températures sont légèrement plus basses au-dessus des eaux et dans les grands parcs. » </p>
+    </div>
+    <Img
+    type={"big"}
+    img={["./image/GettyImages-1241386865 (1).jpg","./image/GettyImages-1241386865 (1).jpg"]}
+    />
+    <div class="wrapper-text">
+      <p>Dans le milieu des climatologues et des urbanistes, c’est ce qu’on appelle un phénomène « d’îlot de chaleur urbain » (ICU).
+         « Dans les zones urbaines, la chaleur solaire est absorbée par les matériaux de construction, et les bâtiments hauts et denses retiennent cette chaleur 
+         et limitent le refroidissement par la circulation du vent. En outre, les zones urbaines sont généralement densément peuplées et produisent de la chaleur,
+         due aux transports et à la climatisation, par exemple », explique l’Institut Royal Météorologique (IRM) sur son site internet. </p>
     </div>
     <Img
     type={"middle"}
-    img={["./image/ilots_infographie.png"]}
+    img={["./image/ilots-infographie.png"]}
     />
   </section>
   
@@ -135,19 +142,26 @@
     content={"Un phénomène qui se manifeste la nuit"}
     index=1
     />
-    <div class="wrapper-text">
-      <p>Mais c'est surtout la nuit que les ICU entrent en action. “C'est un phénomène nocturne et intermittent, explique Yves Richard, professeur de géographie à l'université de Bourgogne, 
-        qui étudie la question pour le compte de la ville de Dijon, en France. Il se produit les nuits qui suivent les journées de beau temps et de vent calme. 
-        C'est à cause de la propriété des matériaux qui absorbent l'énergie pendant la journée et qui relâchent cette énergie la nuit que ce phénomène peut se déployer.” </p>
-    <p>En pratique, à Bruxelles, “à 23h (heure à laquelle l'îlot thermique urbain est normalement le plus prononcé), les différences de température entre le 
-      centre de la ville et la campagne environnante avoisinent en moyenne 4,5°C sur la même période", 
-      observe l’IRM qui ajoute qu'il y a “en moyenne 3 fois plus de périodes de fortes chaleurs dans le centre de Bruxelles que dans les zones rurales avoisinantes”. </p>
-    <p>Rafiq Hamdi, scientifique à l’IRM et spécialiste du sujet relève que “la température entre la ville et la campagne peut monter jusqu’à 8°C de différence la nuit avec un ciel clair et une absence de vent”. </p>
+    <div class="wrapper-text" id="nuit">
+      <p>Mais c'est surtout la nuit que les ICU entrent en action. « C'est un phénomène nocturne et intermittent.
+         Il se produit les nuits qui suivent les journées de beau temps et de vent calme », détaille Yves Richard, professeur de géographie à l'université de Bourgogne.</p>
+    <p>Celui qui étudie la question pour le compte de la ville de Dijon, en France précise :
+      « C'est à cause de la propriété des matériaux qui absorbent l'énergie pendant la journée et qui relâchent cette énergie la nuit que ce phénomène peut se déployer. » </p>
     </div>
     <Img
-    type={"inline"}
-    img={["./image/GettyImages-1241386865 (1).jpg","./image/GettyImages-1241386865 (1).jpg"]}
+    type={"middle"}
+    img={["./image/GettyImages-1241386865 (1).jpg"]}
     />
+    <div class="wrapper-text">
+      <p>En pratique, à Bruxelles, « à 23h (heure à laquelle l'îlot thermique urbain est normalement le plus prononcé), 
+        les différences de température entre le centre de la ville et la campagne environnante avoisinent en moyenne 4,5°C [ sur la période 1987-2016] »,
+         observe l’IRM qui ajoute qu'il y a « en moyenne trois fois plus de périodes de fortes chaleurs dans 
+         le centre de Bruxelles que dans les zones rurales avoisinantes ». </p>
+    <p>Rafiq Hamdi, scientifique à l’IRM et spécialiste du sujet, relève que « la température entre la ville et 
+      la campagne peut monter jusqu’à 8°C de différence la nuit avec un ciel clair et une absence de vent ». Cette différence
+      , les Bruxellois ont par exemple pu la constater lors des fortes chaleurs à la fin du mois de juin dernier, comme le montre le graphique ci-dessous. </p>
+    </div>
+    <div class="flourish-embed" data-src="story/2009134"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
   </section>
   
   
@@ -163,19 +177,19 @@
       <p>Dijon, la capitale de la Bourgogne, dans l’Est de la France, a tenté l’expérience. Aujourd’hui 90 stations mesurent la température de l’air à différents endroits de l’agglomération dijonnaise.
          Objectif de ce projet nommé MUSTARDijon (pour Measuring Urban Systems Temperature Around Dijon) : 
         aider les communes à identifier les zones vulnérables pour agir en conséquence. </p>
+
+        <Img
+        type={"middle"}
+        img={["./image/GettyImages-1241386865 (1).jpg"]}
+        />
+
       <p>D’autres ressources existent, à commencer par les données satellites. Ce sont celles que nous allons utiliser pour vous emmener au cœur de nos villes.
-         De son petit nom “Landsat 8”, ce satellite cartographie la température du sol sur l’ensemble du globe. Certes, la température de l’air serait plus représentative.
-          Mais cela donne un aperçu assez fidèle des zones plus chaudes et moins chaudes. Vous allez le voir,
-         si on croise ces données avec les revenus fiscaux des Belges et la végétation, les résultats sont pour le moins évocateurs. </p>
+         De son petit nom Landsat 8, ce satellite cartographie la température du sol sur l’ensemble du globe. Certes, la température de l’air serait plus représentative.
+          Mais Landsat nous donne quand même un aperçu assez fidèle des zones plus chaudes et moins chaudes (voir notre méthodologie à la fin de l’article).
+         Vous allez le voir, si on croise ces données avec les revenus fiscaux des Belges et la végétation, les résultats mettent en lumière des inégalités. </p>
+         <p>Explorez les données pour les plus grosses ville de wallonie via cette carte intéractive</p>
     </div>
-  
-    <div class="wrapper-text test"  data-color="blue" on:visibilitychange={() => {
-      ScrollTrigger.refresh()
-    }}>
-      <p>Choisissez la ville que vous voulez explorer sur cette carte interactive
-      </p>
-    </div>
-  
+
     <Select 
       Belgium_geo={province}
       secteurs_geo={secteur_all}
@@ -183,52 +197,83 @@
       annot={annot}
       />
   </section>
+
   <section class="chapitre" data-color="5D627E">
     <Title
-    content={"Analyse Sociologique"}
+    content={"Inégaux face au réchauffement climatique"}
     index=3
     />
     <div class="wrapper-text test" data-color="light-blue">
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-        Rerum voluptatem laborum placeat enim adipisci voluptatum! 
-        Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
-        ratione nobis minima, velit esse ut unde. Lorem ipsum dolor,
-        sit amet consctetur adipisicing elit. Ducimus quasi illum 
-        omnis maiores sequi fugit soluta, mollitia ipsum esse. 
-        Deleniti nesciunt, saepe tempora adipisci possimus commodi 
-        inventore provident reprehenderit soluta.</p>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-      Rerum voluptatem laborum placeat enim adipisci voluptatum! 
-      Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
-      ratione nobis minima, velit esse ut unde.</p>
+      <p>Conséquence : nous ne sommes pas tous égaux face au changement climatique, analyse Yves Richard à Dijon. « Il existe des inégalités de vulnérabilité,
+         surtout quand on regarde l’air intérieur (des habitations, ndlr). Si j’habite un pavillon avec jardin et que je peux ouvrir mes fenêtres la nuit quand je dors,
+          je bénéficie de la fraîcheur (de l’air extérieur, ndlr), surtout si mon appartement est traversant. Si, au contraire, j’habite dans un immeuble qui n'est pas 
+          traversant, qui est dans une zone bruyante, où il y a de l'insécurité, alors, je vais avoir du mal à rafraîchir mon appartement la nuit.
+         Et c'est là où il y a une grande inégalité. » </p>
+    <p>Chloé Salembier, ethnologue et professeur à la faculté d’architecture à l’UCLouvain, parle d’injustice spatiale.
+       « C’est le fait que les rapports sociaux soient inscrits dans le territoire », définit-elle. « Les êtres humains organisent leur territoire et le territoire 
+       produit des pratiques en retour. »
+      C’est donc la façon dont nous avons construit nos villes qui a contribué, plus d’un siècle plus tard, à ces vulnérabilités face au changement climatique.</p>
+      <p>Des habitants touchés différemment par un phénomène climatique extrême, ça ne vous rappelle rien? 2021,
+         les inondations dans la vallée de la Vesdre bien sûr. « Verviers, de par son histoire autour de l’industrie textile avait une population ouvrière 
+         dans le bas de la ville, le long de la Vesdre, proche des usines, contextualise Alain Malherbe, historien de l’art et urbaniste, chargé de cours à l’UCLouvain.
+          Cela s’est construit en grande partie au moment de l’industrialisation, dès le milieu du XIXe siècle… même si la Belgique a connu,
+         de par son fonctionnement et sa mobilité, une classe ouvrière qui s’est répartie de manière plus diffuse », nuance-t-il.  
+      </p>
     </div>
-  
+
+    <Img
+    type={"middle"}
+    img={["./image/GettyImages-1241386865 (1).jpg"]}
+    />
     
-    <Quote
-    content={"Lorem ipsum dolor sit, amet consectetur adipisicing elit."}/>
-  
     <div class="wrapper-text">
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-      Rerum voluptatem laborum placeat enim adipisci voluptatum! 
-      Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
-      ratione nobis minima, velit esse ut unde.</p>
+    <p>Néanmoins, « la vallée de la Vesdre s’est construite avec une population très précaire dès l’industrialisation.
+       La bourgeoisie, elle, occupe les coteaux, du côté de Heusy avec de grandes villas ou des maisons avec jardin.
+       Il existe des écarts de revenus importants entre ces deux types de population. Les conditions socio-économiques sont aussi très différentes. » </p>
     </div>
       <div class="wrapper-text">
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-          Rerum voluptatem laborum placeat enim adipisci voluptatum! 
-          Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
-          ratione nobis minima, velit esse ut unde. Lorem ipsum dolor,
-          sit amet consctetur adipisicing elit. Ducimus quasi illum 
-          omnis maiores sequi fugit soluta, mollitia ipsum esse. 
-          Deleniti nesciunt, saepe tempora adipisci possimus commodi 
-          inventore provident reprehenderit soluta.</p>
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-        Rerum voluptatem laborum placeat enim adipisci voluptatum! 
-        Dicta eos, aspernatur eaque facilis tempore, dolorem animi 
-        ratione nobis minima, velit esse ut unde.</p>
+        <p>Des extrêmes encore visibles à Verviers. Dans un quartier en bord de Vesdre comme Hodimont, le revenu médian est de 16.193 € par an en 2020.
+           C’est beaucoup moins que le revenu médian wallon (24.808 € par an) et quasiment la moitié de celui du quartier d’Heusy, situé sur les hauteurs, 
+           avec 31.234 € par an. Les quartiers les moins riches sont donc ceux qui subissent les effets du changement climatique : fortes chaleurs et inondations,
+            souligne Hélène Ancion, chargée de mission en aménagement du territoire et urbanisme pour Canopea,
+           la fédération des associations environnementales belges qui défend l'environnement en Wallonie et en Belgique. </p>
+      <p>Ces constats sont valables pour d’autres villes: les sols ont été imperméabilisés là où se sont les industries se sont implantées au XIXe siècle.
+         Et c’est là que l’on retrouve les logements, autrefois d’ouvriers, aujourd’hui, des plus précarisés. À Liège, en zone inondable, la part de la population
+          qui présente un niveau socio-économique très faible s’élève à 37% contre 29 % en moyenne dans la population wallonne,
+         soit près de 30% en plus de personnes socio-économiquement défavorisées en zone inondable, selon l’ISSEP, l’Institut scientifique de service public. </p>
+        <p>Ce sont des inégalités environnementales pour Hélène Ancion. « Les personnes se retrouvent face à de mauvaises conditions de vie. Elles sont
+           les conséquences d’un aménagement 
+          du territoire où l’on retrouve des quartiers riches et des quartiers pauvres. Et ce niveau socio-économique empêche de changer la donne. »  </p>
+        <p>Car depuis lors, l’industrie n’est plus aussi présente dans les cœurs de ville et ils subissent un processus de gentrification 
+          : la classe moyenne s’y installe. « Les effets de la spéculation immobilière, les effets de l'augmentation des loyers, de la crise du logement… 
+          impactent ces phénomènes d'injustice sociale », ajoute Chloé Salembier. « Les loyers sont plus chers dans les quartiers qui sont les moins denses, qui sont 
+          les plus verts. C’est impayable pour des familles qui ont des revenus bas ou moyens.»
+            Cela renforce l’obligation d’aller dans les quartiers les plus denses lorsqu’on n’a pas les moyens. </p>
+        <p>
+          « Les personnes à Bruxelles qui sont isolées - ce qui représente quand même près de 50% de la population - 
+          rencontrent des difficultés à se loger de manière décente », continue l’ethnologue.  La part de budget des ménages qui est utilisée pour
+            se loger est ainsi passée de 26,1% en 1999,
+            soit un peu plus d’un quart du budget, à 31,8% en 2020, soit presque un tiers du budget des ménages 
+        </p>
       </div>
+
+      <Quote
+      content={" Ces personnes vont donc diminuer leurs critères de confort en étant dans des quartiers moins bien desservis en termes de transport en commun, moins verts, plus denses… pour avoir suffisamment de chambres pour les enfants par exemple."}/>
   </section>
 
+  <div class="wrapper-text">
+    <p>
+      Parmi les personnes victimes de mal-logement, il y a trois types de profils, énumère Chloé Salembier. « En Région bruxelloise,
+       ce sont les familles monoparentales, les personnes isolées et les aînés. Dans chacune de ces catégories, les femmes sont surreprésentées.
+        Par contre, on n'a pas les chiffres sur les facteurs de discrimination liées à l'origine des personnes. Mais on sait que dans le croissant pauvre 
+        (la zone au nord du canal, ndlr), 
+      ce sont des quartiers qui accueillent des personnes qui cumulent les facteurs de discrimination en termes d'accès à l'emploi, en termes d'accès au logement etc. »  
+    </p>
+    <p>
+      Les personnes que l’on retrouve dans les îlots de chaleur ont non seulement de plus petits revenus en général mais sont donc aussi à l’intersection 
+      d’autres inégalités basées sur le genre ou la couleur de peau, par exemple. 
+    </p>
+  </div>
   
   <section class="chapitre" data-color="#5D627E">
     <Title
@@ -249,8 +294,9 @@
         Cette tendance ne devrait pas aller en s’améliorant. Le réchauffement climatique est tout à fait perceptible en Belgique,
          comme nous l’expliquions déjà dans un grand format publié fin 2020.  
       </p>
+   
     </div>
-    
+
     <Quote
     content={"Pour le moment, on est dix en en avance sur le pire des scénarios"}/>
 
@@ -260,6 +306,14 @@
          “Ce scénario-là, c’est le minium qu’on va obtenir, le reprend aussitôt son collègue Sébastien Doutreloup. 
          Tout dépend en effet des promesses et des décisions prises au niveau politique. 
       </p>
+    </div>
+
+    <Img
+    type={"middle"}
+    img={["./image/GettyImages-1241386865 (1).jpg"]}
+    />
+
+    <div class="wrapper-text">
       <p>
         Xavier Fettweis enchaîne : “Pour le moment, on est dix en en avance [sur le pire des scénarios].
          Rien que sur la dernière décennie 2011-2020, on a gagné un degré en été en Belgique par rapport à la période 1981-2010.
@@ -290,15 +344,17 @@
     index=5
     />
     <div class="wrapper-text test" data-color="green">
-      <p>Que faire alors ? Changer la ville, répond Yves Richard de l’université de Bourgogne. “Pour déployer des solutions vertes, il faut identifier des espaces. Et dans les espaces publics, 
-        ce sont les zones qui sont pour l'instant dédiées à la voirie qui doivent être mobilisées.
-         Il faut désimperméabiliser les sols et végétaliser la ville”, expose ce professeur de géographie. 
+      <p>Que faire alors ? Changer la ville, répond Yves Richard de l’université de Bourgogne. « Pour déployer des solutions vertes, 
+        il faut identifier des espaces. Et dans les espaces publics, ce sont les zones qui sont pour l'instant dédiées à la voirie qui doivent être mobilisées.
+         Il faut désimperméabiliser les sols et végétaliser la ville », expose le professeur de géographie.  
       </p>
-      <p> A l’IRM, on invite aussi à regarder du côté de l’albédo des bâtiments, c’est-à-dire la part des rayonnements solaires qui sont renvoyés vers l'atmosphère.
-      "L’albédo des bâtiments pourrait être modifié (en utilisant différents matériaux, des peintures de couleur blanche...) afin que plus de rayonnement solaire soit réfléchi. Une étude récente de 
-      l’IRM a montré que cela pourrait réduire l’îlot de chaleur urbain de 0,45°C et rendre la température moins stressante pour les habitants des villes. Quant à la verdure supplémentaire, 
-      l’IRM estime qu’elle “pourrait éviter 33% des vagues de chaleur. Et de conclure : “Afin de minimiser l’effet de la ville pendant les vagues de chaleur, une combinaison des deux mesures ci-dessus est recommandée.” 
+      <p>À l’IRM, on invite aussi à regarder du côté de l’albédo des bâtiments, c’est-à-dire la part des rayonnements solaires qui sont renvoyés vers l'atmosphère.
+         « L’albédo des bâtiments pourrait être modifié (en utilisant différents matériaux, des peintures de couleur blanche...) afin que plus de rayonnement solaire 
+         soit réfléchi. Une étude récente
+         de l’IRM a montré que cela pourrait réduire l’îlot de chaleur urbain de 0,45°C et rendre la température moins stressante pour les habitants des villes. » 
       </p>
+    <p>Quant à la verdure supplémentaire, l’Institut estime qu’elle « pourrait éviter 33% des vagues de chaleur.
+       Et de conclure : « Afin de minimiser l’effet de la ville pendant les vagues de chaleur, une combinaison des deux mesures ci-dessus est recommandée. » </p>
     </div>
     <Video
     type={"big"}
@@ -307,10 +363,11 @@
     ]}
       />
     <div class="wrapper-text">
-      <p>“Les arbres sont vraiment un paramètre primordial pour rafraichir l’espace. Ils puisent l’eau dans le sol. Et quand il fait chaud ils font comme nous, ils transpirent. C’est l’évaporation de l’eau qui va rafraîichir l’air”, 
-        résumait Mirjana Velickovic, project manager chez mkengineering.be, dans un reportage du journal télévisé diffusé en août 2022. </p>
+      <p>« Les arbres sont vraiment un paramètre primordial pour rafraîchir l’espace. Ils puisent l’eau dans le sol. Et,
+         quand il fait chaud, ils font comme nous :i ls transpirent. C’est l’évaporation de l’eau qui va rafraîchir l’air », 
+         résumait Mirjana Velickovic, project manager chez mkengineering.be,
+         dans un reportage du journal télévisé diffusé en août 2022. </p>
     </div>
-
     {#if width < 400}
     <Img
     type="big"
@@ -324,8 +381,9 @@
     {/if}
 
     <div class="wrapper-text">
-      <p>Cela ne se fera pas sans quelques changements d’habitudes. Yves Richard invite ainsi à "repenser nos modes de déplacements à l'intérieur de la ville pour consommer moins d'espaces.
-         Cela peut passer par le déploiement des transports en commun, la mobilité douce. Il faut aussi donner moins de place à l'automobile. Celle-ci, qu'elle soit électrique ou pas, prend trop de place.”  
+      <p>Cela ne se fera pas sans quelques changements d’habitudes. Yves Richard invite ainsi à « repenser nos modes de déplacements à l'intérieur de 
+        la ville pour consommer moins d'espaces. Cela peut passer par le déploiement des transports en commun, la mobilité douce. 
+        Il faut aussi donner moins de place à l'automobile. Celle-ci, qu'elle soit électrique ou pas, prend trop de place. »  
       </p>
     </div>
   
@@ -343,15 +401,29 @@
     "./image/solutions/Vertical/11-BRUMIFICATEURS.png","./image/solutions/Vertical/12-ARBRES.png","./image/solutions/Vertical/00-BASE VILLE.png"]}/> 
     {/if}
 
-
   </section>
 </div>
-<div class="wrapper">
+<div class="wrapper-text">
+<p>
+  Encore une condition pour Chloé Salembier : lier les questions d’espace public avec celles du logement. 
+  « Elles sont complètement imbriquées. Si l’on verdurise un quartier, il faut mettre en place des mesures compensatoires. 
+  Par exemple un plafonnement des loyers ou une rétrocession de la plus-value faite grâce à l’augmentation du loyer. »
+   Dans le cas contraire, ce quartier attirerait simplement des personnes qui ont les moyens de se le payer. Les inégalités resteraient.   
+</p>
 <p>
   Pour régler les défis de demain, mieux vaut agir dès aujourd’hui. En Belgique, certaines villes s’organisent.
-   C’est le cas à Liège avec le plan Canopée. “À Liège, nous constatons que la superficie totale de canopée d’arbres s’élève à 2.156 hectares (répartis à 60% en espace public et à 40% en espace privé),
-    soit 31,4%, du territoire communal”,
-   écrit la ville sur son site internet.  
+   C’est le cas à Liège avec le plan Canopée qui vise à augmenter la quantité d'arbres dans l’espace public et l’espace privé d’ici à 2030. 
+  À Bruxelles aussi, certaines actions sont mises en place : la commune d’Ixelles compte verduriser les places Flagey et Sainte-Croix. 
+</p>
+<p>
+  Hélène Ancion de l’association Canopea reste circonspecte face à ces plans de verdurisation.
+   « Beaucoup d’arbres plantés sont des arbres à fruits car productifs, mais c’est très difficile pour eux de s’épanouir en ville.
+    » Bien choisir l’essence et lui laisser l’espace est donc primordial pour la chargée de mission.
+   Mais surtout, « garder ce qui est déjà existant et arrêter de couper les arbres déjà présents et bien implantés ». 
+</p>
+<p>
+  Quoi qu’il en soit, il va falloir changer « la skyline » de nos villes dans les prochaines années si l’on ne veut pas subir 
+  les pics de températures toujours plus nombreux et toujours plus intenses.  
 </p>
 </div>
 

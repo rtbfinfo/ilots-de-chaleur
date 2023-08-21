@@ -28,8 +28,8 @@
     margin = {
         top: height/3,
         bottom: height/5,
-        left: 50,
-        right: 50
+        left: 60,
+        right: 20
     }
   }
 
@@ -72,10 +72,10 @@
     const steps = [`<p>voici ${selected} nombres d'habitants ... qui ne vivent pas tous dans les mêmes conditions</p>`,
                     "<p>Ajoutons sur cette carte les températures moyennes du sol en juillet et août de 2013 à 2022. Les zones plus froides sont en <span style='color:blue;'>bleu</span> et les zones plus chaudes sont en <span style='color:red;'>rouge</span></p>",
                     "<p>Les zones les plus fraiches sont souvent des parcs, des forêts ou des cours d’eau.</p>",
-                    "<p>explication moyenne par secteurs</p>",
-                    "<p> Regardons maintenant la densité de population pour savoir à quel point les zones les plus chaudes ou les plus fraiches sont densément peuplées. Plus un cercle est grand, plus il y a d’habitants dans ce quartier. A l’inverse, plus un cercle est petit, moins il y a de gens qui vivent à cet endroit. Un grand cercle rouge foncé signifie donc que beaucoup de gens vivent à cet endroit où il fait plus chaud qu’ailleurs.</p>",
-				    "<p>Si on met en parallèle les revenus médians et les températures, une tendance se dégage : plus les habitants d’un quartier ont des revenus élevés, plus ils ont tendance à vivre au frais.</p>",
-                    `<p>La végétation joue aussi un rôle. Une zone arborée est plus fraiche qu’une zone bétonnée.</p>`
+                    "<p>Faisons maintenant la moyenne de ces températures pour chaque secteur statistiques. Cela nous sera utile dans l’étape suivante…</p>",
+                    "<p>Plus un cercle est grand, plus il y a d’habitants dans ce quartier. Nous remarquons que les cercles rouges foncés sont les plus grands: les zones les plus chaudes sont aussi les plus peuplées.</p>",
+				    "<p> Si on met en parallèle les revenus médians et les températures, une tendance se dégage. Les points rouges se concentrent en haut à gauche du graphique : les zones qui subissent les plus hautes températures abritent des habitants aux revenus plus faibles. En revanche, dans la partie droite du graphique (là où les gens gagnent le plus), il y a surtout des points bleus (températures basses) et quasi pas de points rouges</p>",
+                    `<p> Enfin, les zones où la végétation est la plus abondante sont aussi les plus fraîches.</p>`
 				   ];
 
     $: tweenedX = tweened(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[0]),
@@ -264,7 +264,7 @@
             cx={$tweenedX[index]} 
             cy={$tweenedY[index]}
             fill={currentStep == 5 && temp.REVENU_MOYEN == 0 ? "none" : color_scale(temp[raster])} 
-            stroke={isMap || (currentStep == 5 && temp.REVENU_MOYEN == 0) ? "none" : "var(--middle-blue)"}
+            stroke={isMap || (currentStep == 5 && temp.REVENU_MOYEN == 0) ? "none" : "var(--dark-blue)"}
             style="stroke-width:0.5;"/>
             {/each}
         </g> 

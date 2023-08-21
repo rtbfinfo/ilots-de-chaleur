@@ -9,9 +9,8 @@
     {#each img as im}
     <div class="card">
         <img 
-        data-src={im} 
+        src={im} 
         alt="canetons"
-        use:lazyImage
         />
     </div>
     {/each}
