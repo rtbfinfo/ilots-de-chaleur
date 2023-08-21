@@ -24,11 +24,20 @@
     let class_name="map";
     let annot_state=false;
 
-    $: margin = {
-        top: height/4,
-        bottom: height/4,
-        left: 100,
+    $: if (width < 400) {
+    margin = {
+        top: height/3,
+        bottom: height/5,
+        left: 50,
         right: 50
+    }
+  }
+
+    let margin = {
+        top: height/3,
+        bottom: height/3,
+        left: 400,
+        right: 400
     }
 
     // base scale for color
@@ -39,7 +48,7 @@
     // base scale for point plot
     $: XScale = d3.scaleLinear()
         .domain([d3.min(point_data.map(d => d.raster_value_y)),d3.max(point_data.map(d => d.raster_value_y))])
-        .range([0 + margin.left + 50 ,height - margin.right -50])
+        .range([0 + margin.left ,height - margin.right])
 
     $: yScale =d3.scaleLinear()
         .domain([d3.min(point_data.map(d => d.raster_value_x)),d3.max(point_data.map(d => d.raster_value_x))])
@@ -167,7 +176,7 @@
     const step5 = function() {
         XScale = d3.scaleLinear()
         .domain([d3.min(point_data.map(d => d.perc_ver)),d3.max(point_data.map(d => d.perc_ver))])
-        .range([0 + margin.left + 50,width - margin.right -50])
+        .range([0 + margin.left,width - margin.right])
         console.log(point_data)
 
         tweenedX.set(point_data.map(d => XScale(d.perc_ver)))
@@ -274,7 +283,8 @@
           <Axes
           width={width}
           height={height}
-          value={value}/>
+          value={value}
+          margin={margin}/>
         {/if}
     </svg>
 </div>

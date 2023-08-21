@@ -22,6 +22,8 @@
   const secteur_all = data.secteur_all;
 
   let width;
+  let scrollPos;
+  $:console.log(scrollPos);
   gsap.registerPlugin(ScrollTrigger);
 
   let colours = ["#1D2E3B", "#E48E50","#1D2E3B", "#3F4460", "#5D627E", "#BCBBD2"]
@@ -52,9 +54,9 @@
       immediateRender: false,
       scrollTrigger: {
         trigger: section,
-        scrub: true,
+        // scrub: true,
         start:'top bottom',
-        end: '+=150%',
+        end: '+=100%',
         markers :true,
       }
     });
@@ -65,7 +67,7 @@
 
 </script>
 
-<svelte:window bind:innerWidth={width}></svelte:window>
+<svelte:window bind:innerWidth={width} bind:scrollY={scrollPos}></svelte:window>
 
 
   <Hero

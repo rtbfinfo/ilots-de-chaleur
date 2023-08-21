@@ -103,9 +103,6 @@ let names_img = ["Revêtement","Isolation","Pelouse","Point d'eau","Voitures","F
         flex-wrap: wrap;
         align-content: center;
         justify-content: end;
-        background-color: white;
-        border-radius: 1.5rem;
-        border: 0.5px solid whitesmoke
     }
     .fond {
         position: absolute;

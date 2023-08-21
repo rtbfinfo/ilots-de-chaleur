@@ -1,3 +1,4 @@
+export const prerender = true;
 import * as d3 from "d3"
 
 export const load = async ({fetch}) => {
