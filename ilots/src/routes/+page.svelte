@@ -161,7 +161,9 @@
       la campagne peut monter jusqu’à 8°C de différence la nuit avec un ciel clair et une absence de vent ». Cette différence
       , les Bruxellois ont par exemple pu la constater lors des fortes chaleurs à la fin du mois de juin dernier, comme le montre le graphique ci-dessous. </p>
     </div>
-    <div class="flourish-embed" data-src="story/2009134"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+    <div class="wrapper-plot">
+      <div class="flourish-embed" data-src="story/2009134"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+    </div>
   </section>
   
   
