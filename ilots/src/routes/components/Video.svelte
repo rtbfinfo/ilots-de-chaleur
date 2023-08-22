@@ -44,7 +44,7 @@
         height: auto;
     }
     
-    @media (max-width: 400px) {
+    @media screen and (max-width: 400px) {
         .base {
             margin-inline: auto;
             display: block;

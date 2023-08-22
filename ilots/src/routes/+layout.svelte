@@ -12,7 +12,6 @@
 
 {#if load}
 <div class="container">
-    <p>Chargement</p>
     <div class="preloader"></div> 
   </div>
 {:else}
@@ -23,11 +22,11 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Baskervville&family=Montserrat:wght@200;400;500&display=swap');
 
-    p {
+    /* p {
         font-size: 2em;
         color:#D66819;
         margin-top: 10rem;
-    }
+    } */
     .container{
   max-width: 400px;
   margin:0 auto;

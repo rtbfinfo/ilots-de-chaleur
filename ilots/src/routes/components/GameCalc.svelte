@@ -86,7 +86,7 @@ let names_img = ["Revêtement","Isolation","Pelouse","Point d'eau","Voitures","F
     .base {
         margin-inline: auto;
         display: flex;
-        gap: 2rem;
+        gap: 1rem;
         margin-bottom: 5rem;
         scroll-snap-type: y mandatory;
     }
@@ -109,11 +109,7 @@ let names_img = ["Revêtement","Isolation","Pelouse","Point d'eau","Voitures","F
         position: absolute;
     }
 
-    /* div {
-        border: 2px solid red
-    } */
-
-    @media (max-width: 400px) {
+    @media screen and (max-width: 400px) {
         .base {
             display: block;
         }

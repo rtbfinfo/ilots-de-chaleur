@@ -1,8 +1,8 @@
 <script>
     export let title
     export let subtitle
-    $: width = 500
-    $: height= 500
+    let width;
+    let height;
     let radius= 375;
     $: hauteur = height/2;
     import {gsap} from "gsap";
@@ -25,9 +25,7 @@
                 start: "top top",
                 end: "bottom top",
                 scrub: true,
-                // pin: true,
                 anticipatePin: 1,
-                // markers: true
             }
         })
 
@@ -44,7 +42,7 @@
 
 
 <svg width={width} height={height}>
-    <circle id="circle" cx={width/2} cy={hauteur} r={radius} fill="var(--light-orange)"/>
+    <circle id="circle" cx={width/2} cy={height/2} r={radius} fill="var(--light-orange)"/>
 </svg>
 
 <div class="wrapper" bind:clientWidth={width}>

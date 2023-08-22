@@ -26,7 +26,7 @@
   <div id="progress-bar"></div>
   <nav class="fixed-nav-bar" in:fade>
   
-        <a class="brand" href="https://www.rtbf.be/info?" rel="noreferrer" target="_blank">
+        <a class="brand" href="https://rtbfmedia.be/rtbfinfo/ICU_pics/rtbf.svg" rel="noreferrer" target="_blank">
           <img src="./rtbf.svg" alt="RTBF Logo" />
         </a>
         
@@ -34,11 +34,11 @@
         <!-- svelte-ignore a11y-missing-content -->
 
         <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.rtbf.be/article/11243914" rel="noreferrer" target="_blank" alt="Facebook Logo">
-            <img src="./facebook.svg" alt="facebook Logo" />
+            <img src="https://rtbfmedia.be/rtbfinfo/ICU_pics/facebook.svg" alt="facebook Logo" />
         </a>
         <!-- svelte-ignore a11y-missing-content -->
         <a href="https://twitter.com/intent/tweet?text=https://www.rtbf.be/article/11243914" rel="noreferrer" target="_blank" alt="Twitter Logo">
-            <img src="./twitter.svg" alt="twitter Logo" />
+            <img src="https://rtbfmedia.be/rtbfinfo/ICU_pics/twitter.svg" alt="twitter Logo" />
         </a>
     </div>
   

@@ -22,6 +22,7 @@
   const secteur_all = data.secteur_all;
 
   let width;
+  let height;
   gsap.registerPlugin(ScrollTrigger);
 
   let colours = ["#1D2E3B", "#E48E50","#1D2E3B", "#3F4460", "#5D627E", "#BCBBD2"]
@@ -74,13 +75,14 @@
 
 </script>
 
-<svelte:window bind:innerWidth={width} ></svelte:window>
+<svelte:window bind:innerHeight={height} bind:innerWidth={width}></svelte:window>
 
 <Navbar/>
 
 <Hero
 title={"Réchauffement climatique en Belgique :"}
-subtitle={"Comment les températures de nos villes mettent en évidence les inégalités entre les Belges "}/>
+subtitle={"Comment les températures de nos villes mettent en évidence les inégalités entre les Belges "}
+/>
 
 <div class="test">
   <section class="chapeau">
@@ -130,7 +132,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
     </div>
     <Img
     type={"middle"}
-    img={["./image/ilots-infographie.png"]}
+    img={["https://rtbfmedia.be/rtbfinfo/ICU_pics/ilots_expliques.webp"]}
     legend={["Quentin Vanhoof d’après Earth Resources Observation and Science (EROS) Center"]}
     alt={["Quentin Vanhoof d’après Earth Resources Observation and Science (EROS) Center"]}
     />
@@ -370,7 +372,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
     img={["https://rtbfmedia.be/rtbfinfo/ICU_pics/drone_bxl_1.mp4",
     "https://rtbfmedia.be/rtbfinfo/ICU_pics/drone_bxl_2.mp4"
     ]}
-    legend={["test","test"]}
+    legend={["À Bruxelles, le toit du Palais du Midi a été peint en blanc pour absorber moins de chaleur.","De hauts immeubles, peu de verdure : la recette parfaite pour un îlot de chaleur."]}
       />
     <div class="wrapper-text">
       <p>« Les arbres sont vraiment un paramètre primordial pour rafraîchir l’espace. Ils puisent l’eau dans le sol. Et,
@@ -503,7 +505,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
   }
 
   .wrapper-text {
-        max-width: 70ch;
+        max-width: 60ch;
         margin-inline: auto;
         margin-block: 2rem;
         line-height: 1.7rem;
@@ -517,7 +519,6 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
     border: 5px solid var(--dark-orange);
     border-radius: 2rem;
     margin-top: 5rem;
-    margin-inline: 1rem;
   }
   .wrapper-plot {
     max-width: 150rch;
