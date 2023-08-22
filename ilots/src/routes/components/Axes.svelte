@@ -4,19 +4,12 @@
     export let value;
     export let margin;
 
-    $: console.log(value)
-
+  
     margin.left = margin.left - 20
     margin.right = margin.right + 20
     margin.bottom = margin.bottom - 20
 
 </script>
-
-<!-- <svelte:window bind:innerHeight={height}></svelte:window>
-
-<div bind:clientWidth={width} height={height}></div> -->
-
-
 
 <!-- <svg width={width} height={height}> -->
         <defs>
@@ -123,10 +116,5 @@
       stroke-dasharray="20"
       stroke-opacity="0.5"
       marker-end="url(#triangle)"/>
-
-      </g>
-     
-
-<!-- </svg> -->
-
-<!-- plus -->
+    </g>
+    

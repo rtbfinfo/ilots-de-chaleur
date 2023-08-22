@@ -108,10 +108,6 @@ let names_img = ["Revêtement","Isolation","Pelouse","Point d'eau","Voitures","F
         position: absolute;
     }
 
-    /* div {
-        border: 2px solid red
-    } */
-
     @media (max-width: 400px) {
         .base {
             display: block;

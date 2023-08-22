@@ -145,10 +145,6 @@
             selected = undefined;
         }}
         href="#choix">Revenez au choix de ville</a> ou <span class='orange'>scrollez vers le bas </span> pour continuer votre lecture. Dans la suite de cet article nous allons analyser les causes de ces différences de températures… Et voir quelles solutions peuvent être mises en place. </p>
-    <!-- <button 
-    on:click={() => {
-        selected = undefined;
-    }}><a href="#choix">Retour au choix de ville</a></button> -->
 </div>
 {/if}
 
@@ -179,11 +175,6 @@
     .orange {
         color: rgba(234, 71, 12);
     }
-    .wrapper {
-    display: flex;
-    justify-content: center;
-    padding: 5rem;
-    }
     a {
         text-decoration: none;
         color: whitesmoke;
@@ -197,15 +188,6 @@
         color:rgba(234, 71, 12, 0.603);;
         background-color: whitesmoke;
     }
-    .map {
-    width: 100%;
-    height: 80%;
-    position: sticky;
-    top: 5%;
-    margin: auto;
-    z-index: 10;
-    border-radius: 10rem;
-  }
   .chart {
    max-width: 100%;
     height: 80%;

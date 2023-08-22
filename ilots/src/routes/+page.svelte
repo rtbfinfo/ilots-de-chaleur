@@ -1,6 +1,5 @@
 <script>
   import { onMount } from "svelte";
-  import { fade } from "svelte/transition";
   import {gsap} from "gsap";
   import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
 
@@ -9,21 +8,20 @@
   import Lenis from '@studio-freight/lenis';
   import Img from "./components/Img.svelte";
   import Quote from "./components/Quote.svelte";
-  import LinePlot from "./components/LinePlot.svelte";
   import Select from "./components/Select.svelte";
   import GameCalc from "./components/GameCalc.svelte";
   import Video from "./components/Video.svelte";
-  export let data;
 
-  const annot = data.annot.features
-  const Lst = data.temp;
-  const province = data.provinces
-  const mar = data.mar
-  const secteur_all = data.secteur_all;
+  import annotations from "./data/annotations.json"
+  import Lst from "./data/every_city_infos.json"
+  import province from "./data/belgium-with-regions_.json"
+  import secteur_all from "./data/secteur_every_city.json"
+
+  const annot = annotations.features;
+
 
   let width;
-  let scrollPos;
-  $:console.log(scrollPos);
+
   gsap.registerPlugin(ScrollTrigger);
 
   let colours = ["#1D2E3B", "#E48E50","#1D2E3B", "#3F4460", "#5D627E", "#BCBBD2"]
@@ -79,7 +77,7 @@
 
 </script>
 
-<svelte:window bind:innerWidth={width} bind:scrollY={scrollPos}></svelte:window>
+<svelte:window bind:innerWidth={width}></svelte:window>
 
 
   <Hero
@@ -435,10 +433,6 @@
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Baskervville&family=Montserrat:wght@200;400;500&display=swap');
-/* .wrapper {
-        max-width: 100rem;
-        margin-inline: auto;
-    } */
 
   :root {
     --dark-color:#1D2E3C;
@@ -466,9 +460,6 @@
     margin: 0;
     background-color: var(--dark-color);
 }
-  /* :global(div) {
-    border: 2px solid red;
-  } */
 
   :global(h1) {
     margin-block:0;

@@ -5,8 +5,6 @@
     import Axes from "./Axes.svelte";
     import { fade } from 'svelte/transition';
 
-
-
     export let point_data
     export let selected
     export let secteurs_geo
@@ -123,23 +121,6 @@
         tweendRad.set(other_point.map(d => d.NOMBRE_HAB = 3))
 
     }
-    const step2bis = function() {
-        projection = d3.geoMercator()
-        .fitExtent([[0, 0], [width, 700]], secteurs_geo);
-
-        geoGenerator = d3.geoPath(projection)
-
-
-        tweenedX.set(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[0]))
-        tweenedY.set(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[1]))
-
-        tweendRad.set(other_point.map(d => d.NOMBRE_HAB = 3))
-        color_scale = d3.scaleLinear()
-        .domain([d3.min(point_data.map(d => d.raster_value_y)),d3.median(point_data.map(d => d.raster_value_y)),d3.max(point_data.map(d => d.raster_value_y))])
-        .range(["#144265","whitesmoke","#dc351f"])
-
-
-    }
     const step3 = function() {
         
         tweenedX.set(other_point.map(d => d.centroid_lon = width/2))
@@ -185,10 +166,6 @@
         tweendRad.set(point_data.map(d => radiusScale(d.NOMBRE_HAB)))
 
     }   
-    const step6 = function() {
-
-    }
-    $: console.log(currentStep)
 
     $: if (currentStep==0) {
         isMap = true
