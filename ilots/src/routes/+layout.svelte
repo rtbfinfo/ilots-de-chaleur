@@ -26,18 +26,18 @@
     p {
         font-size: 2em;
         color:#D66819;
-        margin-top: 20px;
+        margin-top: 10rem;
     }
     .container{
   max-width: 400px;
   margin:0 auto;
   position: relative;
   text-align: center;
-}
-.preloader {
-  margin: 20% auto 0;
-	transform: translateZ(0);
-}
+  }
+  .preloader {
+    margin:  20% auto 0;
+    transform: translateZ(0);
+  }
 
 .preloader:before,
 .preloader:after {

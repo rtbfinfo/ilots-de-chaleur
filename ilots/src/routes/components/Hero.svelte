@@ -3,7 +3,7 @@
     export let subtitle
     $: width = 500
     $: height= 500
-    let radius= 400;
+    let radius= 375;
     $: hauteur = height/2;
     import {gsap} from "gsap";
     import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
