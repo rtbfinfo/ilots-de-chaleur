@@ -51,7 +51,7 @@
         scrub: true,
         start:'top bottom',
         end: '+=100%',
-        markers :true,
+        // markers :true,
       }
     })
     gsap.fromTo("body", {
@@ -405,6 +405,10 @@
 
   </section>
 </div>
+    <Title
+    content={"Agir aujourd'hui pour régler les défis de demain"}
+    index=5
+    />
 <div class="wrapper-text">
 <p>
   Encore une condition pour Chloé Salembier : lier les questions d’espace public avec celles du logement. 
