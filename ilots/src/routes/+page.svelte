@@ -112,7 +112,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
     />
     <div class="wrapper-text">
       <p>Laeken, au nord de Bruxelles, une chaude journée de juin 2023. 
-        Il est midi et il fait 31°C. À quelques kilomètres de là, à Zaventem, il fait chaud aussi. Mais un peu moins que dans la ville : 29°C « seulement ». </p>
+        Il est midi et il fait 31°C. À quelques kilomètres de là, à Zaventem, il fait chaud aussi. Mais un peu moins que dans la ville : 29°C «seulement». </p>
     <p>En fait, plus on s’écarte du cœur de la cité, plus il fait frais. Une étude publiée en 2018 a montré que « les températures de l’air sont plus élevées de 3°C 
       en moyenne au centre de la Région de Bruxelles-Capitale qu'à ses alentours ruraux en été (sur la période 1987-2016). Les températures les plus élevées 
       s'observent dans de grandes zones au centre-ville urbanisé.
