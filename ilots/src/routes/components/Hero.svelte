@@ -4,8 +4,7 @@
     $: width = 500
     $: height= 500
     let radius= 400;
-    let hauteur = 500
-    // export let participants
+    $: hauteur = height/2;
     import {gsap} from "gsap";
     import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
     import { onMount } from "svelte";
@@ -40,40 +39,35 @@
 
 </script>
 
+
 <svelte:window bind:innerHeight={height}></svelte:window>
 
 
-<svg width={width} height={height + height/2}>
+<svg width={width} height={height}>
     <circle id="circle" cx={width/2} cy={hauteur} r={radius} fill="var(--light-orange)"/>
 </svg>
+
 <div class="wrapper" bind:clientWidth={width}>
     <p class="decrypte">Décrypte</p>
     <h1 class=moyen>{title}</h1>
-    <h1 class="big">les pauvres au <span class=chaud>chaud</span>, les riches au <span class="froid">frais</span></h1>
+    <h1 class="big">Les pauvres au <span class=chaud>chaud</span>, les riches au <span class="froid">frais</span></h1>
     <h3>{subtitle}</h3>
-    <h4>journalistes: Ambroise Carton et Marie-Laure Mathot</h4>
-    <h4>data et web dev: Héloïse Feldmann</h4>
+    <h4>Journalistes: Ambroise Carton et Marie-Laure Mathot</h4>
+    <h4>Data et web dev: Héloïse Feldmann</h4>
+    <div class="mouse_wheel">
+        <div class="anim-scroll"></div>
+        <div class="anim-scroll--wheel"></div>
+    </div>
     <svg width={width} height={height}>
         <circle id="circle" cx={width/2} cy={hauteur} r={radius} fill="var(--light-orange)"/>
     </svg>
     <div class='video'>
         <video muted playsinline autoplay loop disablepictureinpicture>
-            <source src="./image/drone bxl immeubles.mp4" type="video/mp4" />
+            <source src="https://rtbfmedia.be/rtbfinfo/ICU_pics/liege.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video> 
     </div>
 </div>
-
-<!-- <div>
-    <video muted playsinline autoplay loop disablepictureinpicture>
-        <source src="./image/drone bxl immeubles.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video> 
-</div> -->
-
-<!-- {#each participants as person}
-    <p>{person.nom}</p>
-{/each} -->
 
 <style>
     .video {
@@ -122,12 +116,12 @@
         /* border-bottom: 4px solid var(--dark-orange); */
         padding-bottom: 2rem;
         max-width: 120rch;
-        font-weight: 200;
+        font-weight: 400;
     }
 
     h4{
         margin-block: 0;
-        font-weight: 200;
+        font-weight: 400;
         font-family: var(--font-title);
     }
     
@@ -141,7 +135,7 @@
     
     .moyen {
         max-width: 60rch;
-        font-size: var(font-size-lg);
+        font-size: var(--font-size-base);
         font-family: var(--font-title);
 
     }
@@ -151,4 +145,47 @@
         margin-bottom: 2rem;
     }
     
+    .mouse_wheel {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1;
+    position: absolute;
+        bottom: 10%;
+    }
+    .anim-scroll {
+    border: 2px solid #fff;
+    border-radius: 22px;
+    height: 40px;
+    position: relative;
+    width: 20px;
+    z-index: 1;
+    }
+    .anim-scroll--wheel {
+    animation: scroll 2.5s ease infinite;
+    background: #fff;
+    border-radius: 30px;
+    height: 8px;
+    left: calc(50% - 1.5px);
+    position: absolute;
+    right: 50%;
+    top: 8px;
+    width: 3px;
+    }
+    @keyframes scroll {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(16px);
+    }
+    51% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+    }
     </style>

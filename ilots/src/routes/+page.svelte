@@ -9,10 +9,10 @@
   import Lenis from '@studio-freight/lenis';
   import Img from "./components/Img.svelte";
   import Quote from "./components/Quote.svelte";
-  import LinePlot from "./components/LinePlot.svelte";
   import Select from "./components/Select.svelte";
   import GameCalc from "./components/GameCalc.svelte";
   import Video from "./components/Video.svelte";
+  import Navbar from "./components/navbar.svelte";
   export let data;
 
   const annot = data.annot.features
@@ -22,8 +22,6 @@
   const secteur_all = data.secteur_all;
 
   let width;
-  let scrollPos;
-  $:console.log(scrollPos);
   gsap.registerPlugin(ScrollTrigger);
 
   let colours = ["#1D2E3B", "#E48E50","#1D2E3B", "#3F4460", "#5D627E", "#BCBBD2"]
@@ -51,7 +49,6 @@
         scrub: true,
         start:'top bottom',
         end: '+=100%',
-        // markers :true,
       }
     })
     gsap.fromTo("body", {
@@ -62,7 +59,6 @@
         scrub: true,
         start:'top center',
         end: '+=100%',
-        markers :true,
       }},
       {
       backgroundColor: "#1D2E3C",
@@ -72,20 +68,19 @@
         scrub: true,
         start:'top bottom',
         end: '+=100%',
-        markers :true,
       }
     })
 })
 
 </script>
 
-<svelte:window bind:innerWidth={width} bind:scrollY={scrollPos}></svelte:window>
+<svelte:window bind:innerWidth={width} ></svelte:window>
 
+<Navbar/>
 
-  <Hero
-  title={"Réchauffement climatique en Belgique :"}
-  subtitle={"Comment les températures de nos villes mettent en évidence les inégalités entre les Belges "}
-  />
+<Hero
+title={"Réchauffement climatique en Belgique :"}
+subtitle={"Comment les températures de nos villes mettent en évidence les inégalités entre les Belges "}/>
 
 <div class="test">
   <section class="chapeau">
@@ -123,7 +118,9 @@
     </div>
     <Img
     type={"big"}
-    img={["./image/GettyImages-1241386865 (1).jpg","./image/GettyImages-1241386865 (1).jpg"]}
+    img={["https://rtbfmedia.be/rtbfinfo/ICU_pics/1.webp","https://rtbfmedia.be/rtbfinfo/ICU_pics/2.webp"]}
+    legend={["Rafraîchissement dans l’eau d’une fontaine sur la place Flagey, à Bruxelles, le 24 juillet 2019. Crédit: Thierry Monasse, Getty images)","À Namur, un côté de la Sambre est plus chaud que l’autre. Ceux qui vivent sur les coteaux verts de la Citadelle sont bien plus au frais que ceux qui vivent dans le centre-ville. Crédit: Santiago Urquijo – Getty images"]}
+    alt={["Rafraîchissement dans l’eau d’une fontaine sur la place Flagey, à Bruxelles, le 24 juillet 2019. Crédit: Thierry Monasse, Getty images)","À Namur, un côté de la Sambre est plus chaud que l’autre. Ceux qui vivent sur les coteaux verts de la Citadelle sont bien plus au frais que ceux qui vivent dans le centre-ville. Crédit: Santiago Urquijo – Getty images"]}
     />
     <div class="wrapper-text">
       <p>Dans le milieu des climatologues et des urbanistes, c’est ce qu’on appelle un phénomène « d’îlot de chaleur urbain » (ICU).
@@ -134,6 +131,8 @@
     <Img
     type={"middle"}
     img={["./image/ilots-infographie.png"]}
+    legend={["Quentin Vanhoof d’après Earth Resources Observation and Science (EROS) Center"]}
+    alt={["Quentin Vanhoof d’après Earth Resources Observation and Science (EROS) Center"]}
     />
   </section>
   
@@ -149,8 +148,10 @@
       « C'est à cause de la propriété des matériaux qui absorbent l'énergie pendant la journée et qui relâchent cette énergie la nuit que ce phénomène peut se déployer. » </p>
     </div>
     <Img
-    type={"middle"}
-    img={["./image/GettyImages-1241386865 (1).jpg"]}
+    type={"inline"}
+    img={["https://rtbfmedia.be/rtbfinfo/ICU_pics/3.webp"]}
+    legend={["Une fois la nuit tombée, le phénomène d’îlot de chaleur se fait d’autant plus ressentir. Crédit: Marie-Laure Mathot, RTBF"]}
+    alt={["Une fois la nuit tombée, le phénomène d’îlot de chaleur se fait d’autant plus ressentir. Crédit: Marie-Laure Mathot, RTBF"]}
     />
     <div class="wrapper-text">
       <p>En pratique, à Bruxelles, « à 23h (heure à laquelle l'îlot thermique urbain est normalement le plus prononcé), 
@@ -162,12 +163,12 @@
       , les Bruxellois ont par exemple pu la constater lors des fortes chaleurs à la fin du mois de juin dernier, comme le montre le graphique ci-dessous. </p>
     </div>
     <div class="wrapper-plot">
-      <div class="flourish-embed" data-src="story/2009134"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+      <iframe src='https://flo.uri.sh/story/2009134/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe><div style='width:100%!;margin-top:4px!important;text-align:right!important;'><a class='flourish-credit' href='https://public.flourish.studio/story/2009134/?utm_source=embed&utm_campaign=story/2009134' target='_top' style='text-decoration:none!important'><img alt='Made with Flourish' src='https://public.flourish.studio/resources/made_with_flourish.svg' style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'> </a></div>
     </div>
   </section>
   
   
-  <section class="chapitre" data-color="#3F4460">
+  <section class="chapitre">
     <Title
     content={"Les satellites à la rescousse"}
     index=2
@@ -179,18 +180,21 @@
       <p>Dijon, la capitale de la Bourgogne, dans l’Est de la France, a tenté l’expérience. Aujourd’hui 90 stations mesurent la température de l’air à différents endroits de l’agglomération dijonnaise.
          Objectif de ce projet nommé MUSTARDijon (pour Measuring Urban Systems Temperature Around Dijon) : 
         aider les communes à identifier les zones vulnérables pour agir en conséquence. </p>
-
+      </div>
         <Img
         type={"middle"}
-        img={["./image/GettyImages-1241386865 (1).jpg"]}
+        img={["https://rtbfmedia.be/rtbfinfo/ICU_pics/4.webp"]}
+        legend={["Observée depuis le ciel, Charleroi se révèle plus chaude en son centre. Crédit: Getty images "]}
+        alt={["Observée depuis le ciel, Charleroi se révèle plus chaude en son centre. Crédit: Getty images "]}
         />
-
-      <p>D’autres ressources existent, à commencer par les données satellites. Ce sont celles que nous allons utiliser pour vous emmener au cœur de nos villes.
-         De son petit nom Landsat 8, ce satellite cartographie la température du sol sur l’ensemble du globe. Certes, la température de l’air serait plus représentative.
+      <div class="wrapper-text">
+        <p>D’autres ressources existent, à commencer par les données satellites. Ce sont celles que nous allons utiliser pour vous emmener au cœur de nos villes.
+          De son petit nom Landsat 8, ce satellite cartographie la température du sol sur l’ensemble du globe. Certes, la température de l’air serait plus représentative.
           Mais Landsat nous donne quand même un aperçu assez fidèle des zones plus chaudes et moins chaudes (voir notre méthodologie à la fin de l’article).
-         Vous allez le voir, si on croise ces données avec les revenus fiscaux des Belges et la végétation, les résultats mettent en lumière des inégalités. </p>
-         <p>Explorez les données pour les plus grosses ville de wallonie via cette carte intéractive</p>
-    </div>
+          Vous allez le voir, si on croise ces données avec les revenus fiscaux des Belges et la végétation, les résultats mettent en lumière des inégalités. </p>
+          <p>Cliquez sur une ville sur la carte ci-dessous pour découvrir ses particularités en détail.</p>
+      </div>
+      
 
     <Select 
       Belgium_geo={province}
@@ -200,7 +204,7 @@
       />
   </section>
 
-  <section class="chapitre" data-color="5D627E">
+  <section class="chapitre">
     <Title
     content={"Inégaux face au réchauffement climatique"}
     index=3
@@ -224,10 +228,12 @@
     </div>
 
     <Img
-    type={"middle"}
-    img={["./image/GettyImages-1241386865 (1).jpg"]}
+    type={"big"}
+    img={["https://rtbfmedia.be/rtbfinfo/ICU_pics/5.webp","https://rtbfmedia.be/rtbfinfo/ICU_pics/6.webp"]}
+    legend={["Le quartier de Prés-Javais, à Verviers est particulièrement vulnérable aux phénomènes climatiques extrêmes. Crédit: Marie-Laure Mathot, RTBF","Au contraire, dans un quartier plus riche et vert comme ceux situés sur les coteaux de la Citadelle à Liège, les températures au sol sont beaucoup moins élevées lors des canicules. Crédit: Getty images"]}
+    alt={["Le quartier de Prés-Javais, à Verviers est particulièrement vulnérable aux phénomènes climatiques extrêmes. Crédit: Marie-Laure Mathot, RTBF","Au contraire, dans un quartier plus riche et vert comme ceux situés sur les coteaux de la Citadelle à Liège, les températures au sol sont beaucoup moins élevées lors des canicules. Crédit: Getty images"]}
     />
-    
+
     <div class="wrapper-text">
     <p>Néanmoins, « la vallée de la Vesdre s’est construite avec une population très précaire dès l’industrialisation.
        La bourgeoisie, elle, occupe les coteaux, du côté de Heusy avec de grandes villas ou des maisons avec jardin.
@@ -277,7 +283,7 @@
     </p>
   </div>
   
-  <section class="chapitre" data-color="#5D627E">
+  <section class="chapitre">
     <Title
     content={"Chaleur et taux de mortalité en hausse"}
     index=4
@@ -312,7 +318,9 @@
 
     <Img
     type={"middle"}
-    img={["./image/GettyImages-1241386865 (1).jpg"]}
+    img={["https://rtbfmedia.be/rtbfinfo/ICU_pics/7.webp"]}
+    legend={["À Mons comme ailleurs, les températures augmentent selon le pire des scénarios proposés par le GIEC, Groupe d'experts intergouvernemental sur l'évolution du climat. Crédit: Samere Fahim Photography, Getty images"]}
+    alt={["À Mons comme ailleurs, les températures augmentent selon le pire des scénarios proposés par le GIEC, Groupe d'experts intergouvernemental sur l'évolution du climat. Crédit: Samere Fahim Photography, Getty images"]}
     />
 
     <div class="wrapper-text">
@@ -334,10 +342,9 @@
       </p>
     </div>
     <div class="wrapper-plot">
-      <div class="flourish-embed flourish-chart" data-src="visualisation/14758903"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+      <iframe src='https://flo.uri.sh/visualisation/14758903/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe><div style='width:100%!;margin-top:4px!important;text-align:right!important;'><a class='flourish-credit' href='https://public.flourish.studio/visualisation/14758903/?utm_source=embed&utm_campaign=visualisation/14758903' target='_top' style='text-decoration:none!important'><img alt='Made with Flourish' src='https://public.flourish.studio/resources/made_with_flourish.svg' style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'> </a></div>
     </div>
-  <!-- <LinePlot
-    MAR={mar}/> -->
+
   </section>
   
    <section class="chapitre" data-color="#BCBBD2">
@@ -360,9 +367,10 @@
     </div>
     <Video
     type={"big"}
-    img={["./image/drone bxl immeubles.mp4",
-    "./image/drone bxl immeubles.mp4"
+    img={["https://rtbfmedia.be/rtbfinfo/ICU_pics/drone_bxl_1.mp4",
+    "https://rtbfmedia.be/rtbfinfo/ICU_pics/drone_bxl_2.mp4"
     ]}
+    legend={["test","test"]}
       />
     <div class="wrapper-text">
       <p>« Les arbres sont vraiment un paramètre primordial pour rafraîchir l’espace. Ils puisent l’eau dans le sol. Et,
@@ -373,12 +381,15 @@
     {#if width < 400}
     <Img
     type="big"
-    img={["./image/arbres9-16.png"]}
-    />
+    img={["https://rtbfmedia.be/rtbfinfo/ICU_pics/arbre_9_16.webp"]}
+    alt={["Quentin Vanhoof d’après Ateliers parisiens de l’urbanisme"]}
+    legend={["Quentin Vanhoof d’après Ateliers parisiens de l’urbanisme"]}/>
     {:else}
     <Img
-    type="big"
-    img={["./image/arbres16-9.png"]}
+    type="middle"
+    img={["https://rtbfmedia.be/rtbfinfo/ICU_pics/arbre_16_9.webp"]}
+    alt={["Quentin Vanhoof d’après Ateliers parisiens de l’urbanisme"]}
+    legend={["Quentin Vanhoof d’après Ateliers parisiens de l’urbanisme"]}
     />
     {/if}
 
@@ -387,20 +398,19 @@
         la ville pour consommer moins d'espaces. Cela peut passer par le déploiement des transports en commun, la mobilité douce. 
         Il faut aussi donner moins de place à l'automobile. Celle-ci, qu'elle soit électrique ou pas, prend trop de place. »  
       </p>
+      <p>À votre tour de remodeler la ville. En cliquant sur les boutons, découvrez l'influence concrète de chaque aménagement urbain sur la température.</p>
     </div>
-  
+
     {#if width > 400}
     <GameCalc
-    images={["./image/solutions/Horizontal/01-REVETEMENT.png","./image/solutions/Horizontal/02-ISOLATION.png","./image/solutions/Horizontal/03-PELOUSE.png",
-    "./image/solutions/Horizontal/04-POINT D EAU.png","./image/solutions/Horizontal/05-TRAFFIC.png","./image/solutions/Horizontal/06-FONTAINES.png","./image/solutions/Horizontal/07-OMBRE.png",
-    "./image/solutions/Horizontal/08-ARROSAGE.png","./image/solutions/Horizontal/09-TOITURES.png","./image/solutions/Horizontal/10-TOITURES+FACADES.png",
-    "./image/solutions/Horizontal/11-BRUMIFICATEURS.png","./image/solutions/Horizontal/12-ARBRES.png","./image/solutions/Horizontal/00-BASE VILLE.png"]}/> 
+    base={"http://rtbfmedia.be/rtbfinfo/ICU_pics/Gamecalc_desktop_webp/"}
+    images={["01-REVETEMENT.webp","02-ISOLATION_.webp","03-PELOUSE.webp","04-POINT D EAU.webp","05-TRAFFIC.webp","06-FONTAINES.webp","07-OMBRE.webp","08-ARROSAGE.webp","09-TOITURES.webp","10-TOITURES+FACADES.webp","11-BRUMIFICATEURS.webp","12-ARBRES.webp","VILLE-BASE.webp"]
+  }/> 
    {:else}
    <GameCalc
-    images={["./image/solutions/Vertical/01-REVETEMENT.png","./image/solutions/Vertical/02-ISOLATION.png","./image/solutions/Vertical/03-PELOUSE.png",
-    "./image/solutions/Vertical/04-POINT D EAU.png","./image/solutions/Vertical/05-TRAFFIC.png","./image/solutions/Vertical/06-FONTAINES.png","./image/solutions/Vertical/07-OMBRE.png",
-    "./image/solutions/Vertical/08-ARROSAGE.png","./image/solutions/Vertical/09-TOITURES.png","./image/solutions/Vertical/10-TOITURES+FACADES.png",
-    "./image/solutions/Vertical/11-BRUMIFICATEURS.png","./image/solutions/Vertical/12-ARBRES.png","./image/solutions/Vertical/00-BASE VILLE.png"]}/> 
+    base={"http://rtbfmedia.be/rtbfinfo/ICU_pics/Gamecalc_mobile_webp/"}
+    images={["01-REVETEMENT.webp","02-ISOLATION_.webp","03-PELOUSE.webp","04-POINT D EAU.webp","05-TRAFFIC.webp","06-FONTAINES.webp","07-OMBRE.webp","08-ARROSAGE.webp","09-TOITURES.webp","10-TOITURES+FACADES.webp","11-BRUMIFICATEURS.webp","12-ARBRES.webp","VILLE-BASE.webp"]
+  }/> 
     {/if}
 
   </section>
@@ -433,6 +443,20 @@
 </p>
 </div>
 
+<div class="wrapper-text methodo"> 
+  <p style="font-size:var(--font-size-md)">Comment avons-nous travaillé ? Python, QGIS, D3...</p>
+  <p>Pour déterminer les températures de surface – seul moyen d’obtenir une image exhaustive des zones étudiées - nous avons extrait les données du satellite de la NASA Landsat 8 pour les mois de juillet et août entre 2013 et 2022.</p>
+  <p>Ces températures de surface diffèrent des températures de l’air ressenties par les humains à un endroit donné. 
+    Il ne faut donc pas les considérer en valeurs absolues. Il s’agit avant tout d’une cartographie indicative – mais cohérente - pour déceler les zones plus chaudes et plus froides. 
+    Des études scientifiques (lire notamment ici et là) ont montré que lorsque la température du sol est élevée, celle de l’air l’est aussi.  </p>
+   <p>Les revenus des Belges et la densité de population par secteurs statistiques proviennent de Statbel.
+     Les informations concernant la couverture de la végétation en Région wallonne proviennent de la couche de données WALOUS 2020 sur le géoportail
+      de Wallonie. Pour la Région bruxelloise,
+     les données de répartition de la végétation haute et basse datées de septembre 2021 ont été récupérées sur le portail environnement.brussels. </p> 
+     <p>Différents scripts en Python ainsi que le logiciel de cartographie QGIS ont été utilisés pour extraire les données et les compiler.
+       L’ensemble du code est disponible sur Github.</p>
+</div>
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Baskervville&family=Montserrat:wght@200;400;500&display=swap');
 /* .wrapper {
@@ -458,7 +482,7 @@
     --font-size-xxl: clamp(2.14rem, 2.93vw + 1.4rem, 3.75rem);
     --font-size-xxxl: clamp(2.67rem, 4.23vw + 1.61rem, 5rem);
 
-    --font-title:'Baskervville', serif;
+    --font-title:'Montserrat', sans-serif;
   }
 
   :global(body) {
@@ -479,7 +503,7 @@
   }
 
   .wrapper-text {
-        max-width: 90rch;
+        max-width: 70ch;
         margin-inline: auto;
         margin-block: 2rem;
         line-height: 1.7rem;
@@ -488,6 +512,13 @@
         font-weight: 500;
         padding-inline: 1rem;
     }
+
+  .methodo {
+    border: 5px solid var(--dark-orange);
+    border-radius: 2rem;
+    margin-top: 5rem;
+    margin-inline: 1rem;
+  }
   .wrapper-plot {
     max-width: 150rch;
     margin-inline: auto;

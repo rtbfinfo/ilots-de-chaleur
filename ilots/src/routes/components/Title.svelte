@@ -68,16 +68,13 @@
         top: 5rem;
     }
 
-    @media (max-width: 400px) {
+    @media screen and (max-width: 400px) {
         h1 {
             padding-top: 5rem;
         }
         .wrapper {
-            margin-bottom: 4rem;
+            margin-bottom: 2rem;
+            margin-block: 5rem;
         }
-    }
-
-    div {
-        /* border: 2px solid aqua; */
     }
 </style>

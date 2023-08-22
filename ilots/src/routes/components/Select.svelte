@@ -119,7 +119,7 @@
                {/each}
             </svg>
         <div class="hover" style="position:absolute;top:{100}px;left:{width/5}px;">
-            <p>Je veux explorer {hover == undefined ? "..." : hover == "bxl" ? "Bruxelles" : hover} </p>
+            <p>Je veux explorer{hover == undefined ? "..." : hover == "bxl" ? " Bruxelles" : " " + hover} </p>
         </div>
         {/if}
 

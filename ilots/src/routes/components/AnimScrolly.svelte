@@ -13,6 +13,14 @@
     export let annot
     export let belgium_geo
 
+    let hab = {
+        Namur : "113.286",
+        Liège : "195.346",
+        Charleroi : " 203.785",
+        bxl : "1.235.192",
+        Mons: "96.465"
+    }
+
     $: width = 500;
     let height = 500;
     let raster = "raster_value_y"
@@ -26,12 +34,11 @@
 
     $: if (width < 400) {
     margin = {
-        top: height/3,
+        top: height/4,
         bottom: height/5,
-        left: 60,
-        right: 20
-    }
-  }
+        left: 30,
+        right: 30    }
+}
 
     let margin = {
         top: height/3,
@@ -60,16 +67,16 @@
 
     // projection for the map
     $: projection = d3.geoMercator()
-        .fitExtent([[0, 0], [width, 700]], secteurs_geo);
+        .fitExtent([[0, 50], [width, height/1.1]], secteurs_geo);
 
     projection = d3.geoMercator()
-        .fitExtent([[0, 0], [width, 700]], secteurs_geo);
+        .fitExtent([[0, 50], [width, height/1.1]], secteurs_geo);
     
     $: geoGenerator = d3.geoPath(projection)
 
     let currentStep;
     let value="revenu";
-    const steps = [`<p>voici ${selected} nombres d'habitants ... qui ne vivent pas tous dans les mêmes conditions</p>`,
+    const steps = [`<p>voici ${selected == "bxl" ? "Bruxelles" : selected}, ${hab[selected]} habitants ... qui ne vivent pas tous dans les mêmes conditions</p>`,
                     "<p>Ajoutons sur cette carte les températures moyennes du sol en juillet et août de 2013 à 2022. Les zones plus froides sont en <span style='color:blue;'>bleu</span> et les zones plus chaudes sont en <span style='color:red;'>rouge</span></p>",
                     "<p>Les zones les plus fraiches sont souvent des parcs, des forêts ou des cours d’eau.</p>",
                     "<p>Faisons maintenant la moyenne de ces températures pour chaque secteur statistiques. Cela nous sera utile dans l’étape suivante…</p>",
@@ -98,7 +105,7 @@
 
     const step1 = function() {
         projection = d3.geoMercator()
-        .fitExtent([[0, 0], [width, 700]], secteurs_geo);
+        .fitExtent([[0, 50], [width, height/1.1]], secteurs_geo);
 
         geoGenerator = d3.geoPath(projection)
 
@@ -112,7 +119,7 @@
     }
     const step2 = function() {
         projection = d3.geoMercator()
-        .fitExtent([[0, 0], [width, 700]], secteurs_geo);
+        .fitExtent([[0, 50], [width, height/1.1]], secteurs_geo);
 
         geoGenerator = d3.geoPath(projection)
 
@@ -121,23 +128,6 @@
         tweenedY.set(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[1]))
 
         tweendRad.set(other_point.map(d => d.NOMBRE_HAB = 3))
-
-    }
-    const step2bis = function() {
-        projection = d3.geoMercator()
-        .fitExtent([[0, 0], [width, 700]], secteurs_geo);
-
-        geoGenerator = d3.geoPath(projection)
-
-
-        tweenedX.set(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[0]))
-        tweenedY.set(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[1]))
-
-        tweendRad.set(other_point.map(d => d.NOMBRE_HAB = 3))
-        color_scale = d3.scaleLinear()
-        .domain([d3.min(point_data.map(d => d.raster_value_y)),d3.median(point_data.map(d => d.raster_value_y)),d3.max(point_data.map(d => d.raster_value_y))])
-        .range(["#144265","whitesmoke","#dc351f"])
-
 
     }
     const step3 = function() {
@@ -340,7 +330,7 @@
         font-size: var(--font-size-base);
 	}
 
-    @media (max-width: 400px) {
+    @media screen and (max-width: 400px) {
         .chart {
             max-width: 100%;
         }
