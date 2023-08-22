@@ -1,15 +1,17 @@
 <script>
     export let type
     export let img
+    export let legend
 </script>
 
 <div class={"base "+type}>
-    {#each img as im}
+    {#each img as im, i}
     <div class="card">
         <video muted playsinline autoplay loop disablepictureinpicture>
             <source src="{im}" type="video/mp4" />
             Your browser does not support the video tag.
-          </video>        
+          </video>   
+        <p>{legend[i]}</p>     
     </div>
     {/each}
 </div>

@@ -3,6 +3,7 @@
     import { fade } from 'svelte/transition';
 
 export let images
+export let base
 let index = -1;
 
 let names_img = ["Revêtement","Isolation","Pelouse","Point d'eau","Voitures","Fontaines","Ombres","Arrosage","Toitures","Toitures et façades", "Brumisateurs","Arbres"]
@@ -25,14 +26,14 @@ let names_img = ["Revêtement","Isolation","Pelouse","Point d'eau","Voitures","F
             <img 
             in:fade= {{delay: 250}}
             out:fade
-            src={images.at(index)} 
+            src={base + images.at(index)} 
             alt="canetons"
             />
             {/key}
         </div>
         <div class="img">
             <img 
-            src={images.at(-1)} 
+            src={base + images.at(-1)} 
             alt="canetons"
             />
         </div>
@@ -58,7 +59,7 @@ let names_img = ["Revêtement","Isolation","Pelouse","Point d'eau","Voitures","F
     .sel {
         margin:0.5rem;
         background-color: green;
-        font-size: var(--font-size-md);
+        font-size: var(--font-size-base);
         font-family:  'Montserrat', sans-serif;
         padding:1rem;
         color: whitesmoke;
@@ -80,12 +81,14 @@ let names_img = ["Revêtement","Isolation","Pelouse","Point d'eau","Voitures","F
     }
     .illu {
         position: relative;
+        scroll-snap-align: end;
     }
     .base {
         margin-inline: auto;
         display: flex;
         gap: 2rem;
         margin-bottom: 5rem;
+        scroll-snap-type: y mandatory;
     }
     .big {
         max-width: 100%;
@@ -105,6 +108,10 @@ let names_img = ["Revêtement","Isolation","Pelouse","Point d'eau","Voitures","F
     .fond {
         position: absolute;
     }
+
+    /* div {
+        border: 2px solid red
+    } */
 
     @media (max-width: 400px) {
         .base {

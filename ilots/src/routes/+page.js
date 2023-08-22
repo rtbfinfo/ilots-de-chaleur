@@ -1,3 +1,4 @@
+export const prerender = true;
 import * as d3 from "d3"
 
 export const load = async ({fetch}) => {
@@ -22,7 +23,7 @@ export const load = async ({fetch}) => {
 
 
         const fetchTemp = async () => {
-            const tempRes = await fetch("https://gist.githubusercontent.com/Yheloww/ebcf7632eaa0d227cca089042a83ff86/raw/c8164342c8269d6b9dd3047876c35eb1c65af836/everycity_centroid.json")
+            const tempRes = await fetch("https://gist.githubusercontent.com/Yheloww/ebcf7632eaa0d227cca089042a83ff86/raw/940803c2c67dd468ee82b19c3bc81d40ca99eb9f/every_city_infos.json")
             const tempData = await tempRes.json()
             return tempData
         }
