@@ -81,8 +81,8 @@
                     "<p>Les zones les plus fraîches sont souvent des parcs, des forêts ou des cours d’eau.</p>",
                     "<p>Faisons maintenant la moyenne de ces températures pour chaque secteur statistiques que, pour faire simple, nous appellerons des quartiers. Cela nous sera utile dans l’étape suivante…</p>",
                     "<p>Prenons chaque quartier et mettons-les sur un graphique. Plus un cercle est grand, plus il y a d’habitants dans ce quartier. Nous remarquons que les cercles rouges foncés sont les plus grands: les zones les plus chaudes sont aussi les plus peuplées.</p>",
-				    "<p> Si on met en parallèle les revenus médians et les températures, une tendance se dégage. Les points rouges se concentrent en haut à gauche du graphique : les quartiers qui subissent les plus hautes températures abritent des habitants aux revenus plus faibles. En revanche, dans la partie droite du graphique (là où les gens ont les revenus les plus élevés), il y a surtout des points bleus (températures basses) et quasi pas de points rouges</p>",
-                    "<p> Enfin, les quartiers où la végétation est la plus abondante sont aussi les plus fraîches.</p>"
+				    "<p> Si on met en parallèle les revenus médians et les températures, une tendance se dégage. Les points rouges se concentrent en haut à gauche du graphique : les quartiers qui subissent les plus hautes températures abritent des habitants aux revenus plus faibles. En revanche, dans la partie droite du graphique (là où les gens ont les revenus les plus élevés), il y a surtout des points bleus (températures basses) et quasi pas de points rouges.</p>",
+                    "<p> Enfin, les quartiers où la végétation est la plus abondante sont aussi les plus frais.</p>"
 				   ];
 
     $: tweenedX = tweened(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[0]),
