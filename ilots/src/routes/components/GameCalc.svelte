@@ -11,52 +11,57 @@ let names_img = ["Revêtement clair","Isolation","Pelouse","Point d'eau","Moins 
 </script>
 
 <div class="base">
-    {#if  base == "http://rtbfmedia.be/rtbfinfo/ICU_pics/Gamecalc_mobile_webp/"}
+    <div class="card">
+        <a name="game"></a>
+        {#if  base == "http://rtbfmedia.be/rtbfinfo/ICU_pics/Gamecalc_mobile_webp/"}
+            <div class="selection">
+                <select id="game" bind:value={index}>
+                    {#if placeholder}
+                    <option value="" disabled selected>{placeholder}</option>
+                    {/if}
+                    {#each names_img as img, i }
+                    <option transition:fade
+                    value={i}
+                    >{img}</option>
+                    {/each}
+                </select>
+            </div>
+        {:else}
         <div class="selection">
-            <select id="game" bind:value={index}>
-                {#if placeholder}
-		        <option value="" disabled selected>{placeholder}</option>
-	            {/if}
+            <div class="selection">
                 {#each names_img as img, i }
-                <option transition:fade
-                value={i}
-                >{img}</option>
+                <div class="{index == i ? "sel" : "choices"}"
+                transition:fade
+                on:click={() => {
+                    index = i
+                }}>{img}</div>
                 {/each}
-            </select>
+            </div>
         </div>
-    {:else}
-    <div class="selection">
-        <div class="selection">
-            {#each names_img as img, i }
-            <div class="{index == i ? "sel" : "choices"}"
-            transition:fade
-            on:click={() => {
-                index = i
-            }}>{img}</div>
-            {/each}
+        {/if}
+
+        <div class="illu">
+            <div class="fond img">                
+                {#key index}
+                <img 
+                in:fade= {{delay: 250}}
+                out:fade
+                src={base + images.at(index)} 
+                alt="canetons"
+                />
+                {/key}
+            </div>
+            <div class="img">
+                <img 
+                src={base + images.at(-1)} 
+                alt="canetons"
+                />
+            </div>
         </div>
     </div>
-    {/if}
-
-    <div class="illu">
-        <div class="fond img">                
-            {#key index}
-            <img 
-            in:fade= {{delay: 250}}
-            out:fade
-            src={base + images.at(index)} 
-            alt="canetons"
-            />
-            {/key}
-        </div>
-        <div class="img">
-            <img 
-            src={base + images.at(-1)} 
-            alt="canetons"
-            />
-        </div>
+    <div class="middle">
+        <p class="legend">Source : Ademe, agence de la transition écologique en France</p>
     </div>
-
 </div>
 
 
@@ -115,9 +120,23 @@ let names_img = ["Revêtement clair","Isolation","Pelouse","Point d'eau","Moins 
         gap: 1rem;
         margin-bottom: 5rem;
         scroll-snap-type: y mandatory;
-        background-color: #7fbc7f87;
         padding-top: 1.5rem;
         border-radius: 0.5rem;
+    }
+    .base .card {
+        width: 100%;
+        background-color: #7fbc7f87;
+    }
+    .base .middle {
+        padding: 1em;
+    }
+    .legend {
+        line-height: 1.2rem;
+        font-size: var(--font-size-sm);
+        color: whitesmoke;
+        font-weight: 400;
+        border-left: 2px solid #D66819;
+        padding-left: 5px;
     }
     .img {
         flex-basis: 60%;
