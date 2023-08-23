@@ -126,7 +126,10 @@ let names_img = ["Revêtement clair","Isolation","Pelouse","Point d'eau","Moins 
     .base .card {
         width: 100%;
         background-color: #7fbc7f87;
+        padding-top: 1.5rem;
+
     }
+
     .base .middle {
         padding: 1em;
     }
