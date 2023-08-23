@@ -542,4 +542,11 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
       margin-block: 0;
       padding-block: 2rem;
     }
+
+    @media screen and (max-width: 550px) {
+      .wrapper-text {
+        font-size: var(--font-size-md);
+        line-height: 1.5;
+      }
+    }
 </style>
