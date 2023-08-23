@@ -76,12 +76,12 @@
 
     let currentStep;
     let value="revenu";
-    const steps = [`<p>Voici ${selected == "bxl" ? "la Région de Bruxelles-Capitale" : selected}, ${hab[selected]} habitants ... qui ne vivent pas tous dans les mêmes conditions.</p>`,
+    const steps = [`<p>Voici ${selected == "bxl" ? "la Région de Bruxelles-Capitale" : selected}, ${hab[selected]} habitants... qui ne vivent pas tous dans les mêmes conditions.</p>`,
                     "<p>Ajoutons sur cette carte les températures moyennes du sol en juillet et août de 2013 à 2022. Les zones plus froides sont en <span style='background-color:blue;border-radius:5px;padding: 0 5px 0 5px'>bleu</span> et les zones plus chaudes sont en <span style='background-color:red;border-radius:5px;padding: 0 5px 0 5px'>rouge</span></p>",
                     "<p>Les zones les plus fraîches sont souvent des parcs, des forêts ou des cours d’eau.</p>",
                     "<p>Faisons maintenant la moyenne de ces températures pour chaque secteur statistiques. Cela nous sera utile dans l’étape suivante…</p>",
                     "<p>Prenons chaque quartier et mettons-les sur un graphique. Plus un cercle est grand, plus il y a d’habitants dans ce quartier. Nous remarquons que les cercles rouges foncés sont les plus grands: les zones les plus chaudes sont aussi les plus peuplées.</p>",
-				    "<p> Si on met en parallèle les revenus médians et les températures, une tendance se dégage. Les points rouges se concentrent en haut à gauche du graphique : les zones qui subissent les plus hautes températures abritent des habitants aux revenus plus faibles. En revanche, dans la partie droite du graphique (là où les gens gagnent le plus), il y a surtout des points bleus (températures basses) et quasi pas de points rouges</p>",
+				    "<p> Si on met en parallèle les revenus médians et les températures, une tendance se dégage. Les points rouges se concentrent en haut à gauche du graphique : les zones qui subissent les plus hautes températures abritent des habitants aux revenus plus faibles. En revanche, dans la partie droite du graphique (là où les gens ont les revenus les plus élevés), il y a surtout des points bleus (températures basses) et quasi pas de points rouges</p>",
                     "<p> Enfin, les zones où la végétation est la plus abondante sont aussi les plus fraîches.</p>"
 				   ];
 

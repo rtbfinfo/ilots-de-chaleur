@@ -88,8 +88,8 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
   <section class="chapeau">
     <div class="wrapper-text test">
       <p><span class="lettrine">N</span>ous sommes en train de vivre le septième été le plus chaud de l'histoire de la Belgique depuis l’enregistrement des températures en 1833.
-         Avec un record : <a href='https://www.rtbf.be/article/climat-en-belgique-les-records-du-mois-de-juin-2023-tres-chaud-et-ensoleille-11221832' target='_blank' rel=noreferrer>celui du mois juin</a>, le plus ardent de tous. Et que dire de l’été 2022&nbsp;?
-         <a href='https://www.rtbf.be/article/climat-en-belgique-les-records-de-lete-meteorologique-2022-11058042' target='_blank' rel=noreferrer>Le mois d’août de cette année-là</a> dépassait également tous les enregistrements. De record en record, 
+         Avec un record : <a href='https://www.rtbf.be/article/climat-en-belgique-les-records-du-mois-de-juin-2023-tres-chaud-et-ensoleille-11221832' target='_blank' rel=noreferrer>celui du mois de juin</a>, le plus ardent de tous. Et que dire de l’été 2022&nbsp;?
+         <a href='https://www.rtbf.be/article/climat-en-belgique-les-records-de-lete-meteorologique-2022-11058042' target='_blank' rel=noreferrer>Le mois d’août de cette année-là</a> dépassait également tous les relevés. De record en record, 
           une question se pose : notre pays est-il adapté à ces fortes chaleurs qui deviendront à l’avenir plus longues, plus fréquentes et plus intenses&nbsp;?
            Qui paye le prix de ce changement climatique indiscutable&nbsp;? </p>
 
@@ -113,7 +113,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
     <div class="wrapper-text">
       <p>Laeken, au nord de Bruxelles, une chaude journée de juin 2023. 
         Il est midi et il fait 31°C. À quelques kilomètres de là, à Zaventem, il fait chaud aussi. Mais un peu moins que dans la ville&nbsp;: 29°C «&nbsp;seulement&nbsp;». </p>
-    <p>En fait, plus on s’écarte du cœur de la cité, plus il fait frais. <a style="color:#1D2E3C;" href='https://environnement.brussels/citoyen/outils-et-donnees/etat-des-lieux-de-lenvironnement/climat-etat-des-lieux#cartographie-des-ilots-de-fraicheur-bruxelles' target='_blank' rel=noreferrer>Une étude publiée en 2018</a> a montré que «&nbsp;<i>les températures de l’air sont plus élevées de 3°C 
+    <p>En fait, plus on s’écarte du cœur de la capitale, plus il fait frais. <a style="color:#1D2E3C;" href='https://environnement.brussels/citoyen/outils-et-donnees/etat-des-lieux-de-lenvironnement/climat-etat-des-lieux#cartographie-des-ilots-de-fraicheur-bruxelles' target='_blank' rel=noreferrer>Une étude publiée en 2018</a> a montré que «&nbsp;<i>les températures de l’air sont plus élevées de 3°C 
       en moyenne au centre de la Région de Bruxelles-Capitale qu'à ses alentours ruraux en été (sur la période 1987-2016). Les températures les plus élevées 
       s'observent dans de grandes zones au centre-ville urbanisé.
        Les températures sont légèrement plus basses au-dessus des eaux et dans les grands parcs.</i>&nbsp;» </p>
@@ -158,7 +158,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
     <div class="wrapper-text">
       <p>En pratique, à Bruxelles, «&nbsp;<i>à 23h (heure à laquelle l'îlot thermique urbain est normalement le plus prononcé), 
         les différences de température entre le centre de la ville et la campagne environnante avoisinent en moyenne 4,5°C [sur la période 1987-2016]</i>&nbsp;»,
-         observe l’IRM. L'Institut ajoute qu'il y a «&nbsp;<i>en moyenne trois fois plus de périodes de fortes chaleurs dans 
+         observe l’IRM. L'Institut belge de météorologie ajoute qu'il y a «&nbsp;<i>en moyenne trois fois plus de périodes de fortes chaleurs dans 
          le centre de Bruxelles que dans les zones rurales avoisinantes</i>&nbsp;». </p>
     <p>Rafiq Hamdi, scientifique à l’IRM et spécialiste du sujet, relève que «&nbsp;<i>la température entre la ville et 
       la campagne peut monter jusqu’à 8°C de différence la nuit avec un ciel clair et une absence de vent</i>&nbsp;». Cette différence, les Bruxellois ont par exemple pu la constater lors des fortes chaleurs à la fin du mois de juin dernier, comme le montre le graphique ci-dessous. </p>
@@ -193,7 +193,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
           De son petit nom Landsat 8, ce satellite cartographie la température du sol sur l’ensemble du globe. Certes, la température de l’air serait plus représentative.
           Mais Landsat nous donne quand même un aperçu assez fidèle des zones plus chaudes et moins chaudes (voir notre méthodologie à la fin de l’article).
           Vous allez le voir, si on croise ces données avec les revenus fiscaux des Belges et la végétation, les résultats mettent en lumière des inégalités. </p>
-          <p><b>Cliquez une ville en bleu clair sur la carte ci-dessous puis scrollez vers le bas pour découvrir ses particularités en détails.</b></p>
+          <p><b>Cliquez sur une ville en bleu clair sur la carte ci-dessous puis scrollez directement vers le bas pour découvrir ses particularités en détails.</b></p>
       </div>
       
 
@@ -221,7 +221,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
       C’est donc la façon dont nous avons construit nos villes qui a contribué, plus d’un siècle plus tard, à ces vulnérabilités face au changement climatique.</p>
       <p>Des habitants touchés différemment par un phénomène climatique extrême, ça ne vous rappelle rien ? 2021,
          les inondations dans la vallée de la Vesdre bien sûr. «&nbsp;<i>Verviers, par son histoire autour de l’industrie textile, avait une population ouvrière 
-         dans le bas de la ville, le long de la Vesdre, proche des usines</i>, contextualise Alain Malherbe, historien de l’art et urbaniste, chargé de cours à l’UCLouvain.<i>Cela s’est construit en grande partie au moment de l’industrialisation, dès le milieu du XIX<sup>e</sup> siècle... même si la Belgique a connu, par son fonctionnement et sa mobilité, une classe ouvrière qui s’est répartie de manière plus diffuse</i>&nbsp;», nuance-t-il.  
+         dans le bas de la ville, le long de la Vesdre, proche des usines</i>, contextualise Alain Malherbe, historien de l’art et urbaniste, chargé de cours à l’UCLouvain. <i>Cela s’est construit en grande partie au moment de l’industrialisation, dès le milieu du XIX<sup style="line-height: 1;">e</sup> siècle... même si la Belgique a connu, par son fonctionnement et sa mobilité, une classe ouvrière qui s’est répartie de manière plus diffuse</i>&nbsp;», nuance-t-il.  
       </p>
     </div>
 
@@ -240,10 +240,10 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
       <div class="wrapper-text">
         <p>Des extrêmes encore visibles à Verviers. Dans un quartier en bord de Vesdre comme Hodimont, le revenu médian était de 16.193 &nbsp;€ par an en 2020.
            C’est beaucoup moins que le revenu médian wallon (24.808 &nbsp;€ par an) et quasiment la moitié de celui du quartier d’Heusy, situé sur les hauteurs, 
-           avec 31.234 &nbsp;€ par an. Les quartiers les moins riches sont donc ceux qui subissent les effets du changement climatique&nbsp;: fortes chaleurs et inondations,
+           avec 31.234 &nbsp;€ par an. Les quartiers les moins nantis sont donc ceux qui subissent le plus les effets du changement climatique&nbsp;: fortes chaleurs et inondations,
             souligne Hélène Ancion, chargée de mission en aménagement du territoire et urbanisme pour Canopea,
            la fédération des associations environnementales belges qui défend l'environnement en Wallonie et en Belgique. </p>
-      <p>Ces constats sont valables pour d’autres villes: les sols ont été imperméabilisés là où les industries se sont implantées au XIXe siècle.
+      <p>Ces constats sont valables pour d’autres villes&nbsp;: les sols ont été imperméabilisés là où les industries se sont implantées au XIXe siècle.
          Et c’est là que l’on retrouve les logements, autrefois d’ouvriers, aujourd’hui, des plus précarisés. À Liège, en zone inondable, la part de la population
           qui présente un niveau socio-économique très faible s’élève à 37% contre 29 % en moyenne dans la population wallonne,
          soit près de 30% en plus de personnes socio-économiquement défavorisées en zone inondable, selon l’ISSEP, l’Institut scientifique de service public. </p>
@@ -251,9 +251,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
            les conséquences d’un aménagement 
           du territoire où l’on retrouve des quartiers riches et des quartiers pauvres. Et ce niveau socio-économique empêche de changer la donne.</i>&nbsp;»  </p>
         <p>Car depuis lors, l’industrie n’est plus aussi présente dans les cœurs de ville et ils sont confrontés à un processus de gentrification : la classe moyenne s’y installe. «&nbsp;<i>Les effets de la spéculation immobilière, les effets de l'augmentation des loyers, de la crise du logement... 
-          impactent ces phénomènes d'injustice sociale</i>&nbsp;», ajoute Chloé Salembier. «&nbsp;<i>Les loyers sont plus chers dans les quartiers qui sont les moins denses, qui sont 
-          les plus verts. C’est impayable pour des familles qui ont des revenus bas ou moyens.»
-            Cela renforce l’obligation d’aller dans les quartiers les plus denses lorsqu’on n’a pas les moyens. </p>
+          impactent ces phénomènes d'injustice sociale</i>, ajoute Chloé Salembier. <i>Les loyers sont plus chers dans les quartiers les moins denses et les plus verts. C’est impayable pour des familles qui ont des revenus bas ou moyens. Cela renforce l’obligation d’aller dans les quartiers les plus denses lorsqu’on n’a pas les moyens.</i>&nbsp;»</p>
         <p>
           «&nbsp;<i>Les personnes à Bruxelles qui sont isolées - ce qui représente quand même  <a href='https://ibsa.brussels/chiffres/chiffres-cles-par-commune/ville-de-bruxelles' target='_blank' rel=noreferrer>près de 50% de la population</a> - 
           rencontrent des difficultés à se loger de manière décente</i>&nbsp;», continue l’ethnologue.  La part de budget des ménages qui est utilisée pour
@@ -286,8 +284,8 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
     />
     <div class="wrapper-text">
       <p>
-        Retour à l’été 2022. Cette année-là, Sciensano voit que la courbe de surmortalité grimpe en flèche.
-         En clair, on constate davantage de décès qu’en temps normal à cette période. Durant cette période estivale (16 mai au 9 octobre),
+        Retour à l’été 2022. Cette année-là, Sciensano constate que la courbe de surmortalité grimpe en flèche en Belgique.
+         En clair, on comptabilise davantage de décès qu’en temps normal à cette période. Durant cette période estivale (16 mai au 9 octobre),
          la surmortalité a été importante avec 2312 décès supplémentaires (5,8 % d’excès de mortalité), rapporte l’Institut de Santé publique. 
       </p>
       <p>
@@ -307,7 +305,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
     <div class="wrapper-text">
       <p>
         «&nbsp;<i>Le scénario le plus probable, c’est une hausse de 3,2°C d’ici à la fin du siècle</i>&nbsp;», rapporte Xavier Fettweis, climatologue à l’Université de Liège.
-         «&nbsp;<i>Ce scénario-là, c’est le minium qu’on va obtenir, le reprend aussitôt son collègue Sébastien Doutreloup. 
+         «&nbsp;<i>Ce scénario-là, c’est le minium qu’on va obtenir</i>&nbsp;», le reprend aussitôt son collègue Sébastien Doutreloup. 
          Tout dépend en effet des promesses et des décisions prises au niveau politique. 
       </p>
     </div>
@@ -326,7 +324,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
          Et pour ce qui est des inondations de juillet 2021, les modèles suggéraient plutôt que ça arrive en 2030.</i>&nbsp;» 
       </p>
       <p>
-        <a href='https://climat.be/doc/seclim-be-2020-finalreport.pdf' target='_blank' rel=noreferrer>Dans un rapport de 2020</a> écrit pour le gouvernement fédéral, des chercheurs rappellent que «&nbsp;<i>si le monde continue sur cette tendance de business as usual’,
+        <a href='https://climat.be/doc/seclim-be-2020-finalreport.pdf' target='_blank' rel=noreferrer>Dans un rapport de 2020</a> écrit pour le gouvernement fédéral, des chercheurs rappellent que «&nbsp;<i>si le monde continue sur cette tendance de 'business as usual',
          près de 30% des jours d’été (donc de juin à août), 
         seront des jours de fortes chaleurs [où la température maximale moyenne sur trois jours dépasse 30°C, ndlr].
          À Liège, la population pourrait être confrontée à 6 à 8 jours de fortes chaleurs sur l’été, contre un ou deux actuellement.</i>&nbsp;»  
@@ -358,7 +356,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
          soit réfléchi. Une étude récente
          de l’IRM a montré que cela pourrait réduire l’îlot de chaleur urbain de 0,45°C et rendre la température moins stressante pour les habitants des villes.</i>&nbsp;» 
       </p>
-    <p>Quant à la verdure supplémentaire, l’Institut estime qu’elle «&nbsp;<i>pourrait éviter 33% des vagues de chaleur.
+    <p>Quant à la verdure supplémentaire, l’Institut estime qu’elle «&nbsp;<i>pourrait éviter 33% des vagues de chaleur.</i>&nbsp;»
        Et de conclure&nbsp;: «&nbsp;<i>Afin de minimiser l’effet de la ville pendant les vagues de chaleur, une combinaison des deux mesures ci-dessus est recommandée.</i>&nbsp;» </p>
     </div>
     <Video
@@ -419,15 +417,15 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
 <p>
   Encore une condition pour Chloé Salembier&nbsp;: lier les questions d’espace public avec celles du logement. 
   «&nbsp;<i>Elles sont complètement imbriquées. Si l’on verdurise un quartier, il faut mettre en place des mesures compensatoires, par exemple un plafonnement des loyers ou une rétrocession de la plus-value faite grâce à l’augmentation du loyer.</i>&nbsp;»
-   Dans le cas contraire, ce quartier attirerait simplement des personnes qui ont les moyens de se le payer. Les inégalités resteraient.   
+   Dans le cas contraire, ce quartier attirerait simplement des personnes qui ont les moyens de se le payer... et les inégalités perdureraient.   
 </p>
 <p>
-  Pour régler les défis de demain, mieux vaut agir dès aujourd’hui. En Belgique, certaines villes s’organisent.
+  Pour relever les défis de demain, mieux vaut agir dès aujourd’hui. En Belgique, certaines villes s’organisent.
    C’est le cas à Liège avec <a href='https://www.rtbf.be/article/plan-canopee-a-liege-24000-arbres-pour-faire-respirer-la-ville-dici-2030-10880961' target='_blank' rel=noreferrer>le plan Canopée</a> qui vise à augmenter la quantité d'arbres dans l’espace public et l’espace privé d’ici à 2030. 
   À Bruxelles aussi, certaines actions sont mises en place&nbsp;: la commune d’Ixelles compte par exemple <a href='https://www.rtbf.be/article/ixelles-feu-vert-pour-la-verdurisation-des-places-flagey-et-sainte-croix-11240594' target='_blank' rel=noreferrer>verduriser les places Flagey et Sainte-Croix</a>. 
 </p>
 <p>
-  Hélène Ancion de l’association Canopea reste circonspecte face à ces plans de verdurisation.
+  Hélène Ancion de l’association Canopea reste cependant circonspecte face à ces plans de verdurisation.
    «&nbsp;<i>Beaucoup d’arbres plantés sont des arbres à fruits car productifs, mais c’est très difficile pour eux de s’épanouir en ville.
    </i>&nbsp;» Bien choisir l’essence et lui laisser l’espace est donc primordial pour la chargée de mission.
    Mais surtout, «&nbsp;<i>garder ce qui est déjà existant et arrêter de couper les arbres déjà présents et bien implantés</i>&nbsp;». 
