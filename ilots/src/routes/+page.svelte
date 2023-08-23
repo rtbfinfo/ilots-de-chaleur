@@ -95,8 +95,8 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
 
         <p>Pour le savoir, nous avons croisé des données venues de différentes sources : </p>
         <ul>
-          <li>les températures du sol captées par satellite pendant l’été, </li>
-          <li>les revenus des Belges</li>
+          <li>les températures du sol captées par satellite pendant l’été&nbsp;; </li>
+          <li>les revenus des Belges&nbsp;;</li>
           <li>et la couverture de végétation dans nos régions.</li>
         </ul>
         <p>Verdict&nbsp;: en ville, les plus riches ont tendance à être mieux protégés contre les effets des vagues de chaleur. 
@@ -121,11 +121,11 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
     <Img
     type={"big"}
     img={["https://rtbfmedia.be/rtbfinfo/ICU_pics/1.webp","https://rtbfmedia.be/rtbfinfo/ICU_pics/2.webp"]}
-    legend={["Rafraîchissement dans l’eau d’une fontaine sur la place Flagey, à Bruxelles, le 24 juillet 2019. Crédit: Thierry Monasse, Getty images)","À Namur, un côté de la Sambre est plus chaud que l’autre. Ceux qui vivent sur les coteaux verts de la Citadelle sont bien plus au frais que ceux qui vivent dans le centre-ville. Crédit: Santiago Urquijo – Getty images"]}
-    alt={["Rafraîchissement dans l’eau d’une fontaine sur la place Flagey, à Bruxelles, le 24 juillet 2019. Crédit: Thierry Monasse, Getty images)","À Namur, un côté de la Sambre est plus chaud que l’autre. Ceux qui vivent sur les coteaux verts de la Citadelle sont bien plus au frais que ceux qui vivent dans le centre-ville. Crédit: Santiago Urquijo – Getty images"]}
+    legend={["Rafraîchissement dans l’eau d’une fontaine sur la place Flagey, à Bruxelles, le 24 juillet 2019. Crédit: Thierry Monasse, Getty images","À Namur, un côté de la Sambre est plus chaud que l’autre. Ceux qui vivent sur les coteaux verts de la Citadelle sont bien plus au frais que ceux qui vivent dans le centre-ville. Crédit: Santiago Urquijo – Getty images"]}
+    alt={["Rafraîchissement dans l’eau d’une fontaine sur la place Flagey, à Bruxelles, le 24 juillet 2019. Crédit: Thierry Monasse, Getty images","À Namur, un côté de la Sambre est plus chaud que l’autre. Ceux qui vivent sur les coteaux verts de la Citadelle sont bien plus au frais que ceux qui vivent dans le centre-ville. Crédit: Santiago Urquijo – Getty images"]}
     />
     <div class="wrapper-text">
-      <p>Dans le milieu des climatologues et des urbanistes, c’est ce qu’on appelle un phénomène «&nbsp;<i>d’îlot de chaleur urbain</i>&nbsp;» (ICU).
+      <p>Dans le milieu des climatologues et des urbanistes, c’est ce qu’on appelle un phénomène d’îlot de chaleur urbain (ICU).
          «&nbsp;<i>Dans les zones urbaines, la chaleur solaire est absorbée par les matériaux de construction, et les bâtiments hauts et denses retiennent cette chaleur 
          et limitent le refroidissement par la circulation du vent. En outre, les zones urbaines sont généralement densément peuplées et produisent de la chaleur,
          due aux transports et à la climatisation, par exemple</i>&nbsp;», <a href='https://www.meteo.be/fr/infos/actualite/les-toits-blancs-et-les-arbres-aident-les-citadins-durant-les-periodes-de-chaleur' target='_blank' rel=noreferrer>explique l’Institut Royal Météorologique (IRM) sur son site internet.</a></p>
@@ -157,7 +157,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
     />
     <div class="wrapper-text">
       <p>En pratique, à Bruxelles, «&nbsp;<i>à 23h (heure à laquelle l'îlot thermique urbain est normalement le plus prononcé), 
-        les différences de température entre le centre de la ville et la campagne environnante avoisinent en moyenne 4,5°C [ sur la période 1987-2016]</i>&nbsp;»,
+        les différences de température entre le centre de la ville et la campagne environnante avoisinent en moyenne 4,5°C [sur la période 1987-2016]</i>&nbsp;»,
          observe l’IRM qui ajoute qu'il y a «&nbsp;<i>en moyenne trois fois plus de périodes de fortes chaleurs dans 
          le centre de Bruxelles que dans les zones rurales avoisinantes</i>&nbsp;». </p>
     <p>Rafiq Hamdi, scientifique à l’IRM et spécialiste du sujet, relève que «&nbsp;<i>la température entre la ville et 
