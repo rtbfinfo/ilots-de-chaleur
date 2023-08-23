@@ -525,7 +525,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
     margin-top: 5rem;
   }
   .wrapper-plot {
-    max-width: 150rch;
+    max-width: 80rem;
     margin-inline: auto;
     margin-block: 2rem;
   }

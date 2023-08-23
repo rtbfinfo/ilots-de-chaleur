@@ -4,22 +4,40 @@
 
 export let images
 export let base
+let placeholder = "choissisez..."
 let index = -1;
 
 let names_img = ["Revêtement clair","Isolation","Pelouse","Point d'eau","Moins de voitures","Fontaines","Ombres","Arrosage","Toitures","Toitures et façades", "Brumisateurs","Arbres"]
 </script>
 
 <div class="base">
+    {#if  base == "http://rtbfmedia.be/rtbfinfo/ICU_pics/Gamecalc_mobile_webp/"}
+        <div class="selection">
+            <select id="game" bind:value={index}>
+                {#if placeholder}
+		        <option value="" disabled selected>{placeholder}</option>
+	            {/if}
+                {#each names_img as img, i }
+                <option transition:fade
+                value={i}
+                >{img}</option>
+                {/each}
+            </select>
+        </div>
+    {:else}
     <div class="selection">
-        {#each names_img as img, i }
-        <div class="{index == i ? "sel" : "choices"}"
-        transition:fade
-        on:click={() => {
-            index = i
-        }}>{img}</div>
-        {/each}
-
+        <div class="selection">
+            {#each names_img as img, i }
+            <div class="{index == i ? "sel" : "choices"}"
+            transition:fade
+            on:click={() => {
+                index = i
+            }}>{img}</div>
+            {/each}
+        </div>
     </div>
+    {/if}
+
     <div class="illu">
         <div class="fond img">                
             {#key index}
@@ -43,28 +61,35 @@ let names_img = ["Revêtement clair","Isolation","Pelouse","Point d'eau","Moins 
 
 
 <style>
+    #game {
+        color: whitesmoke;
+        background-color: var(--dark-blue);
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        border: 1px var(--dark-blue) solid;
+    }
     .choices {
         margin:0.5rem;
         background-color: var(--dark-blue);
         font-size: var(--font-size-base);
         font-family:  'Montserrat', sans-serif;
-        padding:1rem;
+        padding:0.5rem;
         color: whitesmoke;
         text-align: center;
-        border-radius: 1.5rem;
+        border-radius: 0.5rem;
         width: fit-content;
         cursor: pointer;
         transition: all 500ms;
     }
     .sel {
         margin:0.5rem;
-        background-color: green;
+        background-color: #7FBC7F;
         font-size: var(--font-size-base);
         font-family:  'Montserrat', sans-serif;
-        padding:1rem;
+        padding:0.5rem;
         color: whitesmoke;
         text-align: center;
-        border-radius: 1.5rem;
+        border-radius: 0.5rem;
         width: fit-content;
         cursor: pointer;
         transition: all 500ms;
@@ -73,37 +98,36 @@ let names_img = ["Revêtement clair","Isolation","Pelouse","Point d'eau","Moins 
         background-color: var(--light-orange);
     }
     .choices:active{
-        background-color: rgb(136, 222, 136);
+        background-color: 7FBC7F;
     }
     img {
         display: block;
         width: 100%;
+        border-radius: 0.5rem;
     }
     .illu {
         position: relative;
         scroll-snap-align: end;
     }
     .base {
+        max-width: 80rem;
         margin-inline: auto;
-        display: flex;
         gap: 1rem;
         margin-bottom: 5rem;
         scroll-snap-type: y mandatory;
-    }
-    .big {
-        max-width: 100%;
+        background-color: #7fbc7f87;
+        padding-top: 1.5rem;
+        border-radius: 0.5rem;
     }
     .img {
         flex-basis: 60%;
         z-index: 100;
     }
     .selection {
-        flex-basis: 40%;
-        margin-left: 2%;
         display: flex;
         flex-wrap: wrap;
         align-content: center;
-        justify-content: end;
+        justify-content: center;
     }
     .fond {
         position: absolute;
