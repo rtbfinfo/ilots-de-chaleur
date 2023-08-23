@@ -88,7 +88,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
   <section class="chapeau">
     <div class="wrapper-text test">
       <p><span class="lettrine">N</span>ous sommes en train de vivre le septième été le plus chaud de l'histoire de la Belgique depuis l’enregistrement des températures en 1833.
-         Avec un record : <a href='https://www.rtbf.be/article/climat-en-belgique-les-records-du-mois-de-juin-2023-tres-chaud-et-ensoleille-11221832' target='_blank' rel=noreferrer>celui du mois de juin</a>, le plus ardent de tous. Et que dire de l’été 2022&nbsp;?
+         Avec un record&nbsp;: <a href='https://www.rtbf.be/article/climat-en-belgique-les-records-du-mois-de-juin-2023-tres-chaud-et-ensoleille-11221832' target='_blank' rel=noreferrer>celui du mois de juin</a>, le plus ardent de tous. Et que dire de l’été 2022&nbsp;?
          <a href='https://www.rtbf.be/article/climat-en-belgique-les-records-de-lete-meteorologique-2022-11058042' target='_blank' rel=noreferrer>Le mois d’août de cette année-là</a> dépassait également tous les relevés. De record en record, 
           une question se pose : notre pays est-il adapté à ces fortes chaleurs qui deviendront à l’avenir plus longues, plus fréquentes et plus intenses&nbsp;?
            Qui paye le prix de ce changement climatique indiscutable&nbsp;? </p>
