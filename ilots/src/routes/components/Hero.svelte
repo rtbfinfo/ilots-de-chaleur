@@ -11,7 +11,7 @@
  
 
     $: if (width < 400) {
-        radius= 175
+        radius= 275
         hauteur= height/2
     }
     onMount(() => {
@@ -30,8 +30,8 @@
         })
 
         tl.to('circle', {
+            transformOrigin: "center center",
             scale : 2.5,
-            transformOrigin: "center center"
         })
         })
 

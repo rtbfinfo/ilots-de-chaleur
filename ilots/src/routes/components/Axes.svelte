@@ -4,12 +4,10 @@
     export let value;
     export let margin;
 
-    $: console.log(value)
 
     margin.left = margin.left
     margin.right = margin.right
     margin.bottom = margin.bottom - 20
-
 </script>
 
 <!-- <svelte:window bind:innerHeight={height}></svelte:window>

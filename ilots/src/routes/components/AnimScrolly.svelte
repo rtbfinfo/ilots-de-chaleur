@@ -32,7 +32,7 @@
     let class_name="map";
     let annot_state=false;
 
-    $: if (width < 400) {
+    $: if (width < 550) {
     margin = {
         top: height/4,
         bottom: height/5,
@@ -113,7 +113,7 @@
         tweenedX.set(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[0]))
         tweenedY.set(point_data.map(d => projection([d.centroid_lat,d.centroid_lat])[1]))
 
-        tweendRad.set(other_point.map(d => d.NOMBRE_HAB = 3))
+        tweendRad.set(other_point.map(d => d.NOMBRE_HAB = width < 500 ? 1.7 : 3))
 
 
     }
@@ -127,7 +127,7 @@
         tweenedX.set(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[0]))
         tweenedY.set(point_data.map(d => projection([d.centroid_lon,d.centroid_lat])[1]))
 
-        tweendRad.set(other_point.map(d => d.NOMBRE_HAB = 3))
+        tweendRad.set(other_point.map(d => d.NOMBRE_HAB = width < 500 ? 1.7 : 3))
 
     }
     const step3 = function() {
@@ -319,7 +319,7 @@
         padding: .5rem 1rem;
         transition: background 500ms ease, color 500ms ease;
         box-shadow: 1px 1px 10px rgba(0, 0, 0, .2);
-        max-width: 25vw;
+        max-width: 40vw;
 
     }
 
@@ -335,7 +335,7 @@
             max-width: 100%;
         }
         .step-content {
-            max-width: 75%;
+            max-width: 85%;
         }
     }
 </style>

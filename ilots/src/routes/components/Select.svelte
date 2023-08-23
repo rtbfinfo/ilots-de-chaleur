@@ -19,7 +19,7 @@
     let width_change = 0;
     let rechange= 0;
 
-    $: if (width < 400) {
+    $: if (width < 550) {
         height_map = -750;
         width_change = -200;
         rechange = 100;
