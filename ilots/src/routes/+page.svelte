@@ -80,7 +80,7 @@
 <Navbar/>
 
 <Hero
-title={"Réchauffement climatique en Belgique :"}
+title={"Réchauffement climatique en Belgique"}
 subtitle={"Comment les températures de nos villes mettent en évidence les inégalités entre les Belges "}
 />
 

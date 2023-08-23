@@ -50,8 +50,8 @@
     <h1 class=moyen>{title}</h1>
     <h1 class="big">Les pauvres au <span class=chaud>chaud</span>, les riches au <span class="froid">frais</span></h1>
     <h3>{subtitle}</h3>
-    <h4>Journalistes: Ambroise Carton et Marie-Laure Mathot</h4>
-    <h4>Data et web dev: Héloïse Feldmann</h4>
+    <h4>Journalistes&nbsp;: Ambroise Carton et Marie-Laure Mathot</h4>
+    <h4>Data et développement&nbsp;: Héloïse Feldmann</h4>
     <div class="mouse_wheel">
         <div class="anim-scroll"></div>
         <div class="anim-scroll--wheel"></div>
