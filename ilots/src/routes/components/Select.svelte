@@ -143,7 +143,7 @@
         on:click={() => {
             selected = undefined;
         }}
-        href="#choix">Revenez au choix de ville</a> ou <span class='orange'>scrollez vers le bas </span> pour continuer votre lecture. Dans la suite de cet article nous allons analyser les causes de ces différences de températures… Et voir quelles solutions peuvent être mises en place. </p>
+        href="#choix">Cliquez ici pour explorer une autre ville</a> ou <span class='orange'>scrollez vers le bas </span> pour continuer votre lecture. Dans la suite de cet article nous allons analyser les causes de ces différences de températures… Et voir quelles solutions peuvent être mises en place. </p>
     <!-- <button 
     on:click={() => {
         selected = undefined;

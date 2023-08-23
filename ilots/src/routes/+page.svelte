@@ -178,8 +178,8 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
     <div class="wrapper-text test">
       <p>Il est difficile de suivre avec précision l’évolution des températures à différents endroits d’une ville au jour le jour.
          Cela nécessiterait de placer des stations météo à des endroits stratégiques. Et plus on a de stations, mieux c’est.  </p>
-      <p>Dijon, la capitale de la Bourgogne, dans l’Est de la France, a tenté l’expérience. Aujourd’hui 90 stations mesurent la température de l’air à différents endroits de l’agglomération dijonnaise.
-         Objectif de ce projet <a href='https://popsu-dijon.u-bourgogne.fr/wp-content/uploads/2019/12/MustarDijon.pdf' target='_blank' rel=noreferrer>nommé MUSTARDijon</a> (pour Measuring Urban Systems Temperature Around Dijon)&nbsp;: 
+      <p>Dijon, la capitale de la Bourgogne, a tenté l’expérience. Aujourd’hui 90 stations mesurent la température de l’air à différents endroits de l’agglomération dijonnaise.
+         Objectif de ce projet <a href='https://popsu-dijon.u-bourgogne.fr/wp-content/uploads/2019/12/MustarDijon.pdf' target='_blank' rel=noreferrer>bien nommé MUSTARDijon</a> (pour Measuring Urban Systems Temperature Around Dijon)&nbsp;: 
         aider les communes à identifier les zones vulnérables pour agir en conséquence. </p>
       </div>
         <Img
@@ -189,9 +189,8 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
         alt={["Le palais des ducs et des états de Bourgogne à Dijon, une ville où les îlots de chaleur sont étudiés de près. Crédit: Getty images "]}
         />
       <div class="wrapper-text">
-        <p>D’autres ressources existent, à commencer par les données satellites. Ce sont celles que nous allons utiliser pour vous emmener au cœur de nos villes.
-          De son petit nom Landsat 8, ce satellite cartographie la température du sol sur l’ensemble du globe. Certes, la température de l’air serait plus représentative.
-          Mais Landsat nous donne quand même un aperçu assez fidèle des zones plus chaudes et moins chaudes (voir notre méthodologie à la fin de l’article).
+        <p>D’autres ressources, venues de l'espace celles-là, se révèlent bien utiles. C'est le cas des données récoltées par Landsat 8, un outil d'observation de la Terre lancé par la NASA en 2013. Grâce à ce satellite dont nous avons récupéré des milliers de données, nous allons vous emmener au cœur de nos villes.</p>
+        <p>Certes, la température de l’air serait plus représentative. Mais Landsat nous donne quand même un aperçu assez fidèle des zones plus chaudes et moins chaudes (voir notre méthodologie à la fin de l’article).
           Vous allez le voir, si on croise ces données avec les revenus fiscaux des Belges et la végétation, les résultats mettent en lumière des inégalités. </p>
           <p><b>Cliquez sur une ville en bleu clair sur la carte ci-dessous puis scrollez directement vers le bas pour découvrir ses particularités en détails.</b></p>
       </div>
@@ -279,7 +278,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
   
   <section class="chapitre">
     <Title
-    content={"Chaleur et taux de mortalité en hausse"}
+    content={"Chaleur mortalité en hausse, quid à l'avenir ?"}
     index=4
     />
     <div class="wrapper-text">
