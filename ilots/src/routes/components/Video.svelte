@@ -11,7 +11,7 @@
             <source src="{im}" type="video/mp4" />
             Your browser does not support the video tag.
           </video>   
-        <p>{legend[i]}</p>     
+        <p class="legend">{legend[i]}</p>     
     </div>
     {/each}
 </div>
@@ -19,6 +19,15 @@
 
 
 <style>
+    .legend {
+        line-height: 1.2rem;
+        font-size: var(--font-size-sm);
+        color: whitesmoke;
+        font-weight: 400;
+        border-left: 2px solid #D66819;
+        padding-left: 5px;
+    }
+
     video {
         display: block;
         width: 100%;
@@ -44,7 +53,7 @@
         height: auto;
     }
     
-    @media screen and (max-width: 400px) {
+    @media screen and (max-width: 550px) {
         .base {
             margin-inline: auto;
             display: block;

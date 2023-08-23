@@ -41,19 +41,19 @@
         gap: 2rem;
     }
     .inline {
-        max-width: 50%;
+        max-width: 50rem;
     }
     .big {
         max-width: 100%;
     }
     .middle {
-        max-width: 170rch;
+        max-width: 80rem;
     }
     .card {
         width: 100%;
         height: auto;
     }
-    @media screen and (max-width: 400px) {
+    @media screen and (max-width: 550px) {
         .base {
             margin-inline: auto;
             display: block;

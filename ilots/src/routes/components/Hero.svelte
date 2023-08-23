@@ -12,7 +12,7 @@
 
     $: if (width < 400) {
         radius= 175
-        hauteur= height/2.7
+        hauteur= height/2
     }
     onMount(() => {
 
@@ -40,10 +40,10 @@
 
 <svelte:window bind:innerHeight={height}></svelte:window>
 
-
+<!-- 
 <svg width={width} height={height}>
     <circle id="circle" cx={width/2} cy={height/2} r={radius} fill="var(--light-orange)"/>
-</svg>
+</svg> -->
 
 <div class="wrapper" bind:clientWidth={width}>
     <p class="decrypte">Décrypte</p>
@@ -57,7 +57,7 @@
         <div class="anim-scroll--wheel"></div>
     </div>
     <svg width={width} height={height}>
-        <circle id="circle" cx={width/2} cy={hauteur} r={radius} fill="var(--light-orange)"/>
+        <circle id="circle" cx={width/2} cy={height/2} r={radius} fill="var(--light-orange)"/>
     </svg>
     <div class='video'>
         <video muted playsinline autoplay loop disablepictureinpicture>
@@ -91,7 +91,6 @@
         font-weight: 600;
         text-align: center;
         height: 100vh;
-        /* background-color: var(--dark-orange); */
         margin: none;
         display: flex;
         flex-direction: column;
@@ -99,9 +98,9 @@
         align-items: center;
         padding-inline: 1.5rem;
         backdrop-filter: blur(3rem);
-        position: relative
+        position: relative;
+        text-shadow: 1px 1px 10px rgb(165, 158, 158);
     }   
-
 
     .big {
         font-size: var(--font-size-xxl);

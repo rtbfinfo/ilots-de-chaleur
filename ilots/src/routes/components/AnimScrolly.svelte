@@ -32,7 +32,7 @@
     let class_name="map";
     let annot_state=false;
 
-    $: if (width < 400) {
+    $: if (width < 550) {
     margin = {
         top: height/4,
         bottom: height/5,
@@ -330,7 +330,7 @@
         font-size: var(--font-size-base);
 	}
 
-    @media screen and (max-width: 400px) {
+    @media screen and (max-width: 550px) {
         .chart {
             max-width: 100%;
         }

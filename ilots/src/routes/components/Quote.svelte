@@ -13,14 +13,15 @@
 
     }
         .wrapper {
-        max-width: 90rch;
+        max-width: 50rem;
         margin-inline: auto;
         margin-block: 1rem;
-        font-size: var(--font-size-lg);
+        font-size: 20px;
         color: whitesmoke;
         font-weight: 200;
-        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-family: var(--font-title);
         text-align: center;
         padding-inline: 1rem;
+        font-style: italic;
     }
 </style>

@@ -113,7 +113,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
     <div class="wrapper-text">
       <p>Laeken, au nord de Bruxelles, une chaude journée de juin 2023. 
         Il est midi et il fait 31°C. À quelques kilomètres de là, à Zaventem, il fait chaud aussi. Mais un peu moins que dans la ville&nbsp;: 29°C «&nbsp;seulement&nbsp;». </p>
-    <p>En fait, plus on s’écarte du cœur de la cité, plus il fait frais. <a href='https://environnement.brussels/citoyen/outils-et-donnees/etat-des-lieux-de-lenvironnement/climat-etat-des-lieux#cartographie-des-ilots-de-fraicheur-bruxelles' target='_blank' rel=noreferrer>Une étude publiée en 2018</a> a montré que «&nbsp;<i>les températures de l’air sont plus élevées de 3°C 
+    <p>En fait, plus on s’écarte du cœur de la cité, plus il fait frais. <a style="color:#1D2E3C;" href='https://environnement.brussels/citoyen/outils-et-donnees/etat-des-lieux-de-lenvironnement/climat-etat-des-lieux#cartographie-des-ilots-de-fraicheur-bruxelles' target='_blank' rel=noreferrer>Une étude publiée en 2018</a> a montré que «&nbsp;<i>les températures de l’air sont plus élevées de 3°C 
       en moyenne au centre de la Région de Bruxelles-Capitale qu'à ses alentours ruraux en été (sur la période 1987-2016). Les températures les plus élevées 
       s'observent dans de grandes zones au centre-ville urbanisé.
        Les températures sont légèrement plus basses au-dessus des eaux et dans les grands parcs.</i>&nbsp;» </p>
@@ -128,7 +128,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
       <p>Dans le milieu des climatologues et des urbanistes, c’est ce qu’on appelle un phénomène d’îlot de chaleur urbain (ICU).
          «&nbsp;<i>Dans les zones urbaines, la chaleur solaire est absorbée par les matériaux de construction, et les bâtiments hauts et denses retiennent cette chaleur 
          et limitent le refroidissement par la circulation du vent. En outre, les zones urbaines sont généralement densément peuplées et produisent de la chaleur,
-         due aux transports et à la climatisation, par exemple</i>&nbsp;», <a href='https://www.meteo.be/fr/infos/actualite/les-toits-blancs-et-les-arbres-aident-les-citadins-durant-les-periodes-de-chaleur' target='_blank' rel=noreferrer>explique l’Institut Royal Météorologique (IRM) sur son site internet.</a></p>
+         due aux transports et à la climatisation, par exemple</i>&nbsp;», <a style="color:#1D2E3C;" href='https://www.meteo.be/fr/infos/actualite/les-toits-blancs-et-les-arbres-aident-les-citadins-durant-les-periodes-de-chaleur' target='_blank' rel=noreferrer>explique l’Institut Royal Météorologique (IRM) sur son site internet.</a></p>
     </div>
     <Img
     type={"middle"}
@@ -267,7 +267,6 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
 
       <Quote
       content={" Ces personnes vont donc diminuer leurs critères de confort en étant dans des quartiers moins bien desservis en termes de transport en commun, moins verts, plus denses… pour avoir suffisamment de chambres pour les enfants par exemple."}/>
-  </section>
 
   <div class="wrapper-text">
     <p>
@@ -282,6 +281,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
       d’autres inégalités basées sur le genre ou la couleur de peau, par exemple. 
     </p>
   </div>
+  </section>
   
   <section class="chapitre">
     <Title
@@ -378,7 +378,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
          résumait Mirjana Velickovic, project manager chez mkengineering.be,
          dans un reportage du journal télévisé diffusé en août 2022. </p>
     </div>
-    {#if width < 400}
+    {#if width < 550}
     <Img
     type="big"
     img={["https://rtbfmedia.be/rtbfinfo/ICU_pics/arbre_9_16.webp"]}
@@ -401,7 +401,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
       <p>À votre tour de remodeler la ville. En cliquant sur les boutons, découvrez l'influence concrète de chaque aménagement urbain sur la température.</p>
     </div>
 
-    {#if width > 400}
+    {#if width > 550}
     <GameCalc
     base={"http://rtbfmedia.be/rtbfinfo/ICU_pics/Gamecalc_desktop_webp/"}
     images={["01-REVETEMENT.webp","02-ISOLATION_.webp","03-PELOUSE.webp","04-POINT D EAU.webp","05-TRAFFIC.webp","06-FONTAINES.webp","07-OMBRE.webp","08-ARROSAGE.webp","09-TOITURES.webp","10-TOITURES+FACADES.webp","11-BRUMIFICATEURS.webp","12-ARBRES.webp","VILLE-BASE.webp"]
@@ -484,6 +484,14 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
     --font-title:'Montserrat', sans-serif;
   }
 
+  
+  a {
+        /* text-decoration: none; */
+        color:rgb(245, 78, 52);
+        font-style: bold;
+        
+    }
+
   :global(body) {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
@@ -502,7 +510,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
   }
 
   .wrapper-text {
-        max-width: 60ch;
+        max-width: 50rem;
         margin-inline: auto;
         margin-block: 2rem;
         line-height: 1.7rem;

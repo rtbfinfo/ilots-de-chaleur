@@ -109,7 +109,7 @@ let names_img = ["Revêtement","Isolation","Pelouse","Point d'eau","Voitures","F
         position: absolute;
     }
 
-    @media screen and (max-width: 400px) {
+    @media screen and (max-width: 550px) {
         .base {
             display: block;
         }
