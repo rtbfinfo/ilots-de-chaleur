@@ -437,7 +437,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
   les pics de températures toujours plus nombreux et toujours plus intenses.  
 </p>
 </div>
-
+<div class="center">
 <div class="wrapper-text methodo"> 
   <p style="font-size:var(--font-size-md)">Comment avons-nous travaillé&nbsp;?</p>
   <p>Pour déterminer les températures de surface – seul moyen d’obtenir une image exhaustive des zones étudiées - nous avons extrait les données du <a href='https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC08_C02_T1' target='_blank' rel=noreferrer>satellite de la NASA Landsat 8</a> pour les mois de juillet et août entre 2013 et 2022.</p>
@@ -450,7 +450,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
      <p>Différents scripts en Python ainsi que le logiciel de cartographie QGIS ont été utilisés pour extraire les données et les compiler.
        L’ensemble du code est disponible <a href='https://github.com/rtbfinfo/ilots-de-chaleur' target='_blank' rel=noreferrer>sur Github</a>.</p>
 </div>
-
+</div>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Baskervville&family=Montserrat:wght@200;400;500&display=swap');
 /* .wrapper {
@@ -518,8 +518,13 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
   .methodo {
     border: 5px solid var(--dark-orange);
     border-radius: 2rem;
-    margin-top: 5rem;
+    margin: 5rem 1rem;
   }
+  .center {
+    margin-inline: auto;
+    max-width: 50rem;
+  }
+
   .wrapper-plot {
     max-width: 80rem;
     margin-inline: auto;
