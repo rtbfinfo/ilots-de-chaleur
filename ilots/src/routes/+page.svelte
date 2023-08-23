@@ -131,7 +131,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
          due aux transports et à la climatisation, par exemple</i>&nbsp;», <a href='https://www.meteo.be/fr/infos/actualite/les-toits-blancs-et-les-arbres-aident-les-citadins-durant-les-periodes-de-chaleur' target='_blank' rel=noreferrer>explique l’Institut Royal Météorologique (IRM) sur son site internet.</a></p>
     </div>
     <Img
-    type={"middle"}
+    type={"middle-transparent"}
     img={["https://rtbfmedia.be/rtbfinfo/ICU_pics/ilots_expliques.webp"]}
     legend={["Quentin Vanhoof d’après Earth Resources Observation and Science (EROS) Center"]}
     alt={["Quentin Vanhoof d’après Earth Resources Observation and Science (EROS) Center"]}
