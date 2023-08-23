@@ -87,7 +87,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
 <div class="test">
   <section class="chapeau">
     <div class="wrapper-text test">
-      <p><span class="lettrine">N</span>ous sommes en train de vivre le septième été le plus chaud de Belgique depuis l’enregistrement des températures en 1833.
+      <p><span class="lettrine">N</span>ous sommes en train de vivre le septième été le plus chaud de l'histoire de la Belgique depuis l’enregistrement des températures en 1833.
          Avec un record : <a href='https://www.rtbf.be/article/climat-en-belgique-les-records-du-mois-de-juin-2023-tres-chaud-et-ensoleille-11221832' target='_blank' rel=noreferrer>celui du mois juin</a>, le plus ardent de tous. Et que dire de l’été 2022&nbsp;?
          <a href='https://www.rtbf.be/article/climat-en-belgique-les-records-de-lete-meteorologique-2022-11058042' target='_blank' rel=noreferrer>Le mois d’août de cette année-là</a> dépassait également tous les enregistrements. De record en record, 
           une question se pose : notre pays est-il adapté à ces fortes chaleurs qui deviendront à l’avenir plus longues, plus fréquentes et plus intenses&nbsp;?
@@ -97,7 +97,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
         <ul>
           <li>les températures du sol captées par satellite pendant l’été&nbsp;; </li>
           <li>les revenus des Belges&nbsp;;</li>
-          <li>et la couverture de végétation dans nos régions.</li>
+          <li>et la couverture en végétation dans nos régions.</li>
         </ul>
         <p>Verdict&nbsp;: en ville, les plus riches ont tendance à être mieux protégés contre les effets des vagues de chaleur. 
           <b>Suivez-nous, on vous explique pourquoi</b>.</p>
@@ -158,7 +158,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
     <div class="wrapper-text">
       <p>En pratique, à Bruxelles, «&nbsp;<i>à 23h (heure à laquelle l'îlot thermique urbain est normalement le plus prononcé), 
         les différences de température entre le centre de la ville et la campagne environnante avoisinent en moyenne 4,5°C [sur la période 1987-2016]</i>&nbsp;»,
-         observe l’IRM qui ajoute qu'il y a «&nbsp;<i>en moyenne trois fois plus de périodes de fortes chaleurs dans 
+         observe l’IRM. L'Institut ajoute qu'il y a «&nbsp;<i>en moyenne trois fois plus de périodes de fortes chaleurs dans 
          le centre de Bruxelles que dans les zones rurales avoisinantes</i>&nbsp;». </p>
     <p>Rafiq Hamdi, scientifique à l’IRM et spécialiste du sujet, relève que «&nbsp;<i>la température entre la ville et 
       la campagne peut monter jusqu’à 8°C de différence la nuit avec un ciel clair et une absence de vent</i>&nbsp;». Cette différence, les Bruxellois ont par exemple pu la constater lors des fortes chaleurs à la fin du mois de juin dernier, comme le montre le graphique ci-dessous. </p>
@@ -185,8 +185,8 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
         <Img
         type={"middle"}
         img={["https://rtbfmedia.be/rtbfinfo/ICU_pics/4.webp"]}
-        legend={["Observée depuis le ciel, Charleroi se révèle plus chaude en son centre. Crédit: Getty images "]}
-        alt={["Observée depuis le ciel, Charleroi se révèle plus chaude en son centre. Crédit: Getty images "]}
+        legend={["Le palais des ducs et des états de Bourgogne à Dijon, une ville où les îlots de chaleur sont étudiés de près. Crédit: Getty images "]}
+        alt={["Le palais des ducs et des états de Bourgogne à Dijon, une ville où les îlots de chaleur sont étudiés de près. Crédit: Getty images "]}
         />
       <div class="wrapper-text">
         <p>D’autres ressources existent, à commencer par les données satellites. Ce sont celles que nous allons utiliser pour vous emmener au cœur de nos villes.
@@ -212,8 +212,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
     />
     <div class="wrapper-text test" data-color="light-blue">
       <p>Nous ne sommes donc pas tous égaux face au changement climatique. C'est aussi l'analyse que fait Yves Richard à Dijon. «&nbsp;<i>Il existe des inégalités de vulnérabilité,
-         surtout quand on regarde l’air intérieur (des habitations, ndlr). Si j’habite un pavillon avec jardin et que je peux ouvrir mes fenêtres la nuit quand je dors,
-          je bénéficie de la fraîcheur (de l’air extérieur, ndlr), surtout si mon appartement est traversant. Si, au contraire, j’habite dans un immeuble qui n'est pas 
+         surtout quand on regarde l’air intérieur des habitations. Si j’habite un pavillon avec jardin et que je peux ouvrir mes fenêtres la nuit quand je dors, je bénéficie de la fraîcheur de l’air extérieur, surtout si mon appartement est traversant [c'est-à-dire qu'il dispose d'ouvertures vitrées sur au moins deux façades d'orientation différente, ndlr]. Si, au contraire, j’habite dans un immeuble qui n'est pas 
           traversant, qui est dans une zone bruyante, où il y a de l'insécurité, alors, je vais avoir du mal à rafraîchir mon appartement la nuit.
          Et c'est là où il y a une grande inégalité.</i>&nbsp;» </p>
     <p>Chloé Salembier, ethnologue et professeur à la faculté d’architecture à l’UCLouvain, parle d’injustice spatiale.
@@ -221,10 +220,8 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
        produit des pratiques en retour.</i>&nbsp;»
       C’est donc la façon dont nous avons construit nos villes qui a contribué, plus d’un siècle plus tard, à ces vulnérabilités face au changement climatique.</p>
       <p>Des habitants touchés différemment par un phénomène climatique extrême, ça ne vous rappelle rien ? 2021,
-         les inondations dans la vallée de la Vesdre bien sûr. «&nbsp;<i>Verviers, de par son histoire autour de l’industrie textile, avait une population ouvrière 
-         dans le bas de la ville, le long de la Vesdre, proche des usines, contextualise Alain Malherbe, historien de l’art et urbaniste, chargé de cours à l’UCLouvain.
-          Cela s’est construit en grande partie au moment de l’industrialisation, dès le milieu du XIXe siècle… même si la Belgique a connu,
-         de par son fonctionnement et sa mobilité, une classe ouvrière qui s’est répartie de manière plus diffuse</i>&nbsp;», nuance-t-il.  
+         les inondations dans la vallée de la Vesdre bien sûr. «&nbsp;<i>Verviers, par son histoire autour de l’industrie textile, avait une population ouvrière 
+         dans le bas de la ville, le long de la Vesdre, proche des usines</i>, contextualise Alain Malherbe, historien de l’art et urbaniste, chargé de cours à l’UCLouvain.<i>Cela s’est construit en grande partie au moment de l’industrialisation, dès le milieu du XIX<sup>e</sup> siècle... même si la Belgique a connu, par son fonctionnement et sa mobilité, une classe ouvrière qui s’est répartie de manière plus diffuse</i>&nbsp;», nuance-t-il.  
       </p>
     </div>
 
@@ -241,7 +238,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
        Il existe des écarts de revenus importants entre ces deux types de population. Les conditions socio-économiques sont aussi très différentes.</i>&nbsp;» </p>
     </div>
       <div class="wrapper-text">
-        <p>Des extrêmes encore visibles à Verviers. Dans un quartier en bord de Vesdre comme Hodimont, le revenu médian est de 16.193 &nbsp;€ par an en 2020.
+        <p>Des extrêmes encore visibles à Verviers. Dans un quartier en bord de Vesdre comme Hodimont, le revenu médian était de 16.193 &nbsp;€ par an en 2020.
            C’est beaucoup moins que le revenu médian wallon (24.808 &nbsp;€ par an) et quasiment la moitié de celui du quartier d’Heusy, situé sur les hauteurs, 
            avec 31.234 &nbsp;€ par an. Les quartiers les moins riches sont donc ceux qui subissent les effets du changement climatique&nbsp;: fortes chaleurs et inondations,
             souligne Hélène Ancion, chargée de mission en aménagement du territoire et urbanisme pour Canopea,
@@ -250,10 +247,10 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
          Et c’est là que l’on retrouve les logements, autrefois d’ouvriers, aujourd’hui, des plus précarisés. À Liège, en zone inondable, la part de la population
           qui présente un niveau socio-économique très faible s’élève à 37% contre 29 % en moyenne dans la population wallonne,
          soit près de 30% en plus de personnes socio-économiquement défavorisées en zone inondable, selon l’ISSEP, l’Institut scientifique de service public. </p>
-        <p>Ce sont des inégalités environnementales pour Hélène Ancion. «&nbsp;<i>Les personnes se retrouvent face à de mauvaises conditions de vie. Elles sont
+        <p>Ce sont des inégalités environnementales pour Hélène Ancion. «&nbsp;<i>Les personnes se retrouvent face à de mauvaises conditions de vie. Elles subissent
            les conséquences d’un aménagement 
           du territoire où l’on retrouve des quartiers riches et des quartiers pauvres. Et ce niveau socio-économique empêche de changer la donne.</i>&nbsp;»  </p>
-        <p>Car depuis lors, l’industrie n’est plus aussi présente dans les cœurs de ville et ils subissent un processus de gentrification : la classe moyenne s’y installe. «&nbsp;<i>Les effets de la spéculation immobilière, les effets de l'augmentation des loyers, de la crise du logement… 
+        <p>Car depuis lors, l’industrie n’est plus aussi présente dans les cœurs de ville et ils sont confrontés à un processus de gentrification : la classe moyenne s’y installe. «&nbsp;<i>Les effets de la spéculation immobilière, les effets de l'augmentation des loyers, de la crise du logement... 
           impactent ces phénomènes d'injustice sociale</i>&nbsp;», ajoute Chloé Salembier. «&nbsp;<i>Les loyers sont plus chers dans les quartiers qui sont les moins denses, qui sont 
           les plus verts. C’est impayable pour des familles qui ont des revenus bas ou moyens.»
             Cela renforce l’obligation d’aller dans les quartiers les plus denses lorsqu’on n’a pas les moyens. </p>
@@ -261,12 +258,11 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
           «&nbsp;<i>Les personnes à Bruxelles qui sont isolées - ce qui représente quand même  <a href='https://ibsa.brussels/chiffres/chiffres-cles-par-commune/ville-de-bruxelles' target='_blank' rel=noreferrer>près de 50% de la population</a> - 
           rencontrent des difficultés à se loger de manière décente</i>&nbsp;», continue l’ethnologue.  La part de budget des ménages qui est utilisée pour
             se loger est ainsi passée de 26,1% en 1999,
-            soit un peu plus d’un quart du budget, à 31,8% en 2020, soit presque un tiers du budget des ménages 
-        </p>
+            soit un peu plus d’un quart du budget, à 31,8% en 2020, soit presque un tiers du budget des ménages.</p>
       </div>
 
       <Quote
-      content={" Ces personnes vont donc diminuer leurs critères de confort en étant dans des quartiers moins bien desservis en termes de transport en commun, moins verts, plus denses… pour avoir suffisamment de chambres pour les enfants par exemple."}/>
+      content={" Ces personnes vont donc diminuer leurs critères de confort en étant dans des quartiers moins bien desservis en termes de transport en commun, moins verts, plus denses... pour avoir suffisamment de chambres pour les enfants par exemple."}/>
 
   <div class="wrapper-text">
     <p>
@@ -274,7 +270,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
        ce sont les familles monoparentales, les personnes isolées et les aînés. Dans chacune de ces catégories, les femmes sont surreprésentées.
         Par contre, on n'a pas les chiffres sur les facteurs de discrimination liées à l'origine des personnes. Mais on sait que dans le croissant pauvre 
         (la zone au nord du canal, ndlr), 
-      ce sont des quartiers qui accueillent des personnes qui cumulent les facteurs de discrimination en termes d'accès à l'emploi, en termes d'accès au logement etc.</i>&nbsp;»  
+      ce sont des quartiers qui accueillent des personnes qui cumulent les facteurs de discrimination en termes d'accès à l'emploi, d'accès au logement, etc.</i>&nbsp;»  
     </p>
     <p>
       Les personnes que l’on retrouve dans les îlots de chaleur ont non seulement de plus petits revenus en général, mais sont donc aussi à l’intersection 
@@ -292,7 +288,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
       <p>
         Retour à l’été 2022. Cette année-là, Sciensano voit que la courbe de surmortalité grimpe en flèche.
          En clair, on constate davantage de décès qu’en temps normal à cette période. Durant cette période estivale (16 mai au 9 octobre),
-         la surmortalité a été importante avec 2312 décès supplémentaires (5,8 % d’excès de mortalité), rapporte l’ex-institut de Santé publique. 
+         la surmortalité a été importante avec 2312 décès supplémentaires (5,8 % d’excès de mortalité), rapporte l’Institut de Santé publique. 
       </p>
       <p>
         Sciensano s’était <a href='https://www.sciensano.be/en/biblio/heat-related-mortality-two-largest-belgian-urban-areas-a-time-series-analysis' target='_blank' rel=noreferrer>déjà penché sur la question en 2020</a> avec une analyse des périodes chaudes à Bruxelles et Anvers entre 2002 et 2011.
@@ -370,7 +366,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
     img={["https://rtbfmedia.be/rtbfinfo/ICU_pics/drone_bxl_1.mp4",
     "https://rtbfmedia.be/rtbfinfo/ICU_pics/drone_bxl_2.mp4"
     ]}
-    legend={["À Bruxelles, le toit du Palais du Midi a été peint en blanc pour absorber moins de chaleur.","De hauts immeubles, peu de verdure&nbsp;: la recette parfaite pour un îlot de chaleur."]}
+    legend={["À Bruxelles, le toit du Palais du Midi a été peint en blanc pour absorber moins de chaleur.","De hauts immeubles, peu de verdure: la recette parfaite pour un îlot de chaleur."]}
       />
     <div class="wrapper-text">
       <p>«&nbsp;<i>Les arbres sont vraiment un paramètre primordial pour rafraîchir l’espace. Ils puisent l’eau dans le sol. Et,
@@ -395,7 +391,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
 
     <div class="wrapper-text">
       <p>Cela ne se fera pas sans quelques changements d’habitudes. Yves Richard invite ainsi à «&nbsp;<i>repenser nos modes de déplacements à l'intérieur de 
-        la ville pour consommer moins d'espaces. Cela peut passer par le déploiement des transports en commun, la mobilité douce. 
+        la ville pour consommer moins d'espace. Cela peut passer par le déploiement des transports en commun, la mobilité douce. 
         Il faut aussi donner moins de place à l'automobile. Celle-ci, qu'elle soit électrique ou pas, prend trop de place.</i>&nbsp;»  
       </p>
       <p>À votre tour de remodeler la ville. En cliquant sur les boutons, découvrez l'influence concrète de chaque aménagement urbain sur la température.</p>
