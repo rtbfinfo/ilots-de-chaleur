@@ -21,6 +21,13 @@
 
 
 <style>
+    .middle-transparent .card .legend {
+        color: black;
+    }
+    .middle-transparent {
+        max-width: 170ch;
+        background-color: rgba(255,255,255,0.7);
+    }
     .legend  {
         line-height: 1.2rem;
         font-size: var(--font-size-sm);

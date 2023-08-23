@@ -131,7 +131,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
          due aux transports et à la climatisation, par exemple</i>&nbsp;», <a style="color:#1D2E3C;" href='https://www.meteo.be/fr/infos/actualite/les-toits-blancs-et-les-arbres-aident-les-citadins-durant-les-periodes-de-chaleur' target='_blank' rel=noreferrer>explique l’Institut Royal Météorologique (IRM) sur son site internet.</a></p>
     </div>
     <Img
-    type={"middle"}
+    type={"middle-transparent"}
     img={["https://rtbfmedia.be/rtbfinfo/ICU_pics/ilots_expliques.webp"]}
     legend={["Quentin Vanhoof d’après Earth Resources Observation and Science (EROS) Center"]}
     alt={["Quentin Vanhoof d’après Earth Resources Observation and Science (EROS) Center"]}
@@ -146,7 +146,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
     <div class="wrapper-text" id="nuit">
       <p>Mais c'est surtout la nuit que les ICU entrent en action. «&nbsp;<i>C'est un phénomène nocturne et intermittent.
          Il se produit les nuits qui suivent les journées de beau temps et de vent calme</i>&nbsp;», détaille Yves Richard, professeur de géographie à l'université de Bourgogne.</p>
-    <p>Celui qui étudie la question pour le compte de la ville de Dijon, en France précise&nbsp;:
+    <p>Celui qui étudie la question pour le compte de la ville de Dijon, en France, précise&nbsp;:
       «&nbsp;<i>C'est à cause de la propriété des matériaux qui absorbent l'énergie pendant la journée et qui relâchent cette énergie la nuit que ce phénomène peut se déployer.</i>&nbsp;» </p>
     </div>
     <Img
@@ -221,7 +221,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
        produit des pratiques en retour.</i>&nbsp;»
       C’est donc la façon dont nous avons construit nos villes qui a contribué, plus d’un siècle plus tard, à ces vulnérabilités face au changement climatique.</p>
       <p>Des habitants touchés différemment par un phénomène climatique extrême, ça ne vous rappelle rien ? 2021,
-         les inondations dans la vallée de la Vesdre bien sûr. «&nbsp;<i>Verviers, de par son histoire autour de l’industrie textile avait une population ouvrière 
+         les inondations dans la vallée de la Vesdre bien sûr. «&nbsp;<i>Verviers, de par son histoire autour de l’industrie textile, avait une population ouvrière 
          dans le bas de la ville, le long de la Vesdre, proche des usines, contextualise Alain Malherbe, historien de l’art et urbaniste, chargé de cours à l’UCLouvain.
           Cela s’est construit en grande partie au moment de l’industrialisation, dès le milieu du XIXe siècle… même si la Belgique a connu,
          de par son fonctionnement et sa mobilité, une classe ouvrière qui s’est répartie de manière plus diffuse</i>&nbsp;», nuance-t-il.  
@@ -246,7 +246,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
            avec 31.234 &nbsp;€ par an. Les quartiers les moins riches sont donc ceux qui subissent les effets du changement climatique&nbsp;: fortes chaleurs et inondations,
             souligne Hélène Ancion, chargée de mission en aménagement du territoire et urbanisme pour Canopea,
            la fédération des associations environnementales belges qui défend l'environnement en Wallonie et en Belgique. </p>
-      <p>Ces constats sont valables pour d’autres villes: les sols ont été imperméabilisés là où se sont les industries se sont implantées au XIXe siècle.
+      <p>Ces constats sont valables pour d’autres villes: les sols ont été imperméabilisés là où les industries se sont implantées au XIXe siècle.
          Et c’est là que l’on retrouve les logements, autrefois d’ouvriers, aujourd’hui, des plus précarisés. À Liège, en zone inondable, la part de la population
           qui présente un niveau socio-économique très faible s’élève à 37% contre 29 % en moyenne dans la population wallonne,
          soit près de 30% en plus de personnes socio-économiquement défavorisées en zone inondable, selon l’ISSEP, l’Institut scientifique de service public. </p>
@@ -306,7 +306,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
     </div>
 
     <Quote
-    content={"Pour le moment, on est dix en en avance sur le pire des scénarios"}/>
+    content={"Pour le moment, on est dix ans en avance sur le pire des scénarios"}/>
 
     <div class="wrapper-text">
       <p>
@@ -325,7 +325,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
 
     <div class="wrapper-text">
       <p>
-        Xavier Fettweis enchaîne : «&nbsp;<i>Pour le moment, on est dix en en avance [sur le pire des scénarios].
+        Xavier Fettweis enchaîne : «&nbsp;<i>Pour le moment, on est dix ans en avance [sur le pire des scénarios].
          Rien que sur la dernière décennie 2011-2020, on a gagné un degré en été en Belgique par rapport à la période 1981-2010.
          Et pour ce qui est des inondations de juillet 2021, les modèles suggéraient plutôt que ça arrive en 2030.</i>&nbsp;» 
       </p>
@@ -333,7 +333,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
         <a href='https://climat.be/doc/seclim-be-2020-finalreport.pdf' target='_blank' rel=noreferrer>Dans un rapport de 2020</a> écrit pour le gouvernement fédéral, des chercheurs rappellent que «&nbsp;<i>si le monde continue sur cette tendance de business as usual’,
          près de 30% des jours d’été (donc de juin à août), 
         seront des jours de fortes chaleurs [où la température maximale moyenne sur trois jours dépasse 30°C, ndlr].
-         À Liège, la population pourrait être confrontée à 6 à 8 jours de fortes chaleurs sur l’été, contre un1 ou deux2 actuellement.</i>&nbsp;»  
+         À Liège, la population pourrait être confrontée à 6 à 8 jours de fortes chaleurs sur l’été, contre un ou deux actuellement.</i>&nbsp;»  
       </p>
       <p>
         Ce même document insiste sur le fait que «&nbsp;<i>les groupes de la société qui sont déjà précaires 
@@ -422,8 +422,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
 <div class="wrapper-text">
 <p>
   Encore une condition pour Chloé Salembier&nbsp;: lier les questions d’espace public avec celles du logement. 
-  «&nbsp;<i>Elles sont complètement imbriquées. Si l’on verdurise un quartier, il faut mettre en place des mesures compensatoires. 
-  Par exemple un plafonnement des loyers ou une rétrocession de la plus-value faite grâce à l’augmentation du loyer.</i>&nbsp;»
+  «&nbsp;<i>Elles sont complètement imbriquées. Si l’on verdurise un quartier, il faut mettre en place des mesures compensatoires, par exemple un plafonnement des loyers ou une rétrocession de la plus-value faite grâce à l’augmentation du loyer.</i>&nbsp;»
    Dans le cas contraire, ce quartier attirerait simplement des personnes qui ont les moyens de se le payer. Les inégalités resteraient.   
 </p>
 <p>
