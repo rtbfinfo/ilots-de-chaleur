@@ -99,7 +99,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
           <li>les revenus des Belges</li>
           <li>et la couverture de végétation dans nos régions.</li>
         </ul>
-        <p>Verdict&nbsp;: si vous vivez en ville, les plus riches sont les mieux protégés contre les effets des vagues de chaleur. 
+        <p>Verdict&nbsp;: en ville, les plus riches ont tendance à être mieux protégés contre les effets des vagues de chaleur. 
           <b>Suivez-nous, on vous explique pourquoi</b>.</p>
       </div>
   </section>
@@ -193,7 +193,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
           De son petit nom Landsat 8, ce satellite cartographie la température du sol sur l’ensemble du globe. Certes, la température de l’air serait plus représentative.
           Mais Landsat nous donne quand même un aperçu assez fidèle des zones plus chaudes et moins chaudes (voir notre méthodologie à la fin de l’article).
           Vous allez le voir, si on croise ces données avec les revenus fiscaux des Belges et la végétation, les résultats mettent en lumière des inégalités. </p>
-          <p>Cliquez sur une ville sur la carte ci-dessous pour découvrir ses particularités en détail.</p>
+          <p><b>Cliquez une ville en bleu clair sur la carte ci-dessous puis scrollez vers le bas pour découvrir ses particularités en détails.</b></p>
       </div>
       
 
@@ -211,7 +211,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
     index=3
     />
     <div class="wrapper-text test" data-color="light-blue">
-      <p>Conséquence&nbsp;: nous ne sommes pas tous égaux face au changement climatique, analyse Yves Richard à Dijon. «&nbsp;<i>Il existe des inégalités de vulnérabilité,
+      <p>Nous ne sommes donc pas tous égaux face au changement climatique. C'est aussi l'analyse que fait Yves Richard à Dijon. «&nbsp;<i>Il existe des inégalités de vulnérabilité,
          surtout quand on regarde l’air intérieur (des habitations, ndlr). Si j’habite un pavillon avec jardin et que je peux ouvrir mes fenêtres la nuit quand je dors,
           je bénéficie de la fraîcheur (de l’air extérieur, ndlr), surtout si mon appartement est traversant. Si, au contraire, j’habite dans un immeuble qui n'est pas 
           traversant, qui est dans une zone bruyante, où il y a de l'insécurité, alors, je vais avoir du mal à rafraîchir mon appartement la nuit.
@@ -220,7 +220,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
        «&nbsp;<i>C’est le fait que les rapports sociaux soient inscrits dans le territoire</i>&nbsp;», définit-elle. «&nbsp;<i>Les êtres humains organisent leur territoire et le territoire 
        produit des pratiques en retour.</i>&nbsp;»
       C’est donc la façon dont nous avons construit nos villes qui a contribué, plus d’un siècle plus tard, à ces vulnérabilités face au changement climatique.</p>
-      <p>Des habitants touchés différemment par un phénomène climatique extrême, ça ne vous rappelle rien? 2021,
+      <p>Des habitants touchés différemment par un phénomène climatique extrême, ça ne vous rappelle rien ? 2021,
          les inondations dans la vallée de la Vesdre bien sûr. «&nbsp;<i>Verviers, de par son histoire autour de l’industrie textile avait une population ouvrière 
          dans le bas de la ville, le long de la Vesdre, proche des usines, contextualise Alain Malherbe, historien de l’art et urbaniste, chargé de cours à l’UCLouvain.
           Cela s’est construit en grande partie au moment de l’industrialisation, dès le milieu du XIXe siècle… même si la Belgique a connu,
@@ -241,9 +241,9 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
        Il existe des écarts de revenus importants entre ces deux types de population. Les conditions socio-économiques sont aussi très différentes.</i>&nbsp;» </p>
     </div>
       <div class="wrapper-text">
-        <p>Des extrêmes encore visibles à Verviers. Dans un quartier en bord de Vesdre comme Hodimont, le revenu médian est de 16.193 € par an en 2020.
-           C’est beaucoup moins que le revenu médian wallon (24.808 € par an) et quasiment la moitié de celui du quartier d’Heusy, situé sur les hauteurs, 
-           avec 31.234 € par an. Les quartiers les moins riches sont donc ceux qui subissent les effets du changement climatique&nbsp;: fortes chaleurs et inondations,
+        <p>Des extrêmes encore visibles à Verviers. Dans un quartier en bord de Vesdre comme Hodimont, le revenu médian est de 16.193 &nbsp;€ par an en 2020.
+           C’est beaucoup moins que le revenu médian wallon (24.808 &nbsp;€ par an) et quasiment la moitié de celui du quartier d’Heusy, situé sur les hauteurs, 
+           avec 31.234 &nbsp;€ par an. Les quartiers les moins riches sont donc ceux qui subissent les effets du changement climatique&nbsp;: fortes chaleurs et inondations,
             souligne Hélène Ancion, chargée de mission en aménagement du territoire et urbanisme pour Canopea,
            la fédération des associations environnementales belges qui défend l'environnement en Wallonie et en Belgique. </p>
       <p>Ces constats sont valables pour d’autres villes: les sols ont été imperméabilisés là où se sont les industries se sont implantées au XIXe siècle.
@@ -278,7 +278,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
       ce sont des quartiers qui accueillent des personnes qui cumulent les facteurs de discrimination en termes d'accès à l'emploi, en termes d'accès au logement etc.</i>&nbsp;»  
     </p>
     <p>
-      Les personnes que l’on retrouve dans les îlots de chaleur ont non seulement de plus petits revenus en général mais sont donc aussi à l’intersection 
+      Les personnes que l’on retrouve dans les îlots de chaleur ont non seulement de plus petits revenus en général, mais sont donc aussi à l’intersection 
       d’autres inégalités basées sur le genre ou la couleur de peau, par exemple. 
     </p>
   </div>

@@ -76,7 +76,7 @@
 
     let currentStep;
     let value="revenu";
-    const steps = [`<p>voici ${selected == "bxl" ? "Bruxelles" : selected}, ${hab[selected]} habitants ... qui ne vivent pas tous dans les mêmes conditions</p>`,
+    const steps = [`<p>Voici ${selected == "bxl" ? "la Région de Bruxelles-Capitale" : selected}, ${hab[selected]} habitants ... qui ne vivent pas tous dans les mêmes conditions.</p>`,
                     "<p>Ajoutons sur cette carte les températures moyennes du sol en juillet et août de 2013 à 2022. Les zones plus froides sont en <span style='color:blue;'>bleu</span> et les zones plus chaudes sont en <span style='color:red;'>rouge</span></p>",
                     "<p>Les zones les plus fraiches sont souvent des parcs, des forêts ou des cours d’eau.</p>",
                     "<p>Faisons maintenant la moyenne de ces températures pour chaque secteur statistiques. Cela nous sera utile dans l’étape suivante…</p>",
