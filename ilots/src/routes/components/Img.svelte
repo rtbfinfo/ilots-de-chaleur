@@ -25,7 +25,7 @@
         color: black;
     }
     .middle-transparent {
-        max-width: 170ch;
+        max-width: 80rem;
         background-color: rgba(255,255,255,0.7);
     }
     .legend  {

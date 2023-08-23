@@ -178,11 +178,7 @@
     .orange {
         color: rgba(234, 71, 12);
     }
-    .wrapper {
-    display: flex;
-    justify-content: center;
-    padding: 5rem;
-    }
+
     a {
         text-decoration: none;
         color: whitesmoke;
@@ -196,15 +192,7 @@
         color:rgba(234, 71, 12, 0.603);;
         background-color: whitesmoke;
     }
-    .map {
-    width: 100%;
-    height: 80%;
-    position: sticky;
-    top: 5%;
-    margin: auto;
-    z-index: 10;
-    border-radius: 10rem;
-  }
+
   .chart {
    max-width: 100%;
     height: 80%;

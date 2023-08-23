@@ -99,7 +99,7 @@
         padding-inline: 1.5rem;
         backdrop-filter: blur(3rem);
         position: relative;
-        text-shadow: 1px 1px 10px rgb(165, 158, 158);
+        text-shadow: 1px 3px 5px rgb(90, 90, 90);
     }   
 
     .big {
