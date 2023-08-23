@@ -29,7 +29,7 @@
 
     $: geoGenerator = d3.geoPath(projection)
 
-    const listCity = ["Liège","Charleroi","Namur","Mons","bxl"]
+    const listCity = ["bxl","Mons","Charleroi","Namur","Liège"]
 
     let hover;
     let mouseX;
@@ -134,7 +134,6 @@
             annot={annot}
             />
         </div>
-         
         {/if}
     </div>
 </section>
