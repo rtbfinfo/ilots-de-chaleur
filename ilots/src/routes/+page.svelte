@@ -88,8 +88,8 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
   <section class="chapeau">
     <div class="wrapper-text test">
       <p><span class="lettrine">N</span>ous sommes en train de vivre le septième été le plus chaud de Belgique depuis l’enregistrement des températures en 1833.
-         Avec un record : celui du mois juin, le plus ardent de tous. Et que dire de l’été 2022&nbsp;?
-          Le mois d’août de cette année-là dépassait également tous les enregistrements. De record en record, 
+         Avec un record : <a href='https://www.rtbf.be/article/climat-en-belgique-les-records-du-mois-de-juin-2023-tres-chaud-et-ensoleille-11221832' target='_blank' rel=noreferrer>celui du mois juin</a>, le plus ardent de tous. Et que dire de l’été 2022&nbsp;?
+         <a href='https://www.rtbf.be/article/climat-en-belgique-les-records-de-lete-meteorologique-2022-11058042' target='_blank' rel=noreferrer>Le mois d’août de cette année-là</a> dépassait également tous les enregistrements. De record en record, 
           une question se pose : notre pays est-il adapté à ces fortes chaleurs qui deviendront à l’avenir plus longues, plus fréquentes et plus intenses&nbsp;?
            Qui paye le prix de ce changement climatique indiscutable&nbsp;? </p>
 
@@ -113,7 +113,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
     <div class="wrapper-text">
       <p>Laeken, au nord de Bruxelles, une chaude journée de juin 2023. 
         Il est midi et il fait 31°C. À quelques kilomètres de là, à Zaventem, il fait chaud aussi. Mais un peu moins que dans la ville&nbsp;: 29°C «&nbsp;<i>seulement</i>&nbsp;». </p>
-    <p>En fait, plus on s’écarte du cœur de la cité, plus il fait frais. Une étude publiée en 2018 a montré que «&nbsp;<i>les températures de l’air sont plus élevées de 3°C 
+    <p>En fait, plus on s’écarte du cœur de la cité, plus il fait frais. <a href='https://environnement.brussels/citoyen/outils-et-donnees/etat-des-lieux-de-lenvironnement/climat-etat-des-lieux#cartographie-des-ilots-de-fraicheur-bruxelles' target='_blank' rel=noreferrer>Une étude publiée en 2018</a> a montré que «&nbsp;<i>les températures de l’air sont plus élevées de 3°C 
       en moyenne au centre de la Région de Bruxelles-Capitale qu'à ses alentours ruraux en été (sur la période 1987-2016). Les températures les plus élevées 
       s'observent dans de grandes zones au centre-ville urbanisé.
        Les températures sont légèrement plus basses au-dessus des eaux et dans les grands parcs.</i>&nbsp;» </p>
@@ -128,7 +128,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
       <p>Dans le milieu des climatologues et des urbanistes, c’est ce qu’on appelle un phénomène «&nbsp;<i>d’îlot de chaleur urbain</i>&nbsp;» (ICU).
          «&nbsp;<i>Dans les zones urbaines, la chaleur solaire est absorbée par les matériaux de construction, et les bâtiments hauts et denses retiennent cette chaleur 
          et limitent le refroidissement par la circulation du vent. En outre, les zones urbaines sont généralement densément peuplées et produisent de la chaleur,
-         due aux transports et à la climatisation, par exemple</i>&nbsp;», explique l’Institut Royal Météorologique (IRM) sur son site internet. </p>
+         due aux transports et à la climatisation, par exemple</i>&nbsp;», <a href='https://www.meteo.be/fr/infos/actualite/les-toits-blancs-et-les-arbres-aident-les-citadins-durant-les-periodes-de-chaleur' target='_blank' rel=noreferrer>explique l’Institut Royal Météorologique (IRM) sur son site internet.</a></p>
     </div>
     <Img
     type={"middle"}
@@ -161,8 +161,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
          observe l’IRM qui ajoute qu'il y a «&nbsp;<i>en moyenne trois fois plus de périodes de fortes chaleurs dans 
          le centre de Bruxelles que dans les zones rurales avoisinantes</i>&nbsp;». </p>
     <p>Rafiq Hamdi, scientifique à l’IRM et spécialiste du sujet, relève que «&nbsp;<i>la température entre la ville et 
-      la campagne peut monter jusqu’à 8°C de différence la nuit avec un ciel clair et une absence de vent</i>&nbsp;». Cette différence
-      , les Bruxellois ont par exemple pu la constater lors des fortes chaleurs à la fin du mois de juin dernier, comme le montre le graphique ci-dessous. </p>
+      la campagne peut monter jusqu’à 8°C de différence la nuit avec un ciel clair et une absence de vent</i>&nbsp;». Cette différence, les Bruxellois ont par exemple pu la constater lors des fortes chaleurs à la fin du mois de juin dernier, comme le montre le graphique ci-dessous. </p>
     </div>
     <div class="wrapper-plot">
       <iframe src='https://flo.uri.sh/story/2009134/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe><div style='width:100%!;margin-top:4px!important;text-align:right!important;'><a class='flourish-credit' href='https://public.flourish.studio/story/2009134/?utm_source=embed&utm_campaign=story/2009134' target='_top' style='text-decoration:none!important'><img alt='Made with Flourish' src='https://public.flourish.studio/resources/made_with_flourish.svg' style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'> </a></div>
@@ -180,7 +179,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
       <p>Il est difficile de suivre avec précision l’évolution des températures à différents endroits d’une ville au jour le jour.
          Cela nécessiterait de placer des stations météo à des endroits stratégiques. Et plus on a de stations, mieux c’est.  </p>
       <p>Dijon, la capitale de la Bourgogne, dans l’Est de la France, a tenté l’expérience. Aujourd’hui 90 stations mesurent la température de l’air à différents endroits de l’agglomération dijonnaise.
-         Objectif de ce projet nommé MUSTARDijon (pour Measuring Urban Systems Temperature Around Dijon)&nbsp;: 
+         Objectif de ce projet <a href='https://popsu-dijon.u-bourgogne.fr/wp-content/uploads/2019/12/MustarDijon.pdf' target='_blank' rel=noreferrer>nommé MUSTARDijon</a> (pour Measuring Urban Systems Temperature Around Dijon)&nbsp;: 
         aider les communes à identifier les zones vulnérables pour agir en conséquence. </p>
       </div>
         <Img
@@ -259,7 +258,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
           les plus verts. C’est impayable pour des familles qui ont des revenus bas ou moyens.»
             Cela renforce l’obligation d’aller dans les quartiers les plus denses lorsqu’on n’a pas les moyens. </p>
         <p>
-          «&nbsp;<i>Les personnes à Bruxelles qui sont isolées - ce qui représente quand même près de 50% de la population - 
+          «&nbsp;<i>Les personnes à Bruxelles qui sont isolées - ce qui représente quand même  <a href='https://ibsa.brussels/chiffres/chiffres-cles-par-commune/ville-de-bruxelles' target='_blank' rel=noreferrer>près de 50% de la population</a> - 
           rencontrent des difficultés à se loger de manière décente</i>&nbsp;», continue l’ethnologue.  La part de budget des ménages qui est utilisée pour
             se loger est ainsi passée de 26,1% en 1999,
             soit un peu plus d’un quart du budget, à 31,8% en 2020, soit presque un tiers du budget des ménages 
@@ -296,12 +295,12 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
          la surmortalité a été importante avec 2312 décès supplémentaires (5,8 % d’excès de mortalité)</i>&nbsp;», rapporte l’ex-institut de Santé publique. 
       </p>
       <p>
-        Sciensano s’était déjà penché sur la question en 2020 avec une analyse des périodes chaudes à Bruxelles et Anvers entre 2002 et 2011.
+        Sciensano s’était <a href='https://www.sciensano.be/en/biblio/heat-related-mortality-two-largest-belgian-urban-areas-a-time-series-analysis' target='_blank' rel=noreferrer>déjà penché sur la question en 2020</a> avec une analyse des périodes chaudes à Bruxelles et Anvers entre 2002 et 2011.
          Résultat&nbsp;: la mortalité augmente dès que la température dépasse 25,2°C à Anvers ou 22,8°C à Bruxelles. 
       </p>
       <p>
         Cette tendance ne devrait pas aller en s’améliorant. Le réchauffement climatique est tout à fait perceptible en Belgique,
-         comme nous l’expliquions déjà dans un grand format publié fin 2020.  
+         comme nous l’expliquions déjà <a href='https://www.rtbf.be/article/a-quel-point-fait-il-plus-chaud-dans-votre-commune-depuis-votre-naissance-et-quelles-consequences-pour-le-futur-10893043' target='_blank' rel=noreferrer>dans un grand format publié fin 2020</a>.  
       </p>
    
     </div>
@@ -331,7 +330,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
          Et pour ce qui est des inondations de juillet 2021, les modèles suggéraient plutôt que ça arrive en 2030.</i>&nbsp;» 
       </p>
       <p>
-        Dans un rapport de 2020 écrit pour le gouvernement fédéral, des chercheurs rappellent que «&nbsp;<i>si le monde continue sur cette tendance de business as usual’,
+        <a href='https://climat.be/doc/seclim-be-2020-finalreport.pdf' target='_blank' rel=noreferrer>Dans un rapport de 2020</a> écrit pour le gouvernement fédéral, des chercheurs rappellent que «&nbsp;<i>si le monde continue sur cette tendance de business as usual’,
          près de 30% des jours d’été (donc de juin à août), 
         seront des jours de fortes chaleurs [où la température maximale moyenne sur trois jours dépasse 30°C, ndlr].
          À Liège, la population pourrait être confrontée à 6 à 8 jours de fortes chaleurs sur l’été, contre un1 ou deux2 actuellement.</i>&nbsp;»  
@@ -358,7 +357,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
         il faut identifier des espaces. Et dans les espaces publics, ce sont les zones qui sont pour l'instant dédiées à la voirie qui doivent être mobilisées.
          Il faut désimperméabiliser les sols et végétaliser la ville</i>&nbsp;», expose le professeur de géographie.  
       </p>
-      <p>À l’IRM, on invite aussi à regarder du côté de l’albédo des bâtiments, c’est-à-dire la part des rayonnements solaires qui sont renvoyés vers l'atmosphère.
+      <p><a href='https://www.meteo.be/resources/misc/climate_report/RapportClimatique-2020.pdf' target='_blank' rel=noreferrer>À l’IRM</a>, on invite aussi à regarder du côté de l’albédo des bâtiments, c’est-à-dire la part des rayonnements solaires qui sont renvoyés vers l'atmosphère.
          «&nbsp;<i>L’albédo des bâtiments pourrait être modifié (en utilisant différents matériaux, des peintures de couleur blanche...) afin que plus de rayonnement solaire 
          soit réfléchi. Une étude récente
          de l’IRM a montré que cela pourrait réduire l’îlot de chaleur urbain de 0,45°C et rendre la température moins stressante pour les habitants des villes.</i>&nbsp;» 
@@ -429,8 +428,8 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
 </p>
 <p>
   Pour régler les défis de demain, mieux vaut agir dès aujourd’hui. En Belgique, certaines villes s’organisent.
-   C’est le cas à Liège avec le plan Canopée qui vise à augmenter la quantité d'arbres dans l’espace public et l’espace privé d’ici à 2030. 
-  À Bruxelles aussi, certaines actions sont mises en place&nbsp;: la commune d’Ixelles compte verduriser les places Flagey et Sainte-Croix. 
+   C’est le cas à Liège avec <a href='https://www.rtbf.be/article/plan-canopee-a-liege-24000-arbres-pour-faire-respirer-la-ville-dici-2030-10880961' target='_blank' rel=noreferrer>le plan Canopée</a> qui vise à augmenter la quantité d'arbres dans l’espace public et l’espace privé d’ici à 2030. 
+  À Bruxelles aussi, certaines actions sont mises en place&nbsp;: la commune d’Ixelles compte par exemple <a href='https://www.rtbf.be/article/ixelles-feu-vert-pour-la-verdurisation-des-places-flagey-et-sainte-croix-11240594' target='_blank' rel=noreferrer>verduriser les places Flagey et Sainte-Croix</a>. 
 </p>
 <p>
   Hélène Ancion de l’association Canopea reste circonspecte face à ces plans de verdurisation.
@@ -445,17 +444,16 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
 </div>
 
 <div class="wrapper-text methodo"> 
-  <p style="font-size:var(--font-size-md)">Comment avons-nous travaillé&nbsp;? Python, QGIS, D3...</p>
-  <p>Pour déterminer les températures de surface – seul moyen d’obtenir une image exhaustive des zones étudiées - nous avons extrait les données du satellite de la NASA Landsat 8 pour les mois de juillet et août entre 2013 et 2022.</p>
+  <p style="font-size:var(--font-size-md)">Comment avons-nous travaillé&nbsp;?</p>
+  <p>Pour déterminer les températures de surface – seul moyen d’obtenir une image exhaustive des zones étudiées - nous avons extrait les données du <a href='https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC08_C02_T1' target='_blank' rel=noreferrer>satellite de la NASA Landsat 8</a> pour les mois de juillet et août entre 2013 et 2022.</p>
   <p>Ces températures de surface diffèrent des températures de l’air ressenties par les humains à un endroit donné. 
     Il ne faut donc pas les considérer en valeurs absolues. Il s’agit avant tout d’une cartographie indicative – mais cohérente - pour déceler les zones plus chaudes et plus froides. 
-    Des études scientifiques (lire notamment ici et là) ont montré que lorsque la température du sol est élevée, celle de l’air l’est aussi.  </p>
-   <p>Les revenus des Belges et la densité de population par secteurs statistiques proviennent de Statbel.
-     Les informations concernant la couverture de la végétation en Région wallonne proviennent de la couche de données WALOUS 2020 sur le géoportail
-      de Wallonie. Pour la Région bruxelloise,
-     les données de répartition de la végétation haute et basse datées de septembre 2021 ont été récupérées sur le portail environnement.brussels. </p> 
+    Des études scientifiques (lire notamment <a href='https://www.mdpi.com/2073-445X/10/4/410' target='_blank' rel=noreferrer>ici</a> et <a href='https://www.sciencedirect.com/science/article/abs/pii/S0034425796002167' target='_blank' rel=noreferrer>là</a>) ont montré que lorsque la température du sol est élevée, celle de l’air l’est aussi.  </p>
+   <p><a href='https://statbel.fgov.be/fr/open-data/statistique-fiscale-des-revenus-par-secteur-statistique' target='_blank' rel=noreferrer>Les revenus des Belges</a> et <a href='https://statbel.fgov.be/fr/open-data/population-par-secteur-statistique-7' target='_blank' rel=noreferrer>la densité de population</a> par secteurs statistiques proviennent de Statbel.
+     Les informations concernant la couverture de la végétation en Région wallonne proviennent de la couche de données WALOUS 2020 sur <a href='https://geoportail.wallonie.be/catalogue/47b348f1-6e7a-4baa-963c-0232a43c0cff.html' target='_blank' rel=noreferrer>le géoportail de Wallonie</a>. Pour la Région bruxelloise,
+     les données de répartition de la végétation haute et basse datées de septembre 2021 ont été récupérées sur <a href='https://geodata.environnement.brussels/client/view/67bc5ff0-90f6-4b76-9f05-15c15a928980' target='_blank' rel=noreferrer>le portail environnement.brussels</a>. </p> 
      <p>Différents scripts en Python ainsi que le logiciel de cartographie QGIS ont été utilisés pour extraire les données et les compiler.
-       L’ensemble du code est disponible sur Github.</p>
+       L’ensemble du code est disponible <a href='https://github.com/rtbfinfo/ilots-de-chaleur' target='_blank' rel=noreferrer>sur Github</a>.</p>
 </div>
 
 <style>
