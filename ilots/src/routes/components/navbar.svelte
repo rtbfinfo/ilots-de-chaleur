@@ -26,8 +26,8 @@
   <div id="progress-bar"></div>
   <nav class="fixed-nav-bar" in:fade>
   
-        <a class="brand" href="https://rtbfmedia.be/rtbfinfo/ICU_pics/rtbf.svg" rel="noreferrer" target="_blank">
-          <img src="./rtbf.svg" alt="RTBF Logo" />
+        <a class="brand" href="https://www.rtbf.be/info" rel="noreferrer" target="_blank">
+          <img src="https://rtbfmedia.be/rtbfinfo/ICU_pics/rtbf.svg" alt="RTBF Logo" />
         </a>
         
         <div class="share">

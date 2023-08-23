@@ -99,7 +99,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
           <li>les revenus des Belges</li>
           <li>et la couverture de végétation dans nos régions.</li>
         </ul>
-        <p>Verdict: si vous vivez en ville, les plus riches sont les mieux protégés contre les effets des vagues de chaleur. 
+        <p>Verdict&nbsp;: si vous vivez en ville, les plus riches sont les mieux protégés contre les effets des vagues de chaleur. 
           <b>Suivez-nous, on vous explique pourquoi</b>.</p>
       </div>
   </section>
@@ -112,7 +112,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
     />
     <div class="wrapper-text">
       <p>Laeken, au nord de Bruxelles, une chaude journée de juin 2023. 
-        Il est midi et il fait 31°C. À quelques kilomètres de là, à Zaventem, il fait chaud aussi. Mais un peu moins que dans la ville&nbsp;: 29°C «&nbsp;<i>seulement</i>&nbsp;». </p>
+        Il est midi et il fait 31°C. À quelques kilomètres de là, à Zaventem, il fait chaud aussi. Mais un peu moins que dans la ville&nbsp;: 29°C «&nbsp;seulement&nbsp;». </p>
     <p>En fait, plus on s’écarte du cœur de la cité, plus il fait frais. <a href='https://environnement.brussels/citoyen/outils-et-donnees/etat-des-lieux-de-lenvironnement/climat-etat-des-lieux#cartographie-des-ilots-de-fraicheur-bruxelles' target='_blank' rel=noreferrer>Une étude publiée en 2018</a> a montré que «&nbsp;<i>les températures de l’air sont plus élevées de 3°C 
       en moyenne au centre de la Région de Bruxelles-Capitale qu'à ses alentours ruraux en été (sur la période 1987-2016). Les températures les plus élevées 
       s'observent dans de grandes zones au centre-ville urbanisé.
@@ -292,7 +292,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
       <p>
         Retour à l’été 2022. Cette année-là, Sciensano voit que la courbe de surmortalité grimpe en flèche.
          En clair, on constate davantage de décès qu’en temps normal à cette période. Durant cette période estivale (16 mai au 9 octobre),
-         la surmortalité a été importante avec 2312 décès supplémentaires (5,8 % d’excès de mortalité)</i>&nbsp;», rapporte l’ex-institut de Santé publique. 
+         la surmortalité a été importante avec 2312 décès supplémentaires (5,8 % d’excès de mortalité), rapporte l’ex-institut de Santé publique. 
       </p>
       <p>
         Sciensano s’était <a href='https://www.sciensano.be/en/biblio/heat-related-mortality-two-largest-belgian-urban-areas-a-time-series-analysis' target='_blank' rel=noreferrer>déjà penché sur la question en 2020</a> avec une analyse des périodes chaudes à Bruxelles et Anvers entre 2002 et 2011.
