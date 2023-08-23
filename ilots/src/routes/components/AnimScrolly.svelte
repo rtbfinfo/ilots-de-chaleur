@@ -32,7 +32,7 @@
     let class_name="map";
     let annot_state=false;
 
-    $: if (width < 550) {
+    $: if (width < 400) {
     margin = {
         top: height/4,
         bottom: height/5,
@@ -77,7 +77,7 @@
     let currentStep;
     let value="revenu";
     const steps = [`<p>Voici ${selected == "bxl" ? "la Région de Bruxelles-Capitale" : selected}, ${hab[selected]} habitants ... qui ne vivent pas tous dans les mêmes conditions.</p>`,
-                    "<p>Ajoutons sur cette carte les températures moyennes du sol en juillet et août de 2013 à 2022. Les zones plus froides sont en <span style='color:blue;'>bleu</span> et les zones plus chaudes sont en <span style='color:red;'>rouge</span></p>",
+                    "<p>Ajoutons sur cette carte les températures moyennes du sol en juillet et août de 2013 à 2022. Les zones plus froides sont en <span style='background-color:blue;border-radius:5px;padding: 0 5px 0 5px'>bleu</span> et les zones plus chaudes sont en <span style='background-color:red;border-radius:5px;padding: 0 5px 0 5px'>rouge</span></p>",
                     "<p>Les zones les plus fraiches sont souvent des parcs, des forêts ou des cours d’eau.</p>",
                     "<p>Faisons maintenant la moyenne de ces températures pour chaque secteur statistiques. Cela nous sera utile dans l’étape suivante…</p>",
                     "<p>Prenons chaque quartier et mettons-les sur un graphique. Plus un cercle est grand, plus il y a d’habitants dans ce quartier. Nous remarquons que les cercles rouges foncés sont les plus grands: les zones les plus chaudes sont aussi les plus peuplées.</p>",
@@ -324,7 +324,7 @@
     }
 
 	.step.active .step-content {
-        background: rgba(234, 71, 12, 0.603);
+        background: rgba(234, 71, 12, 0.803);
 		color: whitesmoke;
         border-radius: 0.5rem;
         font-size: var(--font-size-base);

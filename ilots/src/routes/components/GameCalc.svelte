@@ -6,7 +6,7 @@ export let images
 export let base
 let index = -1;
 
-let names_img = ["Revêtement","Isolation","Pelouse","Point d'eau","Voitures","Fontaines","Ombres","Arrosage","Toitures","Toitures et façades", "Brumisateurs","Arbres"]
+let names_img = ["Revêtement clair","Isolation","Pelouse","Point d'eau","Moins de voitures","Fontaines","Ombres","Arrosage","Toitures","Toitures et façades", "Brumisateurs","Arbres"]
 </script>
 
 <div class="base">

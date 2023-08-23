@@ -404,12 +404,12 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
     {#if width > 550}
     <GameCalc
     base={"http://rtbfmedia.be/rtbfinfo/ICU_pics/Gamecalc_desktop_webp/"}
-    images={["01-REVETEMENT.webp","02-ISOLATION_.webp","03-PELOUSE.webp","04-POINT D EAU.webp","05-TRAFFIC.webp","06-FONTAINES.webp","07-OMBRE.webp","08-ARROSAGE.webp","09-TOITURES.webp","10-TOITURES+FACADES.webp","11-BRUMIFICATEURS.webp","12-ARBRES.webp","VILLE-BASE.webp"]
+    images={["01-REVETEMENT.webp","02-ISOLATION.webp","03-PELOUSE.webp","04-POINT D EAU.webp","05-TRAFFIC.webp","06-FONTAINES.webp","07-OMBRE.webp","08-ARROSAGE.webp","09-TOITURES.webp","10-TOITURES+FACADES.webp","11-BRUMIFICATEURS.webp","12-ARBRES.webp","VILLE-BASE.webp"]
   }/> 
    {:else}
    <GameCalc
     base={"http://rtbfmedia.be/rtbfinfo/ICU_pics/Gamecalc_mobile_webp/"}
-    images={["01-REVETEMENT.webp","02-ISOLATION_.webp","03-PELOUSE.webp","04-POINT D EAU.webp","05-TRAFFIC.webp","06-FONTAINES.webp","07-OMBRE.webp","08-ARROSAGE.webp","09-TOITURES.webp","10-TOITURES+FACADES.webp","11-BRUMIFICATEURS.webp","12-ARBRES.webp","VILLE-BASE.webp"]
+    images={["01-REVETEMENT.webp","02-ISOLATION.webp","03-PELOUSE.webp","04-POINT D EAU.webp","05-TRAFFIC.webp","06-FONTAINES.webp","07-OMBRE.webp","08-ARROSAGE.webp","09-TOITURES.webp","10-TOITURES+FACADES.webp","11-BRUMIFICATEURS.webp","12-ARBRES.webp","VILLE-BASE.webp"]
   }/> 
     {/if}
 
