@@ -185,8 +185,8 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
         <Img
         type={"middle"}
         img={["https://rtbfmedia.be/rtbfinfo/ICU_pics/4.webp"]}
-        legend={["Le palais des ducs et des états de Bourgogne à Dijon, une ville où les îlots de chaleur sont étudiés de près. Crédit: Getty images "]}
-        alt={["Le palais des ducs et des états de Bourgogne à Dijon, une ville où les îlots de chaleur sont étudiés de près. Crédit: Getty images "]}
+        legend={["Le palais des ducs et des États de Bourgogne à Dijon, une ville où les îlots de chaleur sont étudiés de près. Crédit: Getty images "]}
+        alt={["Le palais des ducs et des États de Bourgogne à Dijon, une ville où les îlots de chaleur sont étudiés de près. Crédit: Getty images "]}
         />
       <div class="wrapper-text">
         <p>D’autres ressources, venues de l'espace celles-là, se révèlent bien utiles. C'est le cas des données récoltées par Landsat 8, un outil d'observation de la Terre lancé par la NASA en 2013. Grâce à ce satellite dont nous avons récupéré des milliers de données, nous allons vous emmener au cœur de nos villes.</p>
