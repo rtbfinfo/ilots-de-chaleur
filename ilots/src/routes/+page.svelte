@@ -304,7 +304,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
     <div class="wrapper-text">
       <p>
         «&nbsp;<i>Le scénario le plus probable, c’est une hausse de 3,2°C d’ici à la fin du siècle</i>&nbsp;», rapporte Xavier Fettweis, climatologue à l’Université de Liège.
-         «&nbsp;<i>Ce scénario-là, c’est le minium qu’on va obtenir</i>&nbsp;», le reprend aussitôt son collègue Sébastien Doutreloup. 
+         «&nbsp;<i>Ce scénario-là, c’est le minimum qu’on va obtenir</i>&nbsp;», le reprend aussitôt son collègue Sébastien Doutreloup. 
          Tout dépend en effet des promesses et des décisions prises au niveau politique. 
       </p>
     </div>
