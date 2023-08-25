@@ -81,7 +81,7 @@
                     "<p>Les zones les plus fraîches sont souvent des parcs, des forêts ou des cours d’eau.</p>",
                     "<p>Faisons maintenant la moyenne de ces températures pour chaque secteur statistique que, pour faire simple, nous appellerons des quartiers. Cela nous sera utile dans l’étape suivante…</p>",
                     "<p>Prenons chaque quartier et mettons-les sur un graphique. Plus un cercle est grand, plus il y a d’habitants dans ce quartier. Nous remarquons que les cercles rouges foncés sont les plus grands: les zones les plus chaudes sont aussi les plus peuplées.</p>",
-				    "<p> Si on met en parallèle les revenus médians et les températures, une tendance se dégage. Les points rouges se concentrent en haut à gauche du graphique : les quartiers qui subissent les plus hautes températures abritent des habitants aux revenus plus faibles. En revanche, dans la partie droite du graphique (là où les gens ont les revenus les plus élevés), il y a surtout des points bleus (températures basses) et quasi pas de points rouges.</p>",
+				    "<p> Si on met en parallèle les revenus moyens et les températures, une tendance se dégage. Les points rouges se concentrent en haut à gauche du graphique : les quartiers qui subissent les plus hautes températures abritent des habitants aux revenus plus faibles. En revanche, dans la partie droite du graphique (là où les gens ont les revenus les plus élevés), il y a surtout des points bleus (températures basses) et quasi pas de points rouges.</p>",
                     "<p> Enfin, les quartiers où la végétation est la plus abondante sont aussi les plus frais.</p>"
 				   ];
 
@@ -150,14 +150,14 @@
     }
     const step4 = function() {
         XScale = d3.scaleLinear()
-        .domain([d3.min(point_data.filter(d => d.REVENU_MEDIAN != 0).map(d => d.REVENU_MEDIAN)),d3.max(point_data.map(d => d.REVENU_MEDIAN))])
+        .domain([d3.min(point_data.filter(d => d.REVENU_MOYEN != 0).map(d => d.REVENU_MOYEN)),d3.max(point_data.map(d => d.REVENU_MOYEN))])
         .range([0 + margin.left ,width - margin.right])
 
         radiusScale = d3.scaleSqrt()
         .domain([d3.min(point_data.map(d => d.NOMBRE_HAB)),d3.max(point_data.map(d => d.NOMBRE_HAB))])
         .range([5,20])
 
-        tweenedX.set(point_data.map(d => XScale(d.REVENU_MEDIAN)))
+        tweenedX.set(point_data.map(d => XScale(d.REVENU_MOYEN)))
         tweenedY.set(point_data.map(d => yScale(d.raster_value_y)))
 
         tweendRad.set(point_data.map(d => radiusScale(d.NOMBRE_HAB)))
@@ -253,8 +253,8 @@
             <circle r={$tweendRad[index]}
             cx={$tweenedX[index]} 
             cy={$tweenedY[index]}
-            fill={currentStep == 5 && temp.REVENU_MEDIAN == 0 ? "none" : color_scale(temp[raster])} 
-            stroke={isMap || (currentStep == 5 && temp.REVENU_MEDIAN == 0) ? "none" : "var(--dark-blue)"}
+            fill={currentStep == 5 && temp.REVENU_MOYEN == 0 ? "none" : color_scale(temp[raster])} 
+            stroke={isMap || (currentStep == 5 && temp.REVENU_MOYEN == 0) ? "none" : "var(--dark-blue)"}
             style="stroke-width:0.5;"/>
             {/each}
         </g> 
