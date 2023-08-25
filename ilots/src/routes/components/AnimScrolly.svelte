@@ -150,14 +150,14 @@
     }
     const step4 = function() {
         XScale = d3.scaleLinear()
-        .domain([d3.min(point_data.filter(d => d.REVENU_MOYEN != 0).map(d => d.REVENU_MOYEN)),d3.max(point_data.map(d => d.REVENU_MOYEN))])
+        .domain([d3.min(point_data.filter(d => d.REVENU_MEDIAN != 0).map(d => d.REVENU_MEDIAN)),d3.max(point_data.map(d => d.REVENU_MEDIAN))])
         .range([0 + margin.left ,width - margin.right])
 
         radiusScale = d3.scaleSqrt()
         .domain([d3.min(point_data.map(d => d.NOMBRE_HAB)),d3.max(point_data.map(d => d.NOMBRE_HAB))])
         .range([5,20])
 
-        tweenedX.set(point_data.map(d => XScale(d.REVENU_MOYEN)))
+        tweenedX.set(point_data.map(d => XScale(d.REVENU_MEDIAN)))
         tweenedY.set(point_data.map(d => yScale(d.raster_value_y)))
 
         tweendRad.set(point_data.map(d => radiusScale(d.NOMBRE_HAB)))
@@ -253,8 +253,8 @@
             <circle r={$tweendRad[index]}
             cx={$tweenedX[index]} 
             cy={$tweenedY[index]}
-            fill={currentStep == 5 && temp.REVENU_MOYEN == 0 ? "none" : color_scale(temp[raster])} 
-            stroke={isMap || (currentStep == 5 && temp.REVENU_MOYEN == 0) ? "none" : "var(--dark-blue)"}
+            fill={currentStep == 5 && temp.REVENU_MEDIAN == 0 ? "none" : color_scale(temp[raster])} 
+            stroke={isMap || (currentStep == 5 && temp.REVENU_MEDIAN == 0) ? "none" : "var(--dark-blue)"}
             style="stroke-width:0.5;"/>
             {/each}
         </g> 
