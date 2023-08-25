@@ -446,6 +446,7 @@ subtitle={"Comment les températures de nos villes mettent en évidence les iné
      les données de répartition de la végétation haute et basse datées de septembre 2021 ont été récupérées sur <a href='https://geodata.environnement.brussels/client/view/67bc5ff0-90f6-4b76-9f05-15c15a928980' target='_blank' rel=noreferrer>le portail environnement.brussels</a>. </p> 
      <p>Différents scripts en Python ainsi que le logiciel de cartographie QGIS ont été utilisés pour extraire les données et les compiler.
        L’ensemble du code est disponible <a href='https://github.com/rtbfinfo/ilots-de-chaleur' target='_blank' rel=noreferrer>sur Github</a>.</p>
+       <p>Cet article a été modifié le 25 août&nbsp;: le mot revenu «&nbsp;médian&nbsp;» a été remplacé par revenu moyen dans la partie scrollytelling par souci d’exactitude par rapport à ce qui était montré sur le graphique. Cela ne change rien aux conclusions. La tendance reste la même.</p>
 </div>
 </div>
 <style>
