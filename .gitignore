@@ -1,2 +1,9 @@
 data/
+Lib/
+Scripts/
+bin/
+etc/
+pyvenv.cfg
+.ipynb_checkpoints
+share/
 ilots/**/static/
