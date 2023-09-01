@@ -1,8 +1,8 @@
 <h1 align="center"> scrolly-telling sur les ilots de chaleur en belgique</h1>
-<h3 align="center">  Explication de la méthodologie employée pour réaliser <a href="">l'article</a> (lien actif lorsque le projet sera publié) sur les ilots de chaleur en Belgique </h3>
+<h3 align="center">  Explication de la méthodologie employée pour réaliser <a href="https://www.rtbf.be/article/rechauffement-climatique-en-belgique-les-pauvres-au-chaud-les-riches-au-frais-grand-format-11243914">l'article</a> sur les ilots de chaleur en Belgique </h3>
 
 <p align="center"> 
-  <img src="/assets/map_second.png" alt="image représentative du projet (graphique montrant les ilot de chaleur dans les principales villes de belgiques)" width="25%">
+  <img src="assets\map_second.png" alt="image représentative du projet (graphique montrant les ilot de chaleur dans les principales villes de belgiques)" width="25%">
 </p>
 
 <h2 id="table-of-contents"> :book: Contenu</h2>
@@ -12,6 +12,7 @@
   <ol>
     <li><a href="#Description"> ➤ Description</a></li>
     <li><a href="#themes"> ➤ thèmes techniques abordés</a></li>
+    <li><a href="#installation"> ➤ Installation</a></li>
     <li><a href="#etapes"> ➤Etapes du projet</a></li>
     <ul>
         <li><a href="#recolte"> Récolte de données</a></li>
@@ -19,7 +20,6 @@
         <li><a href="#web">Web dev</a></li>
       </ul>
     <li><a href="#structure"> ➤ Structure du projet</a></li>
-    <li><a href="#installation"> ➤ Installation</a></li>
     <!-- <li><a href="#usage"> ➤ Usage</a></li> -->
     <li><a href="#Results-and-discussion"> ➤ Résultats et discussion(réusabilité)</a></li>
     <!-- <li><a href="#Visuals"> ➤ Visuals</a></li> -->
@@ -41,6 +41,10 @@
      :radio_button: Creation de cartes en utilisant D3</br>
      :radio_button: plus</br>
     </p>
+
+<h2 id="installation"> :repeat: Installation</h2>
+    <p align="justify"> Les étapes d'installations se trouvent dans le <a href="setup.md">setup.md</a> </p>
+
 <h2 id="etapes"> :dart: Etapes du projet</h2>
    <p align="center"> 
   <img src="assets\diagramme_transfo.png" alt="diagramme des étapes de transformation de données du projet" width="75%">
@@ -48,28 +52,27 @@
     <h3 id="recolte"> Récoltes des données</h3>
         <p align="justify">  
         Lien des sites où on a trouvé les infos (statbel, geoportail, gee) <br>
-        :radio_button: <a href="\récolte-data\Landsat-NASA.md">Données satelitaires LST</a><br>
+        :radio_button: <a href="\récolte-data\Landsat-NASA.md">Données satelitaires LST</a> les geotiffs des villes sont dans le folder /assets<br>
         :radio_button: <a href="https://statbel.fgov.be/fr/open-data/population-par-secteur-statistique-7">Geojson secteurs statistiques</a><br>
         :radio_button: <a href="https://statbel.fgov.be/fr/open-data/population-par-secteur-statistique-7">Données de densité par secteur stat</a><br>
         :radio_button: <a href="https://statbel.fgov.be/fr/open-data/statistique-fiscale-des-revenus-par-secteur-statistique">Données de revenus par secteur stat</a><br>
-        :radio_button: <a href="https://geoportail.wallonie.be/catalogue/47b348f1-6e7a-4baa-963c-0232a43c0cff.html">Donnée d'occupation du sol</a> (il faut demander l'accès)<br>
+        :radio_button: <a href="https://geoportail.wallonie.be/catalogue/47b348f1-6e7a-4baa-963c-0232a43c0cff.html">Donnée d'occupation du sol</a> (il faut demander l'accès, je les ai inclues dans le /assets folder pour plus de facilités)<br>
         </p>
     <h3 id="transformation"> Transformation des données </h3>
-        <p align="justify"> 
-        Utilisation du script nasa pour récolter les geotif utiles pour nos zones de recherches -> <a href="récolte-data\1-Landsat-NASA.md"> ce md file</a> <br>
-        Transformation des fichiers geotif en centroid -> <a href="récolte-data\2-centroid-temperature.ipynb.ipynb"> ce notebook</a> <br>
-        Extraire les centroid de température qui ne sont pas dans les secteurs statistisques -> <a href="récolte-data\2-centroid-temperature.ipynb.ipynb"> ce notebook</a>  <br>
-        Sélection des polygones des villes qui nous interessent -> <a href="récolte-data\3-commune_secteur.ipynb"> ce notebook</a> <br>
-        Rassembler les données de densité de population avec les données de revenus dans un geojson des secteurs statistiques -> <a href="récolte-data\4-Densite_revenu_added.ipynb"> ce notebook</a> <br>
-        </p>
+        <p align="justify"> Pour effectuer la transformation des données il vous suffit de run <a href="./python_scripts/main.py">main.py </a>(! il vous faut 3 fichiers de datas qui sont spécifiés dans les commentaires du script!)</p>
+        <p align="justify"> Si le process complet vous intéresse il y a quelques explications aux niveau des notebooks ( ! ils n'ont pas encore été nettoyés ! )
     <h3 id="web"> Web dev</h3>
-        <p align="justify"> 
+        <p align="justify"> Le developpement de la page interactive à été réalisé en svelte via <a href="">sveltekit</a> et ensuite déployée sur <a href="">Vercel</a>. Si vous avez de suggestions pour améliorer les performances du code sur le web n'hésitez pas ! 
         </p>
+        <p align="justify">Attention les données sont fetch dans <a href="./ilots/src/routes/+page.js">page.js</a> à partir de github gists de mon profils, si vous voulez fetch vos propres liens changez les</p>
 
 
 <h2 id="structure"> :file_folder: Structure du projet</h2>
     <p align="justify"> 
-    1. <b>/récolte-data</b> -> fichier contenant les différentes étapes de transformation et assemblage de data</br>
+    1. <b>/récolte-data</b> -> dossier contenant les notebooks des expérimentations et plus d'explications du process</br>
+    1. <b>/assets</b> -> dossier contenant les différents assets dont certaines sources de data tels que les géotifs et les geojson avec le pourcentage de verdure</br>
+    1. <b>/python_scripts</b> -> dossier contenant les scripts pour nettoyer et merger les différentes sources de data</br>
+    1. <b>/ilots</b> -> dossier content le code sveltekit de la partie web development</br>
     </p>
 
 <h2 id="inspirations"> :repeat: Inspirations</h2>
@@ -79,16 +82,29 @@
     :radio_button: <a href="https://www.srf.ch/news/schweiz/ungleichheit-in-den-staedten-hitzeinseln-treffen-aermere-staerke"> srf </a><br>
     </p>
 
-<h2 id="Results-and-discussion"> :pushpin: Resultats et discussions</h2>
+<h2 id="Results-and-discussion"> :pushpin: Résultats</h2>
+<p align="justify">Quelques images du projet</p>
+<p align="center"> 
+  <img src="assets\hero.png" alt="hero du projet" width="50%">
+</p>
+<p align="center"> 
+  <img src="assets\carte_interactive.png" alt="carte intéractive" width="50%">
+</p>
+<p align="center"> 
+  <img src="assets\carte_lst.pgn.png" alt="carte ville" width="50%">
+</p>
+<p align="center"> 
+  <img src="assets\graphe.png" alt="graphique température vs revenu" width="50%">
+</p>
    
-<h2 id="installation"> :repeat: Installation</h2>
-    <p align="justify"> 
-    </p>
 
 <h2 id="Timeline"> :calendar: Timeline</h2>
     <p align="justify"> 
-    récolte des données: du 17/07/23 au 21/07/23
+    récolte des données: du 17/07/23 au 28/07/23
+    dev web: du 28/07/23 au 23/08/23
     </p>
 
 <h2 id="Contributors"> :raising_hand: Contributors</h2>
-    <p>Héloïse feldmann <a href="https://github.com/Yheloww">  Github account</a></p>
+    <p>Héloïse feldmann <a href="https://github.com/Yheloww">Github account</a></p>
+    <p>Ambroise Carton <a href="https://github.com/amcaw">Github account</a></p>
+    <p>Sébastien Barbieri <a href="https://github.com/scips">Github account</a></p>
