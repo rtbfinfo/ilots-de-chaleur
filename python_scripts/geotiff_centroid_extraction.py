@@ -4,17 +4,23 @@ import numpy as np
 from rasterio.features import shapes
 import geopandas as gpd
 
-raster_path = "../assets/geotiff/liege_geotif.tif"
+cities = ["liege", "namur", "brussel", "charleroi", "mons"]
 
-# TODO loop through all geotiffs and merge them into one csv file
-
-def get_raster_data(raster_path):
+def get_raster_data(raster_path : str):
+    """ 
+    open the geotiff file
+    return a rasterio object
+    """
     tiff = rasterio.open(raster_path)
     return tiff
 
 
-def raster_to_centroids():
-    src = get_raster_data(raster_path)
+def raster_to_centroids(city : str):
+    """ 
+    extract the centroids of the geotiff
+    return a csv file
+    """
+    src = get_raster_data(raster_path = f"../assets/geotiff/{city}_geotif.tif")
     # Convert the first band to float32
     image = src.read(1).astype(np.float32)
     # Extract shapes and values
@@ -35,8 +41,18 @@ def raster_to_centroids():
     # Select the columns to include in the CSV
     csv_data = gdf[['centroid_lon', 'centroid_lat', 'raster_value']]
     # Save the data to a CSV file
-    csv_data.to_csv('centroids.csv', index=False)
+    print("centroids to csv done")
     return csv_data
 
-
-raster_to_centroids()
+def loop_cities():
+    """ 
+    loop through all the cities and extract the centroids
+    return a csv file
+    """
+    all_cities = pd.DataFrame()
+    for city in cities:
+        csv_data = raster_to_centroids(city)
+        all_cities = pd.concat([all_cities, csv_data], ignore_index=True)
+    
+    all_cities.to_csv("../data/centroids.csv", index=False)
+    print("all cities centroids done")
